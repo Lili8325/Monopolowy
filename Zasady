@@ -2,14 +2,13 @@ Wielkość:
   Jak normalne monopoly, 9 pól na bok i 4 narożniki 
   **Czas na ruch 50 sekund
   Możliwość sprzedania innym graczom przez licytację
-Zasady:
-Każdy gracz porusza się po planszy zgodnie z ruchem wskazówek zegara oraz wykupuje dostępne obiekty. 
-Jeżeli gracz stanie na pole, którego właścicielem jest inny gracz, to musi zapłacić czynsz. 
-Wysokość tego czynszu zależna jest od rodzaju nieruchomości, czy właściciel posiada na tym polu jakieś domy, czy też hotel.
-Każdy gracz wybiera sobie pionek i ustawia go na polu „Start”. 
-Gracz, który jest właścicielem nieruchomości sam musi pilnować, aby inni gracze zapłacili mu czynsz. 
-Tylko bank może udzielać pożyczek pod zastaw nieruchomości. Żaden zawodnik nie może udzielać drugiemu pożyczki. 
-Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.
+•Zasady ogólne:
+  Każdy gracz porusza się po planszy zgodnie z ruchem wskazówek zegara oraz wykupuje dostępne obiekty. 
+  Wysokość tego czynszu zależna jest od rodzaju nieruchomości, czy właściciel posiada na tym polu jakieś  punkty handlowe, czy też centrum handlowe.
+  Każdy gracz wybiera sobie pionek i ustawia go na polu „Start”. 
+  Gracz, który jest właścicielem nieruchomości sam musi pilnować, aby inni gracze zapłacili mu czynsz. 
+  Tylko bank może udzielać pożyczek pod zastaw nieruchomości. Żaden zawodnik nie może udzielać drugiemu pożyczki. 
+  Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.
 • Poruszanie się po planszy:
   Gracze losują kolejność.
   Gracze losują wartość od 2 do 12.
@@ -19,5 +18,25 @@ Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.
 • Czynsz:
   Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, to jest on zobowiązany zapłacić mu czynsz jeśli właściciel się o to upomni. 
   Jeżeli nie jest w stanie zapłacić czynszu, to automatycznie zostaje bankrutem, oddaje swoje nieruchomości wierzycielowi i odpada z gry.
-  
-  
+• DANTE:
+  Gracz może trafić na DANTE z trzech powodów. 
+  Pierwszym z nich jest stanięcie na polu „idź rób Dante”, drugi sposób to wylosowanie karty z puli „Szansa” lub „Kasa Społeczna”, która nakazuje iść robić dante. 
+  Jeżeli chcemy wyjść z więzienia, to musimy zapłacić (nie wiem ile kase ograniemy later) kaucji, możemy pokazać kartę wyjścia z więzienia, albo można wyrzucić dublet na początku następnej rundy. 
+  Gracz, musi zapłacić kaucję i wtedy wychodzi Dante. W przypadku, gdy nie ma z czego opłacić kaucji, to zostaje bankrutem, jego nieruchomości są przejmowane przez bank, a on sam odpada z gry.
+• Eventy: 
+  Jeżeli gracz stanie na pola o tych nazwach, to loswana jest katra i pokazywana wszystkim uczestnikom rozgrywki,
+  a następnie wykonywana jest czynność, która jest na niej opisana.
+• Opłata przedmiotu:
+  Plansza posiada jedno pola związane z opłatami przedmiotu.
+  Na na nim pobiera się opłątę w wysokości 10% wartość przedsiębiorstw osoby która na niej stanęła. 
+  Gracz, który stanie na pole musi zapłacić na rzecz banku dana kwotę.
+  Jeżeli go nie stać, to staje się bankrutem, jego nieruchomości przejmuje bank, a on sam kończy grę.
+ • Domy i Hotele: 
+  Gracz posiadający wszystkie pola z danego koloru ma monopol w tej dziedzinie, dzięki czemu od rywali może pobierać podwójny czynsz. 
+  Może także wykupywać na swoich ulicach punkty handlowe. 
+  Jednak liczba punktów handlowych na ulicy nie może być większa niż o 1 punkt handlowy w porównaniu z pozostałymi polamii na polach danego koloru. 
+  Domki można kupować w każdym momencie (nie ma obowiązku stać na określonym polu). 
+  W momencie, kiedy gracz będzie posiadał cztery punkty handlowe na kolorze, może wykupić w tym miejscu centrum handlowe dopłacając wartość za jeden domek i zamieniając wszystkie domki na jeden hotel.
+  Dzięki temu gracz będzie mógł pobierać najwyższy możliwy czynsz na danym polu (stawki czynszu podane są na karcie nieruchomości).
+ • Premie: 
+  Każdy gracz, który przechodzi linie startu, otrzymuje od banku premię w wysokości (USTALIĆ WALUTĘ TRZEBA).
