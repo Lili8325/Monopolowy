@@ -1,0 +1,7 @@
+Każdy gracz porusza się po planszy zgodnie z ruchem wskazówek zegara oraz wykupuje dostępne obiekty. 
+Jeżeli gracz stanie na pole, którego właścicielem jest inny gracz, to musi zapłacić czynsz. 
+Wysokość tego czynszu zależna jest od rodzaju nieruchomości, czy właściciel posiada na tym polu jakieś domy, czy też hotel.
+Każdy gracz wybiera sobie pionek i ustawia go na polu „Start”. 
+Gracz, który jest właścicielem nieruchomości sam musi pilnować, aby inni gracze zapłacili mu czynsz. 
+Tylko bank może udzielać pożyczek pod zastaw nieruchomości. Żaden zawodnik nie może udzielać drugiemu pożyczki. 
+Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.
