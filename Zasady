@@ -6,7 +6,7 @@ Zasady:
 Każdy gracz porusza się po planszy zgodnie z ruchem wskazówek zegara oraz wykupuje dostępne obiekty. 
 Jeżeli gracz stanie na pole, którego właścicielem jest inny gracz, to musi zapłacić czynsz. 
 Wysokość tego czynszu zależna jest od rodzaju nieruchomości, czy właściciel posiada na tym polu jakieś domy, czy też hotel.
-Każdy gracz wybiera sobie pionek i ustawia go na polu „Start”. 
+Każdy gracz otrzymuje sobie pionek i ustawia go na polu „Start”. 
 Gracz, który jest właścicielem nieruchomości sam musi pilnować, aby inni gracze zapłacili mu czynsz. 
 Tylko bank może udzielać pożyczek pod zastaw nieruchomości. Żaden zawodnik nie może udzielać drugiemu pożyczki. 
 Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.
@@ -19,5 +19,12 @@ Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.
 • Czynsz:
   Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, to jest on zobowiązany zapłacić mu czynsz jeśli właściciel się o to upomni. 
   Jeżeli nie jest w stanie zapłacić czynszu, to automatycznie zostaje bankrutem, oddaje swoje nieruchomości wierzycielowi i odpada z gry.
-  
-  
+• DANTE:
+  Gracz może trafić na DANTE z trzech powodów. 
+  Pierwszym z nich jest stanięcie na polu „idź rób Dante”, drugi sposób to wylosowanie karty z puli „Szansa” lub „Kasa Społeczna”, która nakazuje iść robić dante. 
+  Jeżeli chcemy wyjść z więzienia, to musimy zapłacić (nie wiem ile kase ograniemy later) kaucji, możemy pokazać kartę wyjścia z więzienia, albo można wyrzucić dublet na początku następnej rundy. 
+  Gracz, musi zapłacić kaucję i wtedy wychodzi Dante. W przypadku, gdy nie ma z czego opłacić kaucji, to zostaje bankrutem, jego nieruchomości są przejmowane przez bank, a on sam odpada z gry.
+• Eventy: 
+  Jeżeli gracz stanie na pola o tych nazwach, to loswana jest katra i pokazywana wszystkim uczestnikom rozgrywki,
+  a następnie wykonywana jest czynność, która jest na niej opisana.
+• Podatki: 
