@@ -15,5 +15,17 @@ abstract public class Field {
     public Enum<FieldTypes> getFieldType() {
         return fieldType;
     }
+
+    public String getFieldName() {
+        return fieldName;
+    }
+
+    public int getDefaultCost() {
+        return defaultCost;
+    }
+
+    public boolean isCanBuy() {
+        return canBuy;
+    }
 }
 

@@ -1,23 +1,25 @@
 package src;
 
-class EventType {
-    public final int moveEvent = 1;
-    public final int payEvent = 2;
-    public final int turnEvent = 3;
+enum EventType {
+    MOVEEVENT,
+    PAYEVENT,
+    TURNEVENT
 }
 
 public class Event {
     private String name;
-    private EventType eventType;
+    private Enum<EventType> eventType;
     private int toPay;
     private int fieldIndex;
+    private int deltaFieldIndex;
     private int turnSkipAmount;
 
-    public Event(String name, EventType eventType, int toPay, int fieldIndex, int turnSkipAmount) {
+    public Event(String name, Enum<EventType> eventType, int toPay, int fieldIndex, int deltaFieldIndex, int turnSkipAmount) {
         this.name = name;
         this.eventType = eventType;
         this.toPay = toPay;
         this.fieldIndex = fieldIndex;
+        this.deltaFieldIndex = deltaFieldIndex;
         this.turnSkipAmount = turnSkipAmount;
     }
 
