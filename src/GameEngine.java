@@ -13,6 +13,7 @@ public class GameEngine {
     private final int minFieldNumber = 0;
     private TreeMap<Integer, Player> players;
     private static int playerNumber = 0;
+    private int playerTurn = 1;
     public GameEngine(int playerAmount){
         this.board = new Board();
         this.players = new TreeMap<>();
@@ -42,6 +43,14 @@ public class GameEngine {
         Player player = players.get(playerNumber);
         int currentBalance = player.getPlayerBalance();
         player.setPlayerBalance(currentBalance+delta);
+    }
+
+    public void endTurn(){
+        if(playerTurn >= 4){
+            playerTurn =1;
+        }else{
+            playerTurn += 1;
+        }
     }
 
 }

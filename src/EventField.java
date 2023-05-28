@@ -1,9 +1,8 @@
 package src;
 
-public class EventField extends Field{
-    public EventField(String fieldName, int defaultCost){
+public class EventField extends Field {
+    public EventField(String fieldName) {
         this.fieldName = fieldName;
-        this.defaultCost = defaultCost;
         this.canBuy = false;
         this.fieldType = FieldTypes.EVENTFIELD;
     }
@@ -11,9 +10,4 @@ public class EventField extends Field{
 
     //Field only for picking up events cards
 
-    //Pola ForcePay
-    //pola GoDante
-    //pole więzienie
-    //pole Konkurs
-    //pole akcji
 }

@@ -4,12 +4,19 @@ import java.util.ArrayList;
 
 public class BoardBuilder {
     public static void createFields(ArrayList<Field> fields){
-        //todo add start
+
+        SpecialField start = new SpecialField("Start", 0, false);
+        start.setEventCard("Give 200$", EventType.PAYEVENT, -200, 0, 0, 0);
+        fields.add(start);
+
         HouseField field1 = new HouseField("Zupa krewetkowa", 100, 100, 100);
         fields.add(field1);
         HouseField field2 = new HouseField("Zupa pomidorowa", 100, 100, 100);
         fields.add(field2);
-        //todo event
+
+        EventField event1 = new EventField("Event1");
+        fields.add(event1);
+
         HouseField field3 = new HouseField("Zupa serowa", 100, 100, 100);
         fields.add(field3);
         HouseField field4 = new HouseField("Zupa curry", 100, 100, 100);
@@ -17,7 +24,9 @@ public class BoardBuilder {
         HouseField field5 = new HouseField("Zupa zlota", 100, 100, 100);
         fields.add(field5);
 
-        //todo evnet
+        SpecialField dzienWydzialu = new SpecialField("Dzien wydzialu", 0, false);
+        dzienWydzialu.setEventCard("Dzien wydzialu event", EventType.PAYEVENT, 20, 0, 0, 0);
+        fields.add(dzienWydzialu);
 
         HouseField field6 = new HouseField("Jednorazowka", 100, 100, 100);
         fields.add(field6);
@@ -26,36 +35,57 @@ public class BoardBuilder {
         HouseField field8 = new HouseField("E-Papieros BOX", 100, 100, 100);
         fields.add(field8);
 
-        //todo evnet SZPITAL
+        SpecialField szpital = new SpecialField("Szpital", 0, false);
+        szpital.setEventCard("Szpitel event", EventType.TURNEVENT, 0, 0, 0, 2);
+        fields.add(szpital);
 
         HouseField field9 = new HouseField("Piwo Tesco", 100, 100, 100);
         fields.add(field9);
         HouseField field10 = new HouseField("Piwo miodowe", 100, 100, 100);
         fields.add(field10);
-        //todo evnet
-        //todo evnet
+
+        SpecialField dante = new SpecialField("Dante", 0, false);
+        dante.setEventCard("Dante event", EventType.TURNEVENT, 0, 0, 0, 3);
+        fields.add(dante);
+
+        SpecialField oplataZaPrzedmiot = new SpecialField("Oplata za przedmiot", 0, false);
+        oplataZaPrzedmiot.setEventCard("Oplata za przedmiot event", EventType.TURNEVENT, 0, 0, 0, 3);
+        fields.add(oplataZaPrzedmiot);
+
         HouseField field11 = new HouseField("Piwo Corona", 100, 100, 100);
         fields.add(field11);
         HouseField field12 = new HouseField("Piwo toffiee", 100, 100, 100);
         fields.add(field12);
         HouseField field13 = new HouseField("Piwo Komes", 100, 100, 100);
         fields.add(field13);
-        //todo evnet
 
-        //todo evnet LOTERIA
+        SpecialField akcjaRekrutacja = new SpecialField("Akcja rekrutacja", 0, false);
+        akcjaRekrutacja.setEventCard("Akcja rekrutacja event", EventType.PAYEVENT, 20, 0, 0, 0);
+        fields.add(akcjaRekrutacja);
+
+        SpecialField konkursWRS = new SpecialField("Konkurs WRS", 0, false);
+        konkursWRS.setEventCard("Konkurs WRS event", EventType.PAYEVENT, 20, 0, 0, 0);
+        fields.add(konkursWRS);
 
         HouseField field14 = new HouseField("Monster zero gold", 100, 100, 100);
         fields.add(field14);
         HouseField field15 = new HouseField("Monster zero", 100, 100, 100);
         fields.add(field15);
-        //todo evnet
+
+        EventField event2 = new EventField("Event2");
+        fields.add(event2);
+
         HouseField field16 = new HouseField("Red bull", 100, 100, 100);
         fields.add(field16);
         HouseField field17 = new HouseField("Red bull morele", 100, 100, 100);
         fields.add(field17);
         HouseField field18 = new HouseField("Monster mango", 100, 100, 100);
         fields.add(field18);
-        //todo evnet
+
+        SpecialField juwenalia = new SpecialField("Juwenalia", 0, false);
+        juwenalia.setEventCard("Juwenalia event", EventType.TURNEVENT, 0, 0, 0, 2);
+        fields.add(juwenalia);
+
         HouseField field19 = new HouseField("Asus rog strix", 100, 100, 100);
         fields.add(field19);
         HouseField field20 = new HouseField("Komputer gamingowy", 100, 100, 100);
@@ -63,7 +93,9 @@ public class BoardBuilder {
         HouseField field21 = new HouseField("Klawiatura mechaniczna", 100, 100, 100);
         fields.add(field21);
 
-        //todo evnet WIĘZIENIE
+        SpecialField DANTE = new SpecialField("Dante", 0, false);
+        DANTE.setEventCard("Dante event", EventType.PAYEVENT, 200, 0, 0, 0);
+        fields.add(DANTE);
 
         HouseField field22 = new HouseField("Hot dog", 100, 100, 100);
         fields.add(field22);
@@ -71,13 +103,22 @@ public class BoardBuilder {
         fields.add(field23);
         HouseField field24 = new HouseField("Zapiekanka", 100, 100, 100);
         fields.add(field24);
-        //todo evnet
+
+        EventField event3 = new EventField("Event3");
+        fields.add(event3);
+
         HouseField field25 = new HouseField("Pizza", 100, 100, 100);
         fields.add(field25);
         HouseField field26 = new HouseField("Zahir kabab", 100, 100, 100);
         fields.add(field26);
-        //todo evnet
-        //todo evnet
+
+        SpecialField targiPracy = new SpecialField("Targi pracy", 0, false);
+        targiPracy.setEventCard("Targi pracy event", EventType.TURNEVENT, 0, 0, 0, 2);
+        fields.add(targiPracy);
+
+        SpecialField oplataZaPrzedmiot2 = new SpecialField("Oplata za przedmiot 2", 0, false);
+        oplataZaPrzedmiot.setEventCard("Oplata za przedmiot 2 event", EventType.TURNEVENT, 0, 0, 0, 3);
+        fields.add(oplataZaPrzedmiot);
     }
 
     public static void createEventCards(ArrayList<Event> events){

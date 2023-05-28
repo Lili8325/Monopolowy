@@ -13,4 +13,10 @@ public class SpecialField extends Field{
         this.eventCard = new Event(name, eventType, toPay, fieldIndex, deltaFieldIndex, turnSkipAmount);
     }
     //corners and special fields (ex. "Dzień wydziału", "Dante")
+
+    //Pola ForcePay
+    //pola GoDante
+    //pole więzienie
+    //pole Konkurs
+    //pole akcji
 }
