@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
+   <children>
+      <ImageView fitHeight="1016.0" fitWidth="1030.0" layoutX="452.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/start.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="nowaButton" layoutX="756.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #aff1ff; -fx-border-color: #6aadbb; -fx-border-width: 5px;" text="Nowa gra">
+         <font>
+            <Font name="Calibri Bold" size="37.0" />
+         </font>
+      </Button>
+      <Button fx:id="opcjeButton" layoutX="756.0" layoutY="402.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #aff1ff; -fx-border-color: #6aadbb; -fx-border-width: 5px;" text="Opcje">
+         <font>
+            <Font name="Calibri Bold" size="37.0" />
+         </font>
+      </Button>
+      <Button fx:id="historiaButton" layoutX="756.0" layoutY="539.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #aff1ff; -fx-border-color: #6aadbb; -fx-border-width: 5px;" text="Historia gier">
+         <font>
+            <Font name="Calibri Bold" size="37.0" />
+         </font>
+      </Button>
+      <Button fx:id="wyjscieButton" layoutX="756.0" layoutY="676.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #aff1ff; -fx-border-color: #6aadbb; -fx-border-width: 5px;" text="Wyjście">
+         <font>
+            <Font name="Calibri Bold" size="37.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
