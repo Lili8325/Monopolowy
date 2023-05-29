@@ -32,4 +32,8 @@ public class Player {
     public void setPlayerBalance(int playerBalance) {
         this.playerBalance = playerBalance;
     }
+
+    public void addFieldCard(int fieldIndex){
+        fieldBelongings.add(fieldIndex);
+    }
 }

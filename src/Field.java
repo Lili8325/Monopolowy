@@ -27,5 +27,6 @@ abstract public class Field {
     public boolean isCanBuy() {
         return canBuy;
     }
+
 }
 

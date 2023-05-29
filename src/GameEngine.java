@@ -7,12 +7,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class GameEngine {
     private final Board board;
-
-    //todo maxFieldNumber
-    private final int maxFieldNumber = 36;
+    private final int maxFieldNumber = 40;
     private final int minFieldNumber = 0;
     private TreeMap<Integer, Player> players;
-    private static int playerNumber = 0;
+    private int playerNumber = 0;
     private int playerTurn = 1;
     public GameEngine(int playerAmount){
         this.board = new Board();
@@ -47,10 +45,29 @@ public class GameEngine {
 
     public void endTurn(){
         if(playerTurn >= 4){
-            playerTurn =1;
+            playerTurn = 1;
         }else{
             playerTurn += 1;
         }
+    }
+
+    public String buyField(int buyerPlayerNumber){
+        Player player = players.get(buyerPlayerNumber);
+        int playerFieldNumber = player.getFieldNumber();
+        int value = board.setFieldOwner(playerFieldNumber, buyerPlayerNumber);
+        if(value == 0){
+            player.addFieldCard(playerFieldNumber);
+            return "Field belongs now to player: " + buyerPlayerNumber;
+        }else if(value == 1) {
+            return "Field is occupied by player: " + buyerPlayerNumber;
+        }
+        return "Can't buy field: " + board.getFieldName(playerFieldNumber);
+    }
+
+    public static void main(String[] args) {
+        GameEngine tmp = new GameEngine(4);
+        tmp.movePlayer(1, 1);
+        System.out.println(tmp.buyField(1));
     }
 
 }

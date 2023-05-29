@@ -19,5 +19,8 @@ public class HouseField extends Field{
         this.belongToPlayerNumber = playerNumber;
     }
 
+    public boolean availableField(){
+        return belongToPlayerNumber == -1;
+    }
 }
 
