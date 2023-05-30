@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Game extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("game_scene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Student Monopoly");
         stage.setScene(scene);

@@ -11,13 +11,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
 import java.util.Random;
-
 import java.io.IOException;
 
+/*
+todo - pawns movement
+todo - highligting the fields
+ */
 public class Controller {
+
+    private static final int FIELD_WIDTH = 84;
+    GameEngine gameEngine = new GameEngine(4);
 
     private Stage stage;
     private Scene scene;
@@ -25,13 +31,23 @@ public class Controller {
     @FXML
     private Button buildButton;
     @FXML
-    private Button sellButton;
+    private Button endButton;
     @FXML
     private ImageView Player1Image;
     @FXML
     private Button rollButton;
     @FXML
     private ImageView diceImage;
+    @FXML
+    private Pane Player1Pane;
+    @FXML
+    private Pane Player2Pane;
+    @FXML
+    private Pane Player3Pane;
+    @FXML
+    private Pane Player4Pane;
+    @FXML
+    private ImageView Player1Pawn;
 
     public void switchToGame(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("game_scene.fxml"));
@@ -48,6 +64,39 @@ public class Controller {
     }
 
     @FXML
+    private void handleEndButton(ActionEvent event) {
+        gameEngine.endTurn();
+        int turn = gameEngine.getPlayerTurn();
+        switch (turn) {
+            case 1 -> {
+                Player1Pane.setStyle("-fx-border-color: black; -fx-background-color: #B3E8AC;");
+                Player2Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player3Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player4Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+            }
+            case 2 -> {
+                Player1Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player2Pane.setStyle("-fx-border-color: black; -fx-background-color: #B3E8AC;");
+                Player3Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player4Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+            }
+            case 3 -> {
+                Player1Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player2Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player3Pane.setStyle("-fx-border-color: black; -fx-background-color: #B3E8AC;");
+                Player4Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+            }
+            case 4 -> {
+                Player1Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player2Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player3Pane.setStyle("-fx-border-color: black; -fx-background-color: #D1EBE3;");
+                Player4Pane.setStyle("-fx-border-color: black; -fx-background-color: #B3E8AC;");
+            }
+        }
+
+    }
+
+    @FXML
     private void roll(ActionEvent event) {
         Image dice1 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopol\\src\\main\\resources\\images\\dice1.png");
         Image dice2 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopol\\src\\main\\resources\\images\\dice2.png");
@@ -57,7 +106,7 @@ public class Controller {
         Image dice6 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopol\\src\\main\\resources\\images\\dice6.png");
 
         Random rand = new Random();
-        int n = rand.nextInt(6) + 1;
+        int n = rand.nextInt(1, 7);
         switch(n) {
             case 1:
                 diceImage.setImage(dice1);
@@ -78,5 +127,7 @@ public class Controller {
                 diceImage.setImage(dice6);
                 break;
         }
+        gameEngine.movePlayer(gameEngine.getPlayerTurn(),n);
+        Player1Pawn.setX(Player1Pawn.getX() -n * FIELD_WIDTH);
     }
 }
