@@ -1,6 +1,10 @@
 package src;
 
 public class EventField extends Field {
+  
+
+
+
     public EventField(String fieldName) {
         this.fieldName = fieldName;
         this.canBuy = false;
