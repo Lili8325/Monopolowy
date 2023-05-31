@@ -2,7 +2,6 @@ package src;
 
 public class SpecialField extends Field{
     private Event eventCard;
-    private int stayingTurnAmount;
     private int amountOfFieldsBougthByPlayer;
     private int belongToPlayerNumber;
     //tu można zrobić tak że jaeśli pole daje pieniądze czyli konkurs WRS to po ptostu na minos jak tam na innym polu dałaś
