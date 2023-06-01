@@ -11,7 +11,7 @@ public class Player {
 
     public Player(int playerNumber) {
         this.playerNumber = playerNumber;
-        this.playerBalance = 0;
+        this.playerBalance = 2200;
         this.fieldNumber = 0;
         this.fieldBelongings = new ArrayList<>();
         this.eventHand = new ArrayList<>();

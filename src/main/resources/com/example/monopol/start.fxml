@@ -13,22 +13,17 @@
             <Image url="@../../../images/start.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="nowaButton" layoutX="756.0" layoutY="265.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #aff1ff; -fx-border-color: #6aadbb; -fx-border-width: 5px;" text="Nowa gra">
+      <Button fx:id="nowaButton" layoutX="756.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="80.0" prefWidth="400.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Nowa gra">
          <font>
             <Font name="Calibri Bold" size="37.0" />
          </font>
       </Button>
-      <Button fx:id="opcjeButton" layoutX="756.0" layoutY="402.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #aff1ff; -fx-border-color: #6aadbb; -fx-border-width: 5px;" text="Opcje">
+      <Button fx:id="historiaButton" layoutX="756.0" layoutY="468.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Zasady gry">
          <font>
             <Font name="Calibri Bold" size="37.0" />
          </font>
       </Button>
-      <Button fx:id="historiaButton" layoutX="756.0" layoutY="539.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #aff1ff; -fx-border-color: #6aadbb; -fx-border-width: 5px;" text="Historia gier">
-         <font>
-            <Font name="Calibri Bold" size="37.0" />
-         </font>
-      </Button>
-      <Button fx:id="wyjscieButton" layoutX="756.0" layoutY="676.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" style="-fx-background-color: #aff1ff; -fx-border-color: #6aadbb; -fx-border-width: 5px;" text="Wyjście">
+      <Button fx:id="wyjscieButton" layoutX="756.0" layoutY="636.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Wyjście">
          <font>
             <Font name="Calibri Bold" size="37.0" />
          </font>
