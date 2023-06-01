@@ -195,6 +195,7 @@ public class Controller {
     private void handleBuyButton(ActionEvent event) {
         messageBox.setText(gameEngine.buyField(gameEngine.getPlayerTurn()));
         updateBalance();
+        showFieldBelongings();
     }
 
     private void updateBalance() {
@@ -206,8 +207,10 @@ public class Controller {
 
     @FXML
     private void handleEndButton(ActionEvent event) {
+        hideFieldBelongings();
         gameEngine.endTurn();
         messageBox.setText("Teraz tura gracza: " + gameEngine.getPlayerTurn());
+        showFieldBelongings();
 //        rollButton.setDisable(false);
 //        endButton.setDisable(true);
         int turn = gameEngine.getPlayerTurn();
@@ -324,6 +327,20 @@ public class Controller {
                 Pawn.setX(0);
                 Pawn.setY(0);
             }
+        }
+    }
+
+    void showFieldBelongings() {
+        ArrayList<Integer> fieldBelongings = gameEngine.getFieldBelongings(gameEngine.getPlayerTurn());
+        for (Integer fieldNumber: fieldBelongings) {
+            Fields.get(fieldNumber).setStyle("-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);");
+        }
+    }
+
+    void hideFieldBelongings() {
+        ArrayList<Integer> fieldBelongings = gameEngine.getFieldBelongings(gameEngine.getPlayerTurn());
+        for (Integer fieldNumber: fieldBelongings) {
+            Fields.get(fieldNumber).setStyle("");
         }
     }
 

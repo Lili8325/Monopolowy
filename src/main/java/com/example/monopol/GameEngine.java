@@ -85,6 +85,11 @@ public class GameEngine {
         return player.getPlayerBalance();
     }
 
+    public ArrayList<Integer> getFieldBelongings(int playerNumber) {
+        Player player = players.get(playerNumber);
+        return player.getFieldBelongings();
+    }
+
     public String executeEventCard(int playerNumber){
         Player player = players.get(playerNumber);
         Event event = board.drawEventCard();

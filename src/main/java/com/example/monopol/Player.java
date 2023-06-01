@@ -25,6 +25,10 @@ public class Player {
         return fieldNumber;
     }
 
+    public ArrayList<Integer> getFieldBelongings() {
+        return fieldBelongings;
+    }
+
     public void setFieldNumber(int fieldNumber){
         this.fieldNumber = fieldNumber;
     }

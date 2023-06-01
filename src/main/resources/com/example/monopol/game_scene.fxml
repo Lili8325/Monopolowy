@@ -39,46 +39,46 @@
                   <Image url="@../../../images/pawn4.png" />
                </image>
             </ImageView>
-            <Pane fx:id="Field3" layoutX="873.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field2" layoutX="957.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
+            <Pane fx:id="Field1" layoutX="1042.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0" />
+            <Pane fx:id="Field2" layoutX="957.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field3" layoutX="873.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
             <Pane fx:id="Field4" layoutX="789.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field5" layoutX="705.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field6" layoutX="621.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field7" layoutX="537.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
+            <Pane fx:id="Field5" layoutX="705.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field6" layoutX="621.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field7" layoutX="537.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
             <Pane fx:id="Field8" layoutX="453.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field9" layoutX="369.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field10" layoutX="285.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field11" layoutX="201.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field31" layoutX="957.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field30" layoutX="873.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field13" layoutX="55.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field14" layoutX="55.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
+            <Pane fx:id="Field9" layoutX="369.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field10" layoutX="285.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field11" layoutX="201.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field12" layoutX="55.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0" />
+            <Pane fx:id="Field13" layoutX="55.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field14" layoutX="55.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0" />
             <Pane fx:id="Field15" layoutX="55.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0" />
             <Pane fx:id="Field16" layoutX="55.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field17" layoutX="55.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field18" layoutX="55.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field19" layoutX="55.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
+            <Pane fx:id="Field17" layoutX="55.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field18" layoutX="55.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field19" layoutX="55.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0" />
             <Pane fx:id="Field20" layoutX="55.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field29" layoutX="789.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field28" layoutX="705.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field27" layoutX="621.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field26" layoutX="537.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field25" layoutX="453.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field24" layoutX="369.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field23" layoutX="285.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field22" layoutX="201.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field40" layoutX="1041.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field39" layoutX="1041.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field38" layoutX="1041.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field37" layoutX="1041.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field36" layoutX="1041.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field35" layoutX="1041.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field34" layoutX="1041.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field33" layoutX="1041.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);" />
-            <Pane fx:id="Field1" layoutX="1042.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0" />
-            <Pane fx:id="Field32" layoutX="1041.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0" />
             <Pane fx:id="Field21" layoutX="55.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0" />
-            <Pane fx:id="Field12" layoutX="55.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0" />
+            <Pane fx:id="Field22" layoutX="201.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field23" layoutX="285.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field24" layoutX="369.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field25" layoutX="453.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field26" layoutX="537.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field27" layoutX="621.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field28" layoutX="705.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field29" layoutX="789.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field30" layoutX="873.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field31" layoutX="957.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field32" layoutX="1041.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0" />
+            <Pane fx:id="Field33" layoutX="1041.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field34" layoutX="1041.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field35" layoutX="1041.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field36" layoutX="1041.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field37" layoutX="1041.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field38" layoutX="1041.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field39" layoutX="1041.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field40" layoutX="1041.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0" />
          </children>
       </Pane>
    </left>
