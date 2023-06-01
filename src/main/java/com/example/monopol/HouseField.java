@@ -22,5 +22,9 @@ public class HouseField extends Field{
     public boolean availableField(){
         return belongToPlayerNumber == -1;
     }
+
+    public int getFieldOwner(){
+        return belongToPlayerNumber;
+    }
 }
 

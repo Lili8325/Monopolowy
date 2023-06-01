@@ -11,6 +11,7 @@ public class GameEngine {
     private TreeMap<Integer, Player> players;
     private int playerNumber = 0;
     private int playerTurn = 1;
+
     public GameEngine(int playerAmount){
         this.board = new Board();
         this.players = new TreeMap<>();
@@ -22,6 +23,9 @@ public class GameEngine {
         }
     }
     public int getPlayerTurn() {
+        return playerTurn;
+    }
+    public int playerTurn() {
         return playerTurn;
     }
     public int getMoveNumber(){
@@ -37,6 +41,11 @@ public class GameEngine {
         }else{
             player.setFieldNumber(currentField+moveNumber);
         }
+//        Enum<FieldTypes> fieldType = board.getFieldType(currentField);
+//        if(fieldType == FieldTypes.EVENTFIELD){
+//            return executeEventCard(playerNumber);
+//        }
+//        return "n";
     }
 
     public void editPlayerBalance(int playerNumber, int delta){
@@ -59,11 +68,39 @@ public class GameEngine {
         int value = board.setFieldOwner(playerFieldNumber, buyerPlayerNumber);
         if(value == 0){
             player.addFieldCard(playerFieldNumber);
-            return "Field belongs now to player: " + buyerPlayerNumber;
+            return "Field " + board.getFieldName(playerFieldNumber) + " belongs now to player: " + buyerPlayerNumber;
         }else if(value == 1) {
-            return "Field is occupied by player: " + buyerPlayerNumber;
+            return "Field " + board.getFieldName(playerFieldNumber) + " is occupied by player: " + board.getFieldOwner(playerFieldNumber);
         }
         return "Can't buy field: " + board.getFieldName(playerFieldNumber);
+    }
+
+    public String getFieldName(int playerNumber){
+        Player player = players.get(playerNumber);
+        return board.getFieldName(player.getFieldNumber());
+    }
+
+    public int getPlayerBalance(int playerNumber){
+        Player player = players.get(playerNumber);
+        return player.getPlayerBalance();
+    }
+
+    public String executeEventCard(int playerNumber){
+        Player player = players.get(playerNumber);
+        Event event = board.drawEventCard();
+        Enum<EventType> type = event.getEventType();
+        if(type == EventType.MOVEEVENT){
+            if(event.getDeltaFieldIndex() == 0){
+                player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());
+            }else{
+                player.setFieldNumber(event.getFieldIndex());
+            }
+        } else if (type == EventType.PAYEVENT) {
+            player.setPlayerBalance(player.getPlayerBalance() - event.getToPay());
+        }else if (type == EventType.TURNEVENT) {
+            //todo placeholder
+        }
+        return event.getName();
     }
 
 //    public static void main(String[] args) {

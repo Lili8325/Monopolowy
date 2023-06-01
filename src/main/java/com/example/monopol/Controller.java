@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -206,6 +207,9 @@ public class Controller {
     @FXML
     private void handleEndButton(ActionEvent event) {
         gameEngine.endTurn();
+        messageBox.setText("Teraz tura gracza: " + gameEngine.getPlayerTurn());
+//        rollButton.setDisable(false);
+//        endButton.setDisable(true);
         int turn = gameEngine.getPlayerTurn();
         switch (turn) {
             case 1 -> {
@@ -233,7 +237,7 @@ public class Controller {
                 Player4Pane.setStyle("-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);");
             }
         }
-
+        updateBalance();
     }
 
     @FXML

@@ -29,4 +29,18 @@ public class Board {
     public String getFieldName(int fieldIndex){
         return fields.get(fieldIndex).getFieldName();
     }
+    public int getFieldOwner(int fieldIndex){
+        HouseField tmp = (HouseField) fields.get(fieldIndex);
+        return tmp.getFieldOwner();
+    }
+    public Enum<FieldTypes> getFieldType(int fieldIndex){
+        Field field = fields.get(fieldIndex);
+        return field.getFieldType();
+    }
+    public Event drawEventCard(){
+        Event event = events.get(0);
+        events.remove(0);
+        return event;
+    }
+
 }

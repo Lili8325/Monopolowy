@@ -26,4 +26,16 @@ public class Event {
     public String getName() {
         return name;
     }
+    public Enum<EventType> getEventType(){
+        return eventType;
+    }
+    public int getFieldIndex(){
+        return fieldIndex;
+    }
+    public int getDeltaFieldIndex(){
+        return deltaFieldIndex;
+    }
+    public int getToPay(){
+        return toPay;
+    }
 }
