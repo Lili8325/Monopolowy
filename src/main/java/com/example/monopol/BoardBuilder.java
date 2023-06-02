@@ -118,7 +118,7 @@ public class BoardBuilder {
 
         SpecialField oplataZaPrzedmiot2 = new SpecialField("Oplata za przedmiot 2", 0, false);
         oplataZaPrzedmiot.setEventCard("Oplata za przedmiot 2 event", EventType.TURNEVENT, 0, 0, 0, 3);
-        fields.add(oplataZaPrzedmiot);
+        fields.add(oplataZaPrzedmiot2);
     }
 
     public static void createEventCards(ArrayList<Event> events){
@@ -130,13 +130,13 @@ public class BoardBuilder {
         events.add(event3);
         Event event4 = new Event("Ruszasz sie o 3 pola do tylu", EventType.MOVEEVENT, 0, 0, -3, 0);
         events.add(event4);
-        Event event5 = new Event("Masz urodziny kazdy gracz placi Ci 200$", EventType.PAYEVENT, 200, 0, 0, 0);
+        Event event5 = new Event("Dostałeś do wykonania trudny projekt, nie wykonujesz nic poza nim przez następne dwie rundy", EventType.TURNEVENT, 0, 0, 0, 2);
         events.add(event5);
         Event event6 = new Event("Placisz za drukarnie 100$", EventType.PAYEVENT, 100, 0, 0, 0);
         events.add(event6);
         Event event7 = new Event("Bierzesz udział w konkursie, idziesz na pole konkurs WRS", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event7);
-        Event event8 = new Event("Idziesz do szpitala", EventType.MOVEEVENT, 0, 0, 0, 0);
+        Event event8 = new Event("Placisz za bilet miesięczny 200$", EventType.PAYEVENT, 200, 0, 0, 0);
         events.add(event8);
         Event event9 = new Event("Zwolnienie ze szpitala", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event9);
@@ -144,7 +144,7 @@ public class BoardBuilder {
         events.add(event10);
         Event event11 = new Event("Idziesz po najtańsze piwo, idziesz na pole „Piwo Tesco”", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event11);
-        Event event12 = new Event("Idziesz po najtańszą zupkę, idziesz na pole „Złoty kurczak”", EventType.MOVEEVENT, 0, 0, 0, 0);
+        Event event12 = new Event("Idziesz po najsmaczniejszą zupkę chińską, idziesz na pole „Złoty kurczak”", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event12);
         Event event13 = new Event("Zaczynasz opadać z sił idziesz po red bullka", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event13);
@@ -154,5 +154,13 @@ public class BoardBuilder {
         events.add(event15);
         Event event16 = new Event("Idziesz na pole start ", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event16);
+        Event event17 = new Event("Otrzymujesz jednorazowe stypendium w wysokości 200$", EventType.MOVEEVENT, -200, 0, 0, 0);// Skoro to jest toPay to jak otrzymuje to na "-" będzie otrzymanie ni?
+        events.add(event17);
+        Event event18 = new Event("Za wybitne osiągniecia naukowe otzymujesz stypendium marszałka w wysokości 300$", EventType.PAYEVENT, -300, 0, 0, 0);
+        events.add(event18);
+        Event event19 = new Event("Ulegasz pokusie piątkowiego wieczoru, czekasz 1 kolejkę", EventType.TURNEVENT, 0, 0, 0, 1);
+        events.add(event19);
+        Event event20 = new Event("Po zarwanej nocce nie masz sił, czekasz 3 kolejki aż znajdziesz chęci do życia", EventType.TURNEVENT, 0, 0, 0, 3);
+        events.add(event20);
     }
 }

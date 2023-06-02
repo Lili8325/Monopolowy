@@ -49,7 +49,7 @@ public class GameEngine {
             System.out.println("Executing event " + tmp);
             return tmp;
         }
-        return 0;
+        return player.getFieldNumber();
     }
 
     public void houseFieldValidation(int playerNumber){

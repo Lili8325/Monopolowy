@@ -265,19 +265,37 @@ public class Controller {
             case 6 -> diceImage.setImage(dice6);
         }
         gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
-//        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn());
-//        System.out.println(playerMovement);
-//        if(playerMovement != 0){
-//            messageBox.setText("Player moved: " + playerMovement);
-//            while (gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()) < playerMovement){
-//                movePawn(1, gameEngine.getPlayerTurn());
-//            }
-//        }else{
-//            movePawn(n, gameEngine.getPlayerTurn());
-//        }
-        movePawn(n, gameEngine.getPlayerTurn());
+        int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
+        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+        if(playerMovement != playerPosition){
+            movePawnToStart(gameEngine.getPlayerTurn());
+            movePawn(playerMovement, gameEngine.getPlayerTurn());
+        }else{
+            movePawn(n, gameEngine.getPlayerTurn());
+        }
         gameEngine.houseFieldValidation(gameEngine.getPlayerTurn());
         updateBalance();
+    }
+
+    public void movePawnToStart(int playerNumber) {
+        switch (playerNumber){
+            case 1 -> {
+                Player1Pawn.setX(0);
+                Player1Pawn.setY(0);
+            }
+            case 2 -> {
+                Player2Pawn.setX(0);
+                Player2Pawn.setY(0);
+            }
+            case 3 -> {
+                Player3Pawn.setX(0);
+                Player3Pawn.setY(0);
+            }
+            case 4 -> {
+                Player4Pawn.setX(0);
+                Player4Pawn.setY(0);
+            }
+        }
     }
 
     public void movePawn(int move, int playerNumber){
