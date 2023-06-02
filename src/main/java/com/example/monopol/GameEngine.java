@@ -52,6 +52,17 @@ public class GameEngine {
         return 0;
     }
 
+    public void houseFieldValidation(int playerNumber){
+        Player player = players.get(playerNumber);
+        Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
+        if(fieldType == FieldTypes.HOUSEFIELD){
+            int fieldOwner = board.getFieldOwner(playerNumber);
+            if(fieldOwner == playerNumber || fieldOwner == -1) return;
+            editPlayerBalance(playerNumber, -board.getStayingCost(player.getFieldNumber()));
+            editPlayerBalance(fieldOwner, board.getStayingCost(player.getFieldNumber()));
+        }
+    }
+
     public void editPlayerBalance(int playerNumber, int delta){
         Player player = players.get(playerNumber);
         int currentBalance = player.getPlayerBalance();

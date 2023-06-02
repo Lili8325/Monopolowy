@@ -26,5 +26,9 @@ public class HouseField extends Field{
     public int getFieldOwner(){
         return belongToPlayerNumber;
     }
+
+    public int getStayingCost() {
+        return stayingCost;
+    }
 }
 

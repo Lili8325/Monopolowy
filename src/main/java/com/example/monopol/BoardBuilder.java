@@ -142,9 +142,9 @@ public class BoardBuilder {
         events.add(event9);
         Event event10 = new Event("Idziesz na najbliższą opłatę przedmiotu", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event10);
-        Event event11 = new Event("Idziesz po najtańsze piwo, idziesz na pole „piwo tesco”", EventType.MOVEEVENT, 0, 0, 0, 0);
+        Event event11 = new Event("Idziesz po najtańsze piwo, idziesz na pole „Piwo Tesco”", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event11);
-        Event event12 = new Event("Idziesz po najtańsze piwo, idziesz na pole „Złoty kurczak”", EventType.MOVEEVENT, 0, 0, 0, 0);
+        Event event12 = new Event("Idziesz po najtańszą zupkę, idziesz na pole „Złoty kurczak”", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event12);
         Event event13 = new Event("Zaczynasz opadać z sił idziesz po red bullka", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event13);

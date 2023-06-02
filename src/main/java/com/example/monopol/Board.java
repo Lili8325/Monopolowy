@@ -33,8 +33,18 @@ public class Board {
         return fields.get(fieldIndex).getDefaultCost();
     }
     public int getFieldOwner(int fieldIndex){
-        HouseField tmp = (HouseField) fields.get(fieldIndex);
-        return tmp.getFieldOwner();
+        if(fields.get(fieldIndex).getFieldType() == FieldTypes.HOUSEFIELD){
+            HouseField houseField = (HouseField) fields.get(fieldIndex);
+            return houseField.getFieldOwner();
+        }
+        return -1;
+    }
+    public int getStayingCost(int fieldIndex){
+        if(fields.get(fieldIndex).getFieldType() == FieldTypes.HOUSEFIELD){
+            HouseField houseField = (HouseField) fields.get(fieldIndex);
+            return houseField.getStayingCost();
+        }
+        return 0;
     }
     public Enum<FieldTypes> getFieldType(int fieldIndex){
         Field field = fields.get(fieldIndex);

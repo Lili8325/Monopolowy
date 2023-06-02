@@ -276,6 +276,8 @@ public class Controller {
 //            movePawn(n, gameEngine.getPlayerTurn());
 //        }
         movePawn(n, gameEngine.getPlayerTurn());
+        gameEngine.houseFieldValidation(gameEngine.getPlayerTurn());
+        updateBalance();
     }
 
     public void movePawn(int move, int playerNumber){
@@ -301,7 +303,6 @@ public class Controller {
                 }
             }
         }
-        updateBalance();
     }
 
     public void movePawns(ImageView Pawn, int xOffset, int yOffset) {
