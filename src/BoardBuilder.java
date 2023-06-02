@@ -130,13 +130,13 @@ public class BoardBuilder {
         events.add(event3);
         Event event4 = new Event("Ruszasz sie o 3 pola do tylu", EventType.MOVEEVENT, 0, 0, -3, 0);
         events.add(event4);
-        Event event5 = new Event("Masz urodziny kazdy gracz placi Ci 200$", EventType.PAYEVENT, 200, 0, 0, 0);
+        Event event5 = new Event("Masz urodziny kazdy gracz placi Ci 100$", EventType.PAYEVENT, 100, 0, 0, 0);
         events.add(event5);
         Event event6 = new Event("Placisz za drukarnie 100$", EventType.PAYEVENT, 100, 0, 0, 0);
         events.add(event6);
         Event event7 = new Event("Bierzesz udział w konkursie, idziesz na pole konkurs WRS", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event7);
-        Event event8 = new Event("Idziesz do szpitala", EventType.MOVEEVENT, 0, 0, 0, 0);
+        Event event8 = new Event("Placisz za bilet miesięczny 200$", EventType.PAYEVENT, 200, 0, 0, 0);
         events.add(event8);
         Event event9 = new Event("Zwolnienie ze szpitala", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event9);
@@ -154,5 +154,9 @@ public class BoardBuilder {
         events.add(event15);
         Event event16 = new Event("Idziesz na pole start ", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event16);
+        Event event17 = new Event("Otrzymujesz jednorazowe stypendium w wysokości 200$", EventType.MOVEEVENT, -200, 0, 0, 0);// Skoro to jest toPay to jak otrzymuje to na "-" będzie otrzymanie ni?
+        events.add(event17);
+        Event event18 = new Event("Za wybitne osiągniecia naukowe otzymujesz stypendium marszałka w wysokości 300$", EventType.MOVEEVENT, -300, 0, 0, 0);
+        events.add(event18);
     }
 }
