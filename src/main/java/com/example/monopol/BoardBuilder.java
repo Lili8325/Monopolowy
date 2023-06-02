@@ -122,7 +122,7 @@ public class BoardBuilder {
     }
 
     public static void createEventCards(ArrayList<Event> events){
-        Event event1 = new Event("Idziesz robic dante", EventType.MOVEEVENT, 0, 0, 0, 0);
+        Event event1 = new Event("Idziesz robic dante", EventType.MOVEEVENT, 0, 32, 0, 0);
         events.add(event1);
         Event event2 = new Event("Zwolnienie z dante", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event2);
@@ -148,7 +148,7 @@ public class BoardBuilder {
         events.add(event12);
         Event event13 = new Event("Zaczynasz opadać z sił idziesz po red bullka", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event13);
-        Event event14 = new Event("Czas na przerwę, czas na zahirka idziesz na pole „zahir kebab”", EventType.MOVEEVENT, 0, 0, 0, 0);
+        Event event14 = new Event("Czas na przerwę, czas na zahirka idziesz na pole „zahir kebab”", EventType.MOVEEVENT, 0, 38, 0, 0);
         events.add(event14);
         Event event15 = new Event("Złamałeś nogę na w-f idziesz do szpitala", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event15);

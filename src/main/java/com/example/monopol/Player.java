@@ -20,7 +20,6 @@ public class Player {
     public int getPlayerBalance() {
         return playerBalance;
     }
-
     public int getFieldNumber() {
         return fieldNumber;
     }

@@ -25,27 +25,31 @@ public class GameEngine {
     public int getPlayerTurn() {
         return playerTurn;
     }
-    public int playerTurn() {
-        return playerTurn;
-    }
     public int getMoveNumber(){
         return ThreadLocalRandom.current().nextInt(1, 7);
     }
     public void movePlayer(int playerNumber, int moveNumber){
         Player player = players.get(playerNumber);
         int currentField = player.getFieldNumber();
-        if(currentField+moveNumber > maxFieldNumber){
+        if(currentField+moveNumber >= maxFieldNumber){
             int remainMove = (currentField+moveNumber) - maxFieldNumber;
             player.setFieldNumber(remainMove);
             editPlayerBalance(playerNumber, 200);
         }else{
             player.setFieldNumber(currentField+moveNumber);
         }
-//        Enum<FieldTypes> fieldType = board.getFieldType(currentField);
-//        if(fieldType == FieldTypes.EVENTFIELD){
-//            return executeEventCard(playerNumber);
-//        }
-//        return "n";
+    }
+
+    public int eventFieldValidation(int playerNumber){
+        Player player = players.get(playerNumber);
+        Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
+        System.out.println(fieldType);
+        if(fieldType == FieldTypes.EVENTFIELD){
+            int tmp = executeEventCard(playerNumber);
+            System.out.println("Executing event " + tmp);
+            return tmp;
+        }
+        return 0;
     }
 
     public void editPlayerBalance(int playerNumber, int delta){
@@ -65,9 +69,15 @@ public class GameEngine {
     public String buyField(int buyerPlayerNumber){
         Player player = players.get(buyerPlayerNumber);
         int playerFieldNumber = player.getFieldNumber();
+        if(player.getPlayerBalance() < board.getFieldPrice(playerFieldNumber)){
+            return "Not enought money to buy field!";
+        }
+
         int value = board.setFieldOwner(playerFieldNumber, buyerPlayerNumber);
         if(value == 0){
             player.addFieldCard(playerFieldNumber);
+            player.setPlayerBalance(player.getPlayerBalance() - board.getFieldPrice(playerFieldNumber));
+            if(player.getPlayerBalance() < 0) player.setPlayerBalance(0);
             return "Field " + board.getFieldName(playerFieldNumber) + " belongs now to player: " + buyerPlayerNumber;
         }else if(value == 1) {
             return "Field " + board.getFieldName(playerFieldNumber) + " is occupied by player: " + board.getFieldOwner(playerFieldNumber);
@@ -90,22 +100,33 @@ public class GameEngine {
         return player.getFieldBelongings();
     }
 
-    public String executeEventCard(int playerNumber){
+    public int getPlayerFieldIndex(int playerNumber){
+        Player player = players.get(playerNumber);
+        return player.getFieldNumber();
+    }
+
+    public int executeEventCard(int playerNumber){
         Player player = players.get(playerNumber);
         Event event = board.drawEventCard();
         Enum<EventType> type = event.getEventType();
+        System.out.println(event.getName());
         if(type == EventType.MOVEEVENT){
-            if(event.getDeltaFieldIndex() == 0){
+            System.out.println("Move: " + event.getDeltaFieldIndex() + " or " + event.getFieldIndex());
+            if(event.getDeltaFieldIndex() != 0){
+                System.out.println("Doing delta");
                 player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());
+                return event.getDeltaFieldIndex();
             }else{
+                System.out.println("Doing index");
                 player.setFieldNumber(event.getFieldIndex());
+                return event.getFieldIndex();
             }
         } else if (type == EventType.PAYEVENT) {
             player.setPlayerBalance(player.getPlayerBalance() - event.getToPay());
         }else if (type == EventType.TURNEVENT) {
             //todo placeholder
         }
-        return event.getName();
+        return 0;
     }
 
 //    public static void main(String[] args) {

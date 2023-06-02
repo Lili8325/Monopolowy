@@ -12,7 +12,7 @@ public class Board {
 
         events = new ArrayList<>();
         BoardBuilder.createEventCards(events);
-        Collections.shuffle(events);
+//        Collections.shuffle(events);
     }
 
     public int setFieldOwner(int fieldIndex, int playerNumber){
@@ -28,6 +28,9 @@ public class Board {
 
     public String getFieldName(int fieldIndex){
         return fields.get(fieldIndex).getFieldName();
+    }
+    public int getFieldPrice(int fieldIndex){
+        return fields.get(fieldIndex).getDefaultCost();
     }
     public int getFieldOwner(int fieldIndex){
         HouseField tmp = (HouseField) fields.get(fieldIndex);

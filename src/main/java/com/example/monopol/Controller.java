@@ -173,12 +173,12 @@ public class Controller {
 
 
 
-    Image dice1 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopolowy\\src\\main\\resources\\images\\dice1.png");
-    Image dice2 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopolowy\\src\\main\\resources\\images\\dice2.png");
-    Image dice3 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopolowy\\src\\main\\resources\\images\\dice3.png");
-    Image dice4 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopolowy\\src\\main\\resources\\images\\dice4.png");
-    Image dice5 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopolowy\\src\\main\\resources\\images\\dice5.png");
-    Image dice6 = new Image("C:\\Users\\annas\\IdeaProjects\\Monopolowy\\src\\main\\resources\\images\\dice6.png");
+    Image dice1 = new Image("file:src/main/resources/images/dice1.png");
+    Image dice2 = new Image("file:src/main/resources/images/dice2.png");
+    Image dice3 = new Image("file:src/main/resources/images/dice3.png");
+    Image dice4 = new Image("file:src/main/resources/images/dice4.png");
+    Image dice5 = new Image("file:src/main/resources/images/dice5.png");
+    Image dice6 = new Image("file:src/main/resources/images/dice6.png");
 
 
 
@@ -265,9 +265,15 @@ public class Controller {
             case 6 -> diceImage.setImage(dice6);
         }
         gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
-//        System.out.println(returnText);
-//        if(!(returnText.equals("n"))){
-//            messageBox.setText(returnText);
+//        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn());
+//        System.out.println(playerMovement);
+//        if(playerMovement != 0){
+//            messageBox.setText("Player moved: " + playerMovement);
+//            while (gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()) < playerMovement){
+//                movePawn(1, gameEngine.getPlayerTurn());
+//            }
+//        }else{
+//            movePawn(n, gameEngine.getPlayerTurn());
 //        }
         movePawn(n, gameEngine.getPlayerTurn());
     }
