@@ -122,7 +122,7 @@ public class BoardBuilder {
     }
 
     public static void createEventCards(ArrayList<Event> events){
-        Event event1 = new Event("Idziesz robic dante", EventType.MOVEEVENT, 0, 32, 0, 0);
+        Event event1 = new Event("Idziesz robic dante", EventType.MOVEEVENT, 0, 31, 0, 0);
         events.add(event1);
         Event event2 = new Event("Zwolnienie z dante", EventType.MOVEEVENT, 0, 0, 0, 0);
         events.add(event2);

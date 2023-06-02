@@ -1,4 +1,6 @@
 package com.example.monopol;
+import javafx.scene.control.TextField;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.TreeMap;
@@ -40,14 +42,11 @@ public class GameEngine {
         }
     }
 
-    public int eventFieldValidation(int playerNumber){
+    public int eventFieldValidation(int playerNumber, TextField messageBox){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
-        System.out.println(fieldType);
         if(fieldType == FieldTypes.EVENTFIELD){
-            int tmp = executeEventCard(playerNumber);
-            System.out.println("Executing event " + tmp);
-            return tmp;
+            return executeEventCard(playerNumber, messageBox);
         }
         return player.getFieldNumber();
     }
@@ -116,28 +115,25 @@ public class GameEngine {
         return player.getFieldNumber();
     }
 
-    public int executeEventCard(int playerNumber){
+    public int executeEventCard(int playerNumber, TextField messageBox){
         Player player = players.get(playerNumber);
         Event event = board.drawEventCard();
         Enum<EventType> type = event.getEventType();
-        System.out.println(event.getName());
+        messageBox.setText(event.getName());
         if(type == EventType.MOVEEVENT){
-            System.out.println("Move: " + event.getDeltaFieldIndex() + " or " + event.getFieldIndex());
             if(event.getDeltaFieldIndex() != 0){
-                System.out.println("Doing delta");
                 player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());
-                return event.getDeltaFieldIndex();
+                return player.getFieldNumber();
             }else{
-                System.out.println("Doing index");
                 player.setFieldNumber(event.getFieldIndex());
-                return event.getFieldIndex();
+                return player.getFieldNumber();
             }
         } else if (type == EventType.PAYEVENT) {
-            player.setPlayerBalance(player.getPlayerBalance() - event.getToPay());
+            editPlayerBalance(playerNumber, -event.getToPay());
         }else if (type == EventType.TURNEVENT) {
             //todo placeholder
         }
-        return 0;
+        return player.getFieldNumber();
     }
 
 //    public static void main(String[] args) {
