@@ -1,0 +1,57 @@
+.buttons {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,  rgb(45, 105, 85) 0%, rgb(1, 38, 26) 100%),
+            rgb(78, 181, 149),
+            rgb(99, 230, 189),
+            radial-gradient(center 50% 50%, radius 100%,  rgb(99, 230, 189), rgb(47, 189, 144));
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+.buttons:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, rgb(45, 105, 85) 0%, rgb(1, 38, 26) 100%),
+            rgb(78, 181, 149),
+            rgb(99, 230, 189),
+            radial-gradient(center 50% 50%, radius 100%, rgb(77, 219, 174), rgb(29, 168, 124));
+}
+.buttons:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+.buttons Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , rgb(0, 128, 87) , 0,0,0,2 );
+}
+
+.menu-Buttons {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,  rgb(45, 105, 85) 0%, rgb(1, 38, 26) 100%),
+            rgb(78, 181, 149),
+            rgb(99, 230, 189),
+            radial-gradient(center 50% 50%, radius 100%,  rgb(99, 230, 189), rgb(47, 189, 144));
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 2.6em;
+}
+.menu-Buttons:hover {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, rgb(45, 105, 85) 0%, rgb(1, 38, 26) 100%),
+            rgb(78, 181, 149),
+            rgb(99, 230, 189),
+            radial-gradient(center 50% 50%, radius 100%, rgb(77, 219, 174), rgb(29, 168, 124));
+}
+.menu-Buttons:pressed {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+.menu-Buttons Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , rgb(0, 128, 87) , 0,0,0,2 );
+}

@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: #78b1b6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
+   <left>
+      <Pane fx:id="boardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1016.0" prefWidth="1242.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="1016.0" fitWidth="1242.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/monopol.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Player1Pawn" fitHeight="72.0" fitWidth="24.0" layoutX="1050.0" layoutY="880.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/pawn1.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Player2Pawn" fitHeight="72.0" fitWidth="24.0" layoutX="1090.0" layoutY="880.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/pawn2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Player3Pawn" fitHeight="72.0" fitWidth="24.0" layoutX="1050.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/pawn3.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="Player4Pawn" fitHeight="72.0" fitWidth="24.0" layoutX="1090.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/pawn4.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="Field1" layoutX="1042.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0" />
+            <Pane fx:id="Field2" layoutX="957.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field3" layoutX="873.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field4" layoutX="789.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field5" layoutX="705.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field6" layoutX="621.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field7" layoutX="537.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field8" layoutX="453.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field9" layoutX="369.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field10" layoutX="285.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field11" layoutX="201.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field12" layoutX="55.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0" />
+            <Pane fx:id="Field13" layoutX="55.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field14" layoutX="55.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field15" layoutX="55.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field16" layoutX="55.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field17" layoutX="55.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field18" layoutX="55.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field19" layoutX="55.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field20" layoutX="55.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field21" layoutX="55.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0" />
+            <Pane fx:id="Field22" layoutX="201.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field23" layoutX="285.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field24" layoutX="369.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field25" layoutX="453.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field26" layoutX="537.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field27" layoutX="621.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field28" layoutX="705.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field29" layoutX="789.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field30" layoutX="873.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field31" layoutX="957.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
+            <Pane fx:id="Field32" layoutX="1041.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0" />
+            <Pane fx:id="Field33" layoutX="1041.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field34" layoutX="1041.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field35" layoutX="1041.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field36" layoutX="1041.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field37" layoutX="1041.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field38" layoutX="1041.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field39" layoutX="1041.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field40" layoutX="1041.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0" />
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <Pane prefHeight="1016.0" prefWidth="678.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="buyButton" layoutX="65.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Buy" />
+            <Button fx:id="endButton" layoutX="431.0" layoutY="902.0" mnemonicParsing="false" onAction="#handleEndButton" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="End turn" />
+            <Button fx:id="rollButton" layoutX="168.0" layoutY="903.0" mnemonicParsing="false" onAction="#roll" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Roll" />
+            <Pane fx:id="Player1Pane" layoutX="31.0" layoutY="26.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: #B3E8AC;">
+               <children>
+                  <ImageView fx:id="Player1Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/pawn1.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="Player1Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 1">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Player1Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </Pane>
+            <Pane fx:id="Player2Pane" layoutX="355.0" layoutY="26.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
+               <children>
+                  <ImageView fx:id="Player2Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/pawn2.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="Player2Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 2">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Player2Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+            </Pane>
+            <Pane fx:id="Player3Pane" layoutX="31.0" layoutY="214.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
+               <children>
+                  <ImageView fx:id="Player3Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/pawn3.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="Player3Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 3">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Player3Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+            </Pane>
+            <Pane fx:id="Player4Pane" layoutX="355.0" layoutY="214.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
+               <children>
+                  <ImageView fx:id="Player4Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/pawn4.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="Player4Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 4">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Player4Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets right="30.0" />
+               </padding>
+            </Pane>
+            <ImageView fx:id="diceImage" fitHeight="120.0" fitWidth="120.0" layoutX="23.0" layoutY="875.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/dice5.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buildButton" layoutX="393.0" layoutY="542.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Build" />
+            <TextField fx:id="messageBox" alignment="CENTER" editable="false" layoutX="92.0" layoutY="410.0" prefHeight="98.0" prefWidth="494.0" text="Tura gracza 1">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>
