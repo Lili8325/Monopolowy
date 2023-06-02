@@ -7,9 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -19,10 +17,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.io.IOException;
 
-/*
-todo - pawns movement
-todo - highligting the fields
- */
 public class Controller {
 
     private static final int FIELD_WIDTH = 84;
@@ -189,6 +183,12 @@ public class Controller {
         stage.setTitle("Student Monopoly");
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void exitGame(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.close();
     }
 
     @FXML
