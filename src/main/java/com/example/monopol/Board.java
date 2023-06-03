@@ -23,7 +23,8 @@ public class Board {
                 return 0;
             }
             return 1;
-        }return -1;
+        }
+        return -1;
     }
 
     public String getFieldName(int fieldIndex){

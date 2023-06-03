@@ -255,7 +255,7 @@ public class Controller {
 
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
-        n = 1;
+        n = 3;
         switch (n) {
             case 1 -> diceImage.setImage(dice1);
             case 2 -> diceImage.setImage(dice2);

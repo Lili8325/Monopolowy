@@ -55,7 +55,7 @@ public class GameEngine {
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.HOUSEFIELD){
-            int fieldOwner = board.getFieldOwner(playerNumber);
+            int fieldOwner = board.getFieldOwner(player.getFieldNumber());
             if(fieldOwner == playerNumber || fieldOwner == -1) return;
             editPlayerBalance(playerNumber, -board.getStayingCost(player.getFieldNumber()));
             editPlayerBalance(fieldOwner, board.getStayingCost(player.getFieldNumber()));
