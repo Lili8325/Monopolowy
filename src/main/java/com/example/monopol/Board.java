@@ -17,7 +17,7 @@ public class Board {
 
     public int setFieldOwner(int fieldIndex, int playerNumber){
         if(fields.get(fieldIndex).getFieldType() == FieldTypes.HOUSEFIELD){
-            HouseField tmp =  (HouseField) fields.get(fieldIndex);
+            HouseField tmp = (HouseField) fields.get(fieldIndex);
             if(tmp.availableField()){
                 tmp.setBelongToPlayerNumber(playerNumber);
                 return 0;

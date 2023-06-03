@@ -6,6 +6,7 @@ public class Player {
     private int playerNumber;
     private int playerBalance;
     private int fieldNumber;
+    private int turnsToSkip;
     private ArrayList<Integer> fieldBelongings;
     private ArrayList<Event> eventHand;
 
@@ -13,6 +14,7 @@ public class Player {
         this.playerNumber = playerNumber;
         this.playerBalance = 2200;
         this.fieldNumber = 0;
+        this.turnsToSkip = 0;
         this.fieldBelongings = new ArrayList<>();
         this.eventHand = new ArrayList<>();
     }
@@ -23,6 +25,9 @@ public class Player {
     public int getFieldNumber() {
         return fieldNumber;
     }
+    public int getTurnsToSkip() {
+        return turnsToSkip;
+    }
 
     public ArrayList<Integer> getFieldBelongings() {
         return fieldBelongings;
@@ -30,6 +35,10 @@ public class Player {
 
     public void setFieldNumber(int fieldNumber){
         this.fieldNumber = fieldNumber;
+    }
+
+    public void setTurnsToSkip(int turnsToSkip){
+        this.turnsToSkip = turnsToSkip;
     }
 
     public void setPlayerBalance(int playerBalance) {

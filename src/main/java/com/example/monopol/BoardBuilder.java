@@ -122,14 +122,14 @@ public class BoardBuilder {
     }
 
     public static void createEventCards(ArrayList<Event> events){
-        Event event1 = new Event("Idziesz robic dante", EventType.MOVEEVENT, 0, 31, 0, 0);
-        events.add(event1);
-        Event event2 = new Event("Zwolnienie z dante", EventType.MOVEEVENT, 0, 0, 0, 0);
-        events.add(event2);
-        Event event3 = new Event("Ruszasz sie o 2 pola do przodu", EventType.MOVEEVENT, 0, 0, 2, 0);
-        events.add(event3);
-        Event event4 = new Event("Ruszasz sie o 3 pola do tylu", EventType.MOVEEVENT, 0, 0, -3, 0);
-        events.add(event4);
+//        Event event1 = new Event("Idziesz robic dante", EventType.MOVEEVENT, 0, 31, 0, 0);
+//        events.add(event1);
+//        Event event2 = new Event("Zwolnienie z dante", EventType.MOVEEVENT, 0, 0, 0, 0);
+//        events.add(event2);
+//        Event event3 = new Event("Ruszasz sie o 2 pola do przodu", EventType.MOVEEVENT, 0, 0, 2, 0);
+//        events.add(event3);
+//        Event event4 = new Event("Ruszasz sie o 3 pola do tylu", EventType.MOVEEVENT, 0, 0, -3, 0);
+//        events.add(event4);
         Event event5 = new Event("Dostałeś do wykonania trudny projekt, nie wykonujesz nic poza nim przez następne dwie rundy", EventType.TURNEVENT, 0, 0, 0, 2);
         events.add(event5);
         Event event6 = new Event("Placisz za drukarnie 100$", EventType.PAYEVENT, 100, 0, 0, 0);

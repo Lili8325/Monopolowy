@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -80,7 +81,7 @@ public class Controller {
     private TextField Player4Balance;
 
     @FXML
-    private TextField messageBox;
+    private TextArea messageBox;
 
     private ArrayList<Pane> Fields = new ArrayList<>();
 
@@ -209,10 +210,21 @@ public class Controller {
     private void handleEndButton(ActionEvent event) {
         hideFieldBelongings();
         gameEngine.endTurn();
+        boolean turnSkipVal = gameEngine.checkIfSkipTurn(gameEngine.getPlayerTurn());
         messageBox.setText("Teraz tura gracza: " + gameEngine.getPlayerTurn());
         showFieldBelongings();
-//        rollButton.setDisable(false);
-//        endButton.setDisable(true);
+        if(turnSkipVal){
+            endButton.setDisable(false);
+            rollButton.setDisable(true);
+            buyButton.setDisable(true);
+            buildButton.setDisable(true);
+            messageBox.setText("Musisz czekać jeszcze: " + (gameEngine.getPlayerSkipTurn(gameEngine.getPlayerTurn())+1) + " kolejki");
+        }else {
+            endButton.setDisable(true);
+            rollButton.setDisable(false);
+            buyButton.setDisable(false);
+            buildButton.setDisable(false);
+        }
         int turn = gameEngine.getPlayerTurn();
         switch (turn) {
             case 1 -> {
@@ -245,8 +257,8 @@ public class Controller {
 
     @FXML
     private void roll(ActionEvent event) {
-//        rollButton.setDisable(true);
-//        endButton.setDisable(false);
+        rollButton.setDisable(true);
+        endButton.setDisable(false);
 
         if(!arrayCreated) {
             createArray();

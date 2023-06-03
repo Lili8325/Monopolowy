@@ -38,4 +38,7 @@ public class Event {
     public int getToPay(){
         return toPay;
     }
+    public int getTurnSkipAmount(){
+        return turnSkipAmount;
+    }
 }

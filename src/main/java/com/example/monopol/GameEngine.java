@@ -1,4 +1,5 @@
 package com.example.monopol;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class GameEngine {
         }
     }
 
-    public int eventFieldValidation(int playerNumber, TextField messageBox){
+    public int eventFieldValidation(int playerNumber, TextArea messageBox){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.EVENTFIELD){
@@ -105,6 +106,11 @@ public class GameEngine {
         return player.getPlayerBalance();
     }
 
+    public int getPlayerSkipTurn(int playerNumber){
+        Player player = players.get(playerNumber);
+        return player.getTurnsToSkip();
+    }
+
     public ArrayList<Integer> getFieldBelongings(int playerNumber) {
         Player player = players.get(playerNumber);
         return player.getFieldBelongings();
@@ -115,7 +121,7 @@ public class GameEngine {
         return player.getFieldNumber();
     }
 
-    public int executeEventCard(int playerNumber, TextField messageBox){
+    public int executeEventCard(int playerNumber, TextArea messageBox){
         Player player = players.get(playerNumber);
         Event event = board.drawEventCard();
         Enum<EventType> type = event.getEventType();
@@ -131,9 +137,17 @@ public class GameEngine {
         } else if (type == EventType.PAYEVENT) {
             editPlayerBalance(playerNumber, -event.getToPay());
         }else if (type == EventType.TURNEVENT) {
-            //todo placeholder
+            int turnsToSkip = event.getTurnSkipAmount();
+            player.setTurnsToSkip(turnsToSkip);
         }
         return player.getFieldNumber();
+    }
+
+    public boolean checkIfSkipTurn(int playerNumber){
+        Player player = players.get(playerNumber);
+        if(player.getTurnsToSkip() == 0) return false;
+        player.setTurnsToSkip(player.getTurnsToSkip() - 1);
+        return true;
     }
 
 //    public static void main(String[] args) {
