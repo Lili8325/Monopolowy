@@ -1,0 +1,34 @@
+•Zasady ogólne:
+  Każdy gracz porusza się po planszy zgodnie z ruchem wskazówek zegara oraz wykupuje dostępne obiekty. Tura gracza musi zacząć się od rzutu kostką.  \\ tu dałbym obok kostkę i obok przycisk roll
+ Wysokość czynszu zależna jest od rodzaju nieruchomości, czy właściciel posiada na tym polu  punkt handlowy. \\ tutaj grafa tego domku 
+ Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.
+• Zakup nieruchomości:
+  W momencie, kiedy gracz staje na polu niewykupionym przez nikogo, może wykupić daną nieruchomość.
+  Jeżeli zdecyduje się na zakup nieruchomości, to wpłaca do banku należność oraz pole podświetla się podczas tury danego gracza. // tu wolno migające pole z pionkiem na nim i think
+• Czynsz:
+  Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, to jest on zobowiązany zapłacić mu czynsz.
+  Jeżeli nie jest w stanie zapłacić czynszu, to automatycznie zostaje bankrutem, oddaje swoje nieruchomości bankowi i odpada z gry.
+• DANTE:
+  Gracz może trafić na DANTE z trzech powodów. 
+  Pierwszym z nich jest stanięcie na polu „idź rób Dante”, drugi sposób to wylosowanie karty z puli „Eventów”, która nakazuje iść robić dante. 
+  Jeżeli chcemy zrobić dante to: może pokazać kartę zwolnienia z dante lub czekać 3 tury. 
+// myślę że tu obok mogłoby być zdjęcie tego pola 
+• Eventy: 
+  Jeżeli gracz stanie na pola o tych nazwach, to loswana jest katra i pokazywana wszystkim uczestnikom rozgrywki, a następnie wykonywana jest czynność, która jest na niej opisana.
+• Opłata przedmiotu:
+  Plansza posiada dwa pola związane z opłatami przedmiotu.
+  Na na nim pobiera się opłątę w wysokości 10% wartość przedsiębiorstw osoby która na niej stanęła. 
+  Gracz, który stanie na pole musi zapłacić na rzecz banku dana kwotę.
+  Jeżeli go nie stać, to staje się bankrutem, jego nieruchomości przejmuje bank, a on sam kończy grę.
+ • Punkt handlowy: 
+  Gracz posiadający wszystkie pola z danego koloru ma monopol w tej dziedzinie, dzięki czemu od rywali może pobierać podwójny czynsz. 
+  Może także wykupywać na swoich ulicach punkty handlowe. 
+ Punkty handlowe można kupować w każdym momencie (nie ma obowiązku stać na określonym polu). 
+  Dzięki temu gracz będzie mógł pobierać najwyższy możliwy czynsz na danym polu (stawki czynszu podane są na karcie nieruchomości).// tu gdzieś też można dać grafę domku
+ • Premie: 
+  Każdy gracz, który przechodzi linie startu, otrzymuje od banku premię w wysokości 200.
+Pole konkurs WRS daje graczowi który na nim stanął 100. / i tu fota konkurs WRS
+• Szpital:
+Gracz może trafić do szpitala z dwóch powodów: Stanął na pole szpital lub wylosował kartę „Event” nakazujący pójście od szpitala.
+Jeśli gracz chce opuścić szpital to: może pokazać kartę zwolnienia ze szpitala lub czekać 2 tury.
+
