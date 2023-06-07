@@ -59,3 +59,11 @@
 .text-area .text {
     -fx-text-alignment: center;
 }
+
+.diff .content {
+    -fx-background-color: #b7eff4;
+}
+
+.diff .text {
+    -fx-text-alignment: left;
+}

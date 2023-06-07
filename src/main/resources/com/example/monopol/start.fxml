@@ -18,7 +18,7 @@
             <Font name="Calibri Bold" size="37.0" />
          </font>
       </Button>
-      <Button layoutX="756.0" layoutY="468.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Zasady gry">
+      <Button layoutX="756.0" layoutY="468.0" mnemonicParsing="false" onAction="#switchToRules" prefHeight="80.0" prefWidth="400.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Zasady gry">
          <font>
             <Font name="Calibri Bold" size="37.0" />
          </font>

@@ -101,6 +101,10 @@ public class GameEngine {
         return board.getFieldName(player.getFieldNumber());
     }
 
+    public boolean isBuilt(int fieldIndex){
+        return board.isBuilt(fieldIndex);
+    }
+
     public int getPlayerBalance(int playerNumber){
         Player player = players.get(playerNumber);
         return player.getPlayerBalance();

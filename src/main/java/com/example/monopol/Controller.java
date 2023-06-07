@@ -46,8 +46,6 @@ public class Controller {
     @FXML
     private Button endButton;
     @FXML
-    private ImageView Player1Image;
-    @FXML
     private Button rollButton;
     @FXML
     private ImageView diceImage;
@@ -166,6 +164,88 @@ public class Controller {
     @FXML
     private Pane Field40;
 
+    private ArrayList<ImageView> Buildings = new ArrayList<>();
+    @FXML
+    private ImageView building1;
+    @FXML
+    private ImageView building2;
+    @FXML
+    private ImageView building3;
+    @FXML
+    private ImageView building4;
+    @FXML
+    private ImageView building5;
+    @FXML
+    private ImageView building6;
+    @FXML
+    private ImageView building7;
+    @FXML
+    private ImageView building8;
+    @FXML
+    private ImageView building9;
+    @FXML
+    private ImageView building10;
+    @FXML
+    private ImageView building11;
+    @FXML
+    private ImageView building12;
+    @FXML
+    private ImageView building13;
+    @FXML
+    private ImageView building14;
+    @FXML
+    private ImageView building15;
+    @FXML
+    private ImageView building16;
+    @FXML
+    private ImageView building17;
+    @FXML
+    private ImageView building18;
+    @FXML
+    private ImageView building19;
+    @FXML
+    private ImageView building20;
+    @FXML
+    private ImageView building21;
+    @FXML
+    private ImageView building22;
+    @FXML
+    private ImageView building23;
+    @FXML
+    private ImageView building24;
+    @FXML
+    private ImageView building25;
+    @FXML
+    private ImageView building26;
+    @FXML
+    private ImageView building27;
+    @FXML
+    private ImageView building28;
+    @FXML
+    private ImageView building29;
+    @FXML
+    private ImageView building30;
+    @FXML
+    private ImageView building31;
+    @FXML
+    private ImageView building32;
+    @FXML
+    private ImageView building33;
+    @FXML
+    private ImageView building34;
+    @FXML
+    private ImageView building35;
+    @FXML
+    private ImageView building36;
+    @FXML
+    private ImageView building37;
+    @FXML
+    private ImageView building38;
+    @FXML
+    private ImageView building39;
+    @FXML
+    private ImageView building40;
+
 
 
     Image dice1 = new Image("file:src/main/resources/images/dice1.png");
@@ -181,7 +261,22 @@ public class Controller {
         root = FXMLLoader.load(getClass().getResource("game_scene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("Student Monopoly");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToRules(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("rules_scene.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToStart(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -261,13 +356,14 @@ public class Controller {
         endButton.setDisable(false);
 
         if(!arrayCreated) {
-            createArray();
+            createFieldsArray();
+            createBuildingsArray();
             arrayCreated = true;
         }
 
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
-        n = 3;
+        n = 1;
         switch (n) {
             case 1 -> diceImage.setImage(dice1);
             case 2 -> diceImage.setImage(dice2);
@@ -381,7 +477,7 @@ public class Controller {
         }
     }
 
-    private void createArray() {
+    private void createFieldsArray() {
         Fields.add(Field1);
         Fields.add(Field2);
         Fields.add(Field3);
@@ -422,5 +518,48 @@ public class Controller {
         Fields.add(Field38);
         Fields.add(Field39);
         Fields.add(Field40);
+    }
+
+    private void createBuildingsArray() {
+        Buildings.add(building1);
+        Buildings.add(building2);
+        Buildings.add(building3);
+        Buildings.add(building4);
+        Buildings.add(building5);
+        Buildings.add(building6);
+        Buildings.add(building7);
+        Buildings.add(building8);
+        Buildings.add(building9);
+        Buildings.add(building10);
+        Buildings.add(building11);
+        Buildings.add(building12);
+        Buildings.add(building13);
+        Buildings.add(building14);
+        Buildings.add(building15);
+        Buildings.add(building16);
+        Buildings.add(building17);
+        Buildings.add(building18);
+        Buildings.add(building19);
+        Buildings.add(building20);
+        Buildings.add(building21);
+        Buildings.add(building22);
+        Buildings.add(building23);
+        Buildings.add(building24);
+        Buildings.add(building25);
+        Buildings.add(building26);
+        Buildings.add(building27);
+        Buildings.add(building28);
+        Buildings.add(building29);
+        Buildings.add(building30);
+        Buildings.add(building31);
+        Buildings.add(building32);
+        Buildings.add(building33);
+        Buildings.add(building34);
+        Buildings.add(building35);
+        Buildings.add(building36);
+        Buildings.add(building37);
+        Buildings.add(building38);
+        Buildings.add(building39);
+        Buildings.add(building40);
     }
 }
