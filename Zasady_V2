@@ -22,7 +22,7 @@
   Jeżeli go nie stać, to staje się bankrutem, jego nieruchomości przejmuje bank, a on sam kończy grę.
  • Punkt handlowy:
   Gracz może także wykupywać na swoich ulicach punkty handlowe. 
- Punkty handlowe można kupować w każdym momencie (nie ma obowiązku stać na określonym polu). 
+ Punkty handlowe można kupować tylko w momencie gdy gracz stoij na określonym polu. 
   Dzięki temu gracz będzie mógł pobierać dwa razy większy czynsz na danym polu (stawki czynszu podane są na karcie nieruchomości).// tu gdzieś też można dać grafę domku
  • Premie: 
   Każdy gracz, który przechodzi linie startu, otrzymuje od banku premię w wysokości 200.
