@@ -2,7 +2,8 @@ package com.example.monopol;
 enum EventType {
     MOVEEVENT,
     PAYEVENT,
-    TURNEVENT
+    TURNEVENT,
+    QUICKRELESEEVENT
 }
 
 public class Event {

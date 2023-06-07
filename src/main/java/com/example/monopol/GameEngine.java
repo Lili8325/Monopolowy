@@ -1,9 +1,7 @@
 package com.example.monopol;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -60,6 +58,34 @@ public class GameEngine {
             if(fieldOwner == playerNumber || fieldOwner == -1) return;
             editPlayerBalance(playerNumber, -board.getStayingCost(player.getFieldNumber()));
             editPlayerBalance(fieldOwner, board.getStayingCost(player.getFieldNumber()));
+            if(board.isBuilt(player.getFieldNumber())){
+                editPlayerBalance(playerNumber, -board.getBuildingCost(player.getFieldNumber()));
+                editPlayerBalance(fieldOwner, board.getBuildingCost(player.getFieldNumber()));
+            }
+        }
+    }
+    public void specialFieldValidation(int playerNumber, TextArea messageBox){
+        Player player = players.get(playerNumber);
+        int playerFieldNumber = player.getFieldNumber();
+        Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
+        if(fieldType == FieldTypes.SPECIALFIELD){
+            Event event = board.getFieldEvent(playerFieldNumber);
+            if(event == null) return;
+            Enum <EventType> type = event.getEventType();
+            messageBox.setText(event.getName());
+            if(type == EventType.MOVEEVENT){
+                if(event.getDeltaFieldIndex() != 0){
+                    player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());
+                }else{
+                    player.setFieldNumber(event.getFieldIndex());
+                }
+            } else if (type == EventType.PAYEVENT) {
+                editPlayerBalance(playerNumber, -event.getToPay());
+            }else if (type == EventType.TURNEVENT) {
+                setPlayerSkipTurns(playerNumber, event.getTurnSkipAmount());
+            }else if(type == EventType.QUICKRELESEEVENT){
+                player.setQuickRelese(true);
+            }
         }
     }
 
@@ -94,6 +120,38 @@ public class GameEngine {
             return "Field " + board.getFieldName(playerFieldNumber) + " is occupied by player: " + board.getFieldOwner(playerFieldNumber);
         }
         return "Can't buy field: " + board.getFieldName(playerFieldNumber);
+    }
+
+    public String buildHouse(int builderPlayerNumber){
+        Player player = players.get(builderPlayerNumber);
+        int playerFieldNumber = player.getFieldNumber();
+        int buildingCost = board.getBuildingCost(playerFieldNumber);
+
+        if(builderPlayerNumber != board.getFieldOwner(playerFieldNumber) || buildingCost == -1){
+            return "Nie można tutaj nic wybudować!!";
+        }
+        if(player.getPlayerBalance() < board.getBuildingCost(playerFieldNumber)){
+            return "Not enought money to buy field!";
+        }
+        editPlayerBalance(builderPlayerNumber, -board.getBuildingCost(playerFieldNumber));
+        board.setBuilding(playerFieldNumber);
+
+        return "Posiadłość została wybudowana na polu " + board.getFieldName(player.getFieldNumber());
+    }
+
+    public String sellField(int selerPlayerNumber){
+        Player player = players.get(selerPlayerNumber);
+        int playerFieldNumber = player.getFieldNumber();
+
+        int fieldOwnerNumber = board.getFieldOwner(playerFieldNumber);
+        if(fieldOwnerNumber == selerPlayerNumber){
+            board.clearBuilding(playerFieldNumber);
+            board.setFieldOwner(playerFieldNumber, -1);
+            player.removeFieldCard(playerFieldNumber);
+            editPlayerBalance(selerPlayerNumber, board.getFieldPrice(playerFieldNumber) + board.getBuildingCost(playerFieldNumber));
+            return "Sprzedano pole " + board.getFieldName(playerFieldNumber);
+        }
+        return "Nie można sprzedać pola " + board.getFieldName(playerFieldNumber);
     }
 
     public String getFieldName(int playerNumber){
@@ -141,8 +199,9 @@ public class GameEngine {
         } else if (type == EventType.PAYEVENT) {
             editPlayerBalance(playerNumber, -event.getToPay());
         }else if (type == EventType.TURNEVENT) {
-            int turnsToSkip = event.getTurnSkipAmount();
-            player.setTurnsToSkip(turnsToSkip);
+            setPlayerSkipTurns(playerNumber, event.getTurnSkipAmount());
+        }else if(type == EventType.QUICKRELESEEVENT){
+            player.setQuickRelese(true);
         }
         return player.getFieldNumber();
     }
@@ -152,6 +211,19 @@ public class GameEngine {
         if(player.getTurnsToSkip() == 0) return false;
         player.setTurnsToSkip(player.getTurnsToSkip() - 1);
         return true;
+    }
+
+    public void setPlayerSkipTurns(int playerNumber, int skipTurns){
+        Player player = players.get(playerNumber);
+        player.setTurnsToSkip(skipTurns);
+        if(skipTurns == 0){
+            player.setQuickRelese(false);
+        }
+    }
+
+    public boolean hasPlayerQuickRelese(int playerNumber){
+        Player player = players.get(playerNumber);
+        return player.isQuickRelese();
     }
 
 //    public static void main(String[] args) {

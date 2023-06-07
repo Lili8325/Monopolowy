@@ -48,6 +48,8 @@ public class Controller {
     @FXML
     private Button rollButton;
     @FXML
+    private Button quickRelese;
+    @FXML
     private ImageView diceImage;
 
     @FXML
@@ -293,6 +295,34 @@ public class Controller {
         updateBalance();
         showFieldBelongings();
     }
+    @FXML
+    private void handleSellButton(ActionEvent event) {
+        messageBox.setText(gameEngine.sellField(gameEngine.getPlayerTurn()));
+        updateBalance();
+//        showFieldBelongings();
+        Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
+        Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(0);
+    }
+    @FXML
+    private void handleBuildButton(ActionEvent event) {
+        messageBox.setText(gameEngine.buildHouse(gameEngine.getPlayerTurn()));
+        updateBalance();
+        if(gameEngine.isBuilt(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()))) {
+            Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(1);
+        }
+//        showFieldBelongings();
+    }
+    @FXML
+    private void quickReleaseButton(ActionEvent event) {
+        messageBox.setText("Uzywasz karty pominiecia tur!");
+        gameEngine.setPlayerSkipTurns(gameEngine.getPlayerTurn(), 0);
+        endButton.setDisable(true);
+        rollButton.setDisable(false);
+        buyButton.setDisable(false);
+        buildButton.setDisable(false);
+        quickRelese.setOpacity(0);
+        quickRelese.setDisable(true);
+    }
 
     private void updateBalance() {
         Player1Balance.setText(Integer.toString(gameEngine.getPlayerBalance(1)));
@@ -314,11 +344,17 @@ public class Controller {
             buyButton.setDisable(true);
             buildButton.setDisable(true);
             messageBox.setText("Musisz czekać jeszcze: " + (gameEngine.getPlayerSkipTurn(gameEngine.getPlayerTurn())+1) + " kolejki");
+            if(gameEngine.hasPlayerQuickRelese(gameEngine.getPlayerTurn())){
+                quickRelese.setOpacity(1);
+                quickRelese.setDisable(false);
+            }
         }else {
-            endButton.setDisable(true);
-            rollButton.setDisable(false);
-            buyButton.setDisable(false);
-            buildButton.setDisable(false);
+//            endButton.setDisable(true);
+//            rollButton.setDisable(false);
+//            buyButton.setDisable(false);
+//            buildButton.setDisable(false);
+//            quickRelese.setOpacity(0);
+//            quickRelese.setDisable(true);
         }
         int turn = gameEngine.getPlayerTurn();
         switch (turn) {
@@ -352,8 +388,8 @@ public class Controller {
 
     @FXML
     private void roll(ActionEvent event) {
-        rollButton.setDisable(true);
-        endButton.setDisable(false);
+//        rollButton.setDisable(true);
+//        endButton.setDisable(false);
 
         if(!arrayCreated) {
             createFieldsArray();
@@ -382,6 +418,7 @@ public class Controller {
             movePawn(n, gameEngine.getPlayerTurn());
         }
         gameEngine.houseFieldValidation(gameEngine.getPlayerTurn());
+        gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
         updateBalance();
     }
 
