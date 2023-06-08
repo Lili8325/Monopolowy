@@ -9,39 +9,39 @@ public class BoardBuilder {
         start.setEventCard("Give 200$", EventType.PAYEVENT, -200, 0, 0, 0);
         fields.add(start);
 
-        HouseField field1 = new HouseField("Zupa krewetkowa", 50, 0, 20);
+        HouseField field1 = new HouseField("Zupa krewetkowa", 50, 60, 20);
         fields.add(field1);
-        HouseField field2 = new HouseField("Zupa pomidorowa", 100, 0, 40);
+        HouseField field2 = new HouseField("Zupa pomidorowa", 100, 120, 40);
         fields.add(field2);
 
         EventField event1 = new EventField("Event1");
         fields.add(event1);
 
-        HouseField field3 = new HouseField("Zupa serowa", 120, 0, 50);
+        HouseField field3 = new HouseField("Zupa serowa", 120, 140, 50);
         fields.add(field3);
-        HouseField field4 = new HouseField("Zupa curry", 140, 0, 60);
+        HouseField field4 = new HouseField("Zupa curry", 140, 160, 60);
         fields.add(field4);
-        HouseField field5 = new HouseField("Zupa zlota", 160, 0, 70);
+        HouseField field5 = new HouseField("Zupa zlota", 160, 190, 70);
         fields.add(field5);
 
         SpecialField dzienWydzialu = new SpecialField("Dzien wydzialu", 0, false);
         dzienWydzialu.setEventCard("Dzien wydzialu event", EventType.PAYEVENT, 20, 0, 0, 0);
         fields.add(dzienWydzialu);
 
-        HouseField field6 = new HouseField("Jednorazowka", 200, 0, 80);
+        HouseField field6 = new HouseField("Jednorazowka", 200, 240, 80);
         fields.add(field6);
-        HouseField field7 = new HouseField("E-Papieros POD", 250, 0, 100);
+        HouseField field7 = new HouseField("E-Papieros POD", 250, 300, 100);
         fields.add(field7);
-        HouseField field8 = new HouseField("E-Papieros BOX", 300, 0, 140);
+        HouseField field8 = new HouseField("E-Papieros BOX", 300, 360, 140);
         fields.add(field8);
 
         SpecialField szpital = new SpecialField("Szpital", 0, false);
         szpital.setEventCard("Szpitel event", EventType.TURNEVENT, 0, 0, 0, 2);
         fields.add(szpital);
 
-        HouseField field9 = new HouseField("Piwo Tesco", 70, 0, 30);
+        HouseField field9 = new HouseField("Piwo Tesco", 70, 80, 30);
         fields.add(field9);
-        HouseField field10 = new HouseField("Piwo miodowe", 100, 0, 40);
+        HouseField field10 = new HouseField("Piwo miodowe", 100, 120, 40);
         fields.add(field10);
 
         SpecialField dante = new SpecialField("Dante", 0, false);
@@ -52,11 +52,11 @@ public class BoardBuilder {
         oplataZaPrzedmiot.setEventCard("Oplata za przedmiot event", EventType.TURNEVENT, 0, 0, 0, 3);
         fields.add(oplataZaPrzedmiot);
 
-        HouseField field11 = new HouseField("Piwo Corona", 200, 0, 80);
+        HouseField field11 = new HouseField("Piwo Corona", 200, 240, 80);
         fields.add(field11);
-        HouseField field12 = new HouseField("Piwo toffiee", 240, 0, 90);
+        HouseField field12 = new HouseField("Piwo toffiee", 240, 290, 90);
         fields.add(field12);
-        HouseField field13 = new HouseField("Piwo Komes", 260, 0, 110);
+        HouseField field13 = new HouseField("Piwo Komes", 260, 310, 110);
         fields.add(field13);
 
         SpecialField akcjaRekrutacja = new SpecialField("Akcja rekrutacja", 0, false);
@@ -67,49 +67,49 @@ public class BoardBuilder {
         konkursWRS.setEventCard("Konkurs WRS event", EventType.PAYEVENT, 20, 0, 0, 0);
         fields.add(konkursWRS);
 
-        HouseField field14 = new HouseField("Monster zero gold", 260, 0, 120);
+        HouseField field14 = new HouseField("Monster zero gold", 260, 310, 120);
         fields.add(field14);
-        HouseField field15 = new HouseField("Monster zero", 280, 0, 130);
+        HouseField field15 = new HouseField("Monster zero", 280, 340, 130);
         fields.add(field15);
 
         EventField event2 = new EventField("Event2");
         fields.add(event2);
 
-        HouseField field16 = new HouseField("Red bull", 380, 0, 160);
+        HouseField field16 = new HouseField("Red bull", 380, 460, 160);
         fields.add(field16);
-        HouseField field17 = new HouseField("Red bull morele", 400, 0, 180);
+        HouseField field17 = new HouseField("Red bull morele", 400, 480, 180);
         fields.add(field17);
-        HouseField field18 = new HouseField("Monster mango", 420, 0, 200);
+        HouseField field18 = new HouseField("Monster mango", 420, 500, 200);
         fields.add(field18);
 
         SpecialField juwenalia = new SpecialField("Juwenalia", 0, false);
         juwenalia.setEventCard("Juwenalia event", EventType.TURNEVENT, 0, 0, 0, 2);
         fields.add(juwenalia);
 
-        HouseField field19 = new HouseField("Asus rog strix", 510, 0, 240);
+        HouseField field19 = new HouseField("Asus rog strix", 510, 610, 240);
         fields.add(field19);
-        HouseField field20 = new HouseField("Komputer gamingowy", 480, 0, 220);
+        HouseField field20 = new HouseField("Komputer gamingowy", 480, 580, 220);
         fields.add(field20);
-        HouseField field21 = new HouseField("Klawiatura mechaniczna", 440, 0, 200);
+        HouseField field21 = new HouseField("Klawiatura mechaniczna", 440, 530, 200);
         fields.add(field21);
 
         SpecialField DANTE = new SpecialField("Dante", 0, false);
         DANTE.setEventCard("Dante event", EventType.PAYEVENT, 200, 0, 0, 0);
         fields.add(DANTE);
 
-        HouseField field22 = new HouseField("Hot dog", 100, 0, 40);
+        HouseField field22 = new HouseField("Hot dog", 100, 120, 40);
         fields.add(field22);
-        HouseField field23 = new HouseField("Panini z kurczakiem", 160, 0, 70);
+        HouseField field23 = new HouseField("Panini z kurczakiem", 160, 190, 70);
         fields.add(field23);
-        HouseField field24 = new HouseField("Zapiekanka", 220, 0, 100);
+        HouseField field24 = new HouseField("Zapiekanka", 220, 260, 100);
         fields.add(field24);
 
         EventField event3 = new EventField("Event3");
         fields.add(event3);
 
-        HouseField field25 = new HouseField("Pizza", 350, 0, 160);
+        HouseField field25 = new HouseField("Pizza", 350, 420, 160);
         fields.add(field25);
-        HouseField field26 = new HouseField("Zahir kabab", 400, 0, 180);
+        HouseField field26 = new HouseField("Zahir kabab", 400, 480, 180);
         fields.add(field26);
 
         SpecialField targiPracy = new SpecialField("Targi pracy", 0, false);
