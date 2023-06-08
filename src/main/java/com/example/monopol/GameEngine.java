@@ -226,10 +226,4 @@ public class GameEngine {
         return player.isQuickRelese();
     }
 
-//    public static void main(String[] args) {
-//        GameEngine tmp = new GameEngine(4);
-//        tmp.movePlayer(1, 1);
-//        System.out.println(tmp.buyField(1));
-//    }
-
 }

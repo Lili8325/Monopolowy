@@ -13,7 +13,7 @@
 
 <BorderPane prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: #78b1b6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
    <left>
-      <Pane fx:id="boardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1016.0" prefWidth="1242.0" BorderPane.alignment="CENTER">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1016.0" prefWidth="1242.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="1016.0" fitWidth="1242.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -138,7 +138,7 @@
                </children></Pane>
             <Pane fx:id="Field13" layoutX="55.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0">
                <children>
-                  <ImageView fx:id="building13" fitHeight="30.0" fitWidth="31.0" layoutX="114.0" layoutY="27.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                  <ImageView fx:id="building13" fitHeight="30.0" fitWidth="31.0" layoutX="116.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                      <image>
                         <Image url="@../../../images/building.png" />
                      </image>
@@ -371,12 +371,12 @@
             <Button fx:id="rollButton" layoutX="168.0" layoutY="903.0" mnemonicParsing="false" onAction="#roll" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Roll" />
             <Pane fx:id="Player1Pane" layoutX="31.0" layoutY="26.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: #B3E8AC;">
                <children>
-                  <ImageView fx:id="Player1Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/pawn1.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Player1Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 1">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 1">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -393,12 +393,12 @@
             </Pane>
             <Pane fx:id="Player2Pane" layoutX="355.0" layoutY="26.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
                <children>
-                  <ImageView fx:id="Player2Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/pawn2.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Player2Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 2">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 2">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -415,12 +415,12 @@
             </Pane>
             <Pane fx:id="Player3Pane" layoutX="31.0" layoutY="214.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
                <children>
-                  <ImageView fx:id="Player3Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/pawn3.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Player3Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 3">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 3">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -437,12 +437,12 @@
             </Pane>
             <Pane fx:id="Player4Pane" layoutX="355.0" layoutY="214.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
                <children>
-                  <ImageView fx:id="Player4Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/pawn4.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Player4Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 4">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 4">
                      <font>
                         <Font size="24.0" />
                      </font>
