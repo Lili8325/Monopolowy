@@ -6,7 +6,7 @@ public class BoardBuilder {
     public static void createFields(ArrayList<Field> fields){
 
         SpecialField start = new SpecialField("Start", 0, false);
-        start.setEventCard("Give 200$", EventType.PAYEVENT, -200, 0, 0, 0);
+        start.setEventCard("Give 200$", EventType.PAYEVENT, -200, 0, 0, 0, "file:src/main/resources/images/event1.png");
         fields.add(start);
 
         HouseField field1 = new HouseField("Zupa krewetkowa", 50, 60, 20);
@@ -25,7 +25,7 @@ public class BoardBuilder {
         fields.add(field5);
 
         SpecialField dzienWydzialu = new SpecialField("Dzien wydzialu", 0, false);
-        dzienWydzialu.setEventCard("Dzien wydzialu event", EventType.PAYEVENT, 20, 0, 0, 0);
+        dzienWydzialu.setEventCard("Dzien wydzialu event", EventType.PAYEVENT, 20, 0, 0, 0, "file:src/main/resources/images/event1.png");
         fields.add(dzienWydzialu);
 
         HouseField field6 = new HouseField("Jednorazowka", 200, 240, 80);
@@ -36,7 +36,7 @@ public class BoardBuilder {
         fields.add(field8);
 
         SpecialField szpital = new SpecialField("Szpital", 0, false);
-        szpital.setEventCard("Szpitel event", EventType.TURNEVENT, 0, 0, 0, 2);
+        szpital.setEventCard("Szpitel event", EventType.TURNEVENT, 0, 0, 0, 2, "file:src/main/resources/images/event1.png");
         fields.add(szpital);
 
         HouseField field9 = new HouseField("Piwo Tesco", 70, 80, 30);
@@ -45,11 +45,11 @@ public class BoardBuilder {
         fields.add(field10);
 
         SpecialField dante = new SpecialField("Dante", 0, false);
-        dante.setEventCard("Dante event", EventType.TURNEVENT, 0, 0, 0, 3);
+        dante.setEventCard("Dante event", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/event1.png");
         fields.add(dante);
 
         SpecialField oplataZaPrzedmiot = new SpecialField("Oplata za przedmiot", 0, false);
-        oplataZaPrzedmiot.setEventCard("Oplata za przedmiot event", EventType.TURNEVENT, 0, 0, 0, 3);
+        oplataZaPrzedmiot.setEventCard("Oplata za przedmiot event", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/event1.png");
         fields.add(oplataZaPrzedmiot);
 
         HouseField field11 = new HouseField("Piwo Corona", 200, 240, 80);
@@ -60,11 +60,11 @@ public class BoardBuilder {
         fields.add(field13);
 
         SpecialField akcjaRekrutacja = new SpecialField("Akcja rekrutacja", 0, false);
-        akcjaRekrutacja.setEventCard("Akcja rekrutacja event", EventType.PAYEVENT, 20, 0, 0, 0);
+        akcjaRekrutacja.setEventCard("Akcja rekrutacja event", EventType.PAYEVENT, 20, 0, 0, 0, "file:src/main/resources/images/event1.png");
         fields.add(akcjaRekrutacja);
 
         SpecialField konkursWRS = new SpecialField("Konkurs WRS", 0, false);
-        konkursWRS.setEventCard("Konkurs WRS event", EventType.PAYEVENT, 20, 0, 0, 0);
+        konkursWRS.setEventCard("Konkurs WRS event", EventType.PAYEVENT, 20, 0, 0, 0, "file:src/main/resources/images/event1.png");
         fields.add(konkursWRS);
 
         HouseField field14 = new HouseField("Monster zero gold", 260, 310, 120);
@@ -83,7 +83,7 @@ public class BoardBuilder {
         fields.add(field18);
 
         SpecialField juwenalia = new SpecialField("Juwenalia", 0, false);
-        juwenalia.setEventCard("Juwenalia event", EventType.TURNEVENT, 0, 0, 0, 2);
+        juwenalia.setEventCard("Juwenalia event", EventType.TURNEVENT, 0, 0, 0, 2, "file:src/main/resources/images/event1.png");
         fields.add(juwenalia);
 
         HouseField field19 = new HouseField("Asus rog strix", 510, 610, 240);
@@ -94,7 +94,7 @@ public class BoardBuilder {
         fields.add(field21);
 
         SpecialField DANTE = new SpecialField("Dante", 0, false);
-        DANTE.setEventCard("Dante event", EventType.PAYEVENT, 200, 0, 0, 0);
+        DANTE.setEventCard("Dante event", EventType.PAYEVENT, 200, 0, 0, 0, "file:src/main/resources/images/event1.png");
         fields.add(DANTE);
 
         HouseField field22 = new HouseField("Hot dog", 100, 120, 40);
@@ -113,54 +113,54 @@ public class BoardBuilder {
         fields.add(field26);
 
         SpecialField targiPracy = new SpecialField("Targi pracy", 0, false);
-        targiPracy.setEventCard("Targi pracy event", EventType.TURNEVENT, 0, 0, 0, 2);
+        targiPracy.setEventCard("Targi pracy event", EventType.TURNEVENT, 0, 0, 0, 2, "file:src/main/resources/images/event1.png");
         fields.add(targiPracy);
 
         SpecialField oplataZaPrzedmiot2 = new SpecialField("Oplata za przedmiot 2", 0, false);
-        oplataZaPrzedmiot.setEventCard("Oplata za przedmiot 2 event", EventType.TURNEVENT, 0, 0, 0, 3);
+        oplataZaPrzedmiot.setEventCard("Oplata za przedmiot 2 event", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/event1.png");
         fields.add(oplataZaPrzedmiot2);
     }
 
     public static void createEventCards(ArrayList<Event> events){
-        Event event1 = new Event("Idziesz robic dante", EventType.MOVEEVENT, 0, 31, 0, 0);
-//        events.add(event1);
-        Event event2 = new Event("Zwolnienie z dante", EventType.QUICKRELESEEVENT, 0, 0, 0, 0);
+        Event event1 = new Event("Idziesz robic dante", EventType.MOVEEVENT, 0, 31, 0, 0, "file:src/main/resources/images/event1.png");
+        events.add(event1);
+        Event event2 = new Event("Zwolnienie z dante", EventType.QUICKRELESEEVENT, 0, 0, 0, 0, "file:src/main/resources/images/event2.png");
         events.add(event2);
-//        Event event3 = new Event("Ruszasz sie o 2 pola do przodu", EventType.MOVEEVENT, 0, 0, 2, 0);
-//        events.add(event3);
-//        Event event4 = new Event("Ruszasz sie o 3 pola do tylu", EventType.MOVEEVENT, 0, 0, -3, 0);
-//        events.add(event4);
-        Event event5 = new Event("Dostałeś do wykonania trudny projekt, nie wykonujesz nic poza nim przez następne dwie rundy", EventType.TURNEVENT, 0, 0, 0, 2);
+        Event event3 = new Event("Ruszasz sie o 2 pola do przodu", EventType.MOVEEVENT, 0, 0, 2, 0, "file:src/main/resources/images/event3.png");
+        events.add(event3);
+        Event event4 = new Event("Ruszasz sie o 3 pola do tylu", EventType.MOVEEVENT, 0, 0, -3, 0, "file:src/main/resources/images/event4.png");
+        events.add(event4);
+        Event event5 = new Event("Dostałeś do wykonania trudny projekt, nie wykonujesz nic poza nim przez następne dwie rundy", EventType.TURNEVENT, 0, 0, 0, 2, "file:src/main/resources/images/event5.png");
         events.add(event5);
-        Event event6 = new Event("Placisz za drukarnie 100$", EventType.PAYEVENT, 100, 0, 0, 0);
+        Event event6 = new Event("Placisz za drukarnie 100$", EventType.PAYEVENT, 100, 0, 0, 0, "file:src/main/resources/images/event6.png");
         events.add(event6);
-        Event event7 = new Event("Bierzesz udział w konkursie, idziesz na pole konkurs WRS", EventType.MOVEEVENT, 0, 20, 0, 0);
+        Event event7 = new Event("Bierzesz udział w konkursie, idziesz na pole konkurs WRS", EventType.MOVEEVENT, 0, 20, 0, 0, "file:src/main/resources/images/event7.png");
         events.add(event7);
-        Event event8 = new Event("Placisz za bilet miesięczny 200$", EventType.PAYEVENT, 200, 0, 0, 0);
+        Event event8 = new Event("Placisz za bilet miesięczny 200$", EventType.PAYEVENT, 200, 0, 0, 0, "file:src/main/resources/images/event8.png");
         events.add(event8);
-        Event event9 = new Event("Zwolnienie ze szpitala", EventType.QUICKRELESEEVENT, 0, 0, 0, 0);
+        Event event9 = new Event("Zwolnienie ze szpitala", EventType.QUICKRELESEEVENT, 0, 0, 0, 0, "file:src/main/resources/images/event9.png");
         events.add(event9);
-        Event event10 = new Event("Idziesz na najbliższą opłatę przedmiotu", EventType.MOVEEVENT, 0, 15, 0, 0);
+        Event event10 = new Event("Idziesz na najbliższą opłatę przedmiotu", EventType.MOVEEVENT, 0, 15, 0, 0, "file:src/main/resources/images/event10.png");
         events.add(event10);
-        Event event11 = new Event("Idziesz po najtańsze piwo, idziesz na pole „Piwo Tesco”", EventType.MOVEEVENT, 0, 12, 0, 0);
+        Event event11 = new Event("Idziesz po najtańsze piwo, idziesz na pole „Piwo Tesco”", EventType.MOVEEVENT, 0, 12, 0, 0, "file:src/main/resources/images/event11.png");
         events.add(event11);
-        Event event12 = new Event("Idziesz po najsmaczniejszą zupkę chińską, idziesz na pole „Złoty kurczak”", EventType.MOVEEVENT, 0, 6, 0, 0);
+        Event event12 = new Event("Idziesz po najsmaczniejszą zupkę chińską, idziesz na pole „Złoty kurczak”", EventType.MOVEEVENT, 0, 6, 0, 0, "file:src/main/resources/images/event12.png");
         events.add(event12);
-        Event event13 = new Event("Zaczynasz opadać z sił idziesz po red bullka", EventType.MOVEEVENT, 0, 24, 0, 0);
+        Event event13 = new Event("Zaczynasz opadać z sił idziesz po red bullka", EventType.MOVEEVENT, 0, 24, 0, 0, "file:src/main/resources/images/event13.png");
         events.add(event13);
-        Event event14 = new Event("Czas na przerwę, czas na zahirka idziesz na pole „zahir kebab”", EventType.MOVEEVENT, 0, 37, 0, 0);
+        Event event14 = new Event("Czas na przerwę, czas na zahirka idziesz na pole „zahir kebab”", EventType.MOVEEVENT, 0, 37, 0, 0, "file:src/main/resources/images/event14.png");
         events.add(event14);
-        Event event15 = new Event("Złamałeś nogę na w-f idziesz do szpitala", EventType.MOVEEVENT, 0, 11, 0, 0);
+        Event event15 = new Event("Złamałeś nogę na w-f idziesz do szpitala", EventType.MOVEEVENT, 0, 11, 0, 0, "file:src/main/resources/images/event15.png");
         events.add(event15);
-        Event event16 = new Event("Idziesz na pole start ", EventType.MOVEEVENT, 0, 0, 0, 0);
+        Event event16 = new Event("Idziesz na pole start ", EventType.MOVEEVENT, 0, 0, 0, 0, "file:src/main/resources/images/event16.png");
         events.add(event16);
-        Event event17 = new Event("Otrzymujesz jednorazowe stypendium w wysokości 200$", EventType.MOVEEVENT, -200, 0, 0, 0);// Skoro to jest toPay to jak otrzymuje to na "-" będzie otrzymanie ni?
+        Event event17 = new Event("Otrzymujesz jednorazowe stypendium w wysokości 200$", EventType.MOVEEVENT, -200, 0, 0, 0, "file:src/main/resources/images/event17.png");
         events.add(event17);
-        Event event18 = new Event("Za wybitne osiągniecia naukowe otzymujesz stypendium marszałka w wysokości 300$", EventType.PAYEVENT, -300, 0, 0, 0);
+        Event event18 = new Event("Za wybitne osiągniecia naukowe otzymujesz stypendium marszałka w wysokości 300$", EventType.PAYEVENT, -300, 0, 0, 0, "file:src/main/resources/images/event18.png");
         events.add(event18);
-        Event event19 = new Event("Ulegasz pokusie piątkowiego wieczoru, czekasz 1 kolejkę", EventType.TURNEVENT, 0, 0, 0, 1);
+        Event event19 = new Event("Ulegasz pokusie piątkowiego wieczoru, czekasz 1 kolejkę", EventType.TURNEVENT, 0, 0, 0, 1, "file:src/main/resources/images/event19.png");
         events.add(event19);
-        Event event20 = new Event("Po zarwanej nocce nie masz sił, czekasz 3 kolejki aż znajdziesz chęci do życia", EventType.TURNEVENT, 0, 0, 0, 3);
+        Event event20 = new Event("Po zarwanej nocce nie masz sił, czekasz 3 kolejki aż znajdziesz chęci do życia", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/event20.png");
         events.add(event20);
     }
 }

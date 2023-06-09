@@ -1,5 +1,6 @@
 package com.example.monopol;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -41,11 +42,11 @@ public class GameEngine {
         }
     }
 
-    public int eventFieldValidation(int playerNumber, TextArea messageBox){
+    public int eventFieldValidation(int playerNumber, TextArea messageBox, ImageView eventCard){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.EVENTFIELD){
-            return executeEventCard(playerNumber, messageBox);
+            return executeEventCard(playerNumber, messageBox, eventCard);
         }
         return player.getFieldNumber();
     }
@@ -183,11 +184,12 @@ public class GameEngine {
         return player.getFieldNumber();
     }
 
-    public int executeEventCard(int playerNumber, TextArea messageBox){
+    public int executeEventCard(int playerNumber, TextArea messageBox, ImageView eventCard){
         Player player = players.get(playerNumber);
         Event event = board.drawEventCard();
         Enum<EventType> type = event.getEventType();
         messageBox.setText(event.getName());
+        eventCard.setImage(event.getEventCardImage());
         if(type == EventType.MOVEEVENT){
             if(event.getDeltaFieldIndex() != 0){
                 player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());

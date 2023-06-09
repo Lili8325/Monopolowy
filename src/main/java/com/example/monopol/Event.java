@@ -1,4 +1,7 @@
 package com.example.monopol;
+
+import javafx.scene.image.Image;
+
 enum EventType {
     MOVEEVENT,
     PAYEVENT,
@@ -13,14 +16,16 @@ public class Event {
     private int fieldIndex;
     private int deltaFieldIndex;
     private int turnSkipAmount;
+    private Image eventCardImage;
 
-    public Event(String name, Enum<EventType> eventType, int toPay, int fieldIndex, int deltaFieldIndex, int turnSkipAmount) {
+    public Event(String name, Enum<EventType> eventType, int toPay, int fieldIndex, int deltaFieldIndex, int turnSkipAmount, String eventCardImagePath) {
         this.name = name;
         this.eventType = eventType;
         this.toPay = toPay;
         this.fieldIndex = fieldIndex;
         this.deltaFieldIndex = deltaFieldIndex;
         this.turnSkipAmount = turnSkipAmount;
+        this.eventCardImage = new Image(eventCardImagePath);
     }
 
 
@@ -41,5 +46,8 @@ public class Event {
     }
     public int getTurnSkipAmount(){
         return turnSkipAmount;
+    }
+    public Image getEventCardImage() {
+        return eventCardImage;
     }
 }

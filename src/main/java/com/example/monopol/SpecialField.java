@@ -10,8 +10,8 @@ public class SpecialField extends Field{
         this.fieldType = FieldTypes.SPECIALFIELD;
         this.eventCard = null;
     }
-    public void setEventCard(String name, Enum<EventType> eventType, int toPay, int fieldIndex, int deltaFieldIndex, int turnSkipAmount) {
-        this.eventCard = new Event(name, eventType, toPay, fieldIndex, deltaFieldIndex, turnSkipAmount);
+    public void setEventCard(String name, Enum<EventType> eventType, int toPay, int fieldIndex, int deltaFieldIndex, int turnSkipAmount, String eventCardImagePath) {
+        this.eventCard = new Event(name, eventType, toPay, fieldIndex, deltaFieldIndex, turnSkipAmount, eventCardImagePath);
     }
     public Event getEventCard(){
         return eventCard;

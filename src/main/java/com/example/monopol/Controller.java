@@ -51,6 +51,8 @@ public class Controller {
     private Button quickRelese;
     @FXML
     private ImageView diceImage;
+    @FXML
+    private ImageView eventCard;
 
     @FXML
     private Pane Player1Pane;
@@ -333,6 +335,7 @@ public class Controller {
 
     @FXML
     private void handleEndButton(ActionEvent event) {
+        eventCard.setImage(null);
         hideFieldBelongings();
         gameEngine.endTurn();
         boolean turnSkipVal = gameEngine.checkIfSkipTurn(gameEngine.getPlayerTurn());
@@ -349,12 +352,12 @@ public class Controller {
                 quickRelese.setDisable(false);
             }
         }else {
-//            endButton.setDisable(true);
-//            rollButton.setDisable(false);
-//            buyButton.setDisable(false);
-//            buildButton.setDisable(false);
-//            quickRelese.setOpacity(0);
-//            quickRelese.setDisable(true);
+            endButton.setDisable(true);
+            rollButton.setDisable(false);
+            buyButton.setDisable(false);
+            buildButton.setDisable(false);
+            quickRelese.setOpacity(0);
+            quickRelese.setDisable(true);
         }
         int turn = gameEngine.getPlayerTurn();
         switch (turn) {
@@ -388,8 +391,8 @@ public class Controller {
 
     @FXML
     private void roll(ActionEvent event) {
-//        rollButton.setDisable(true);
-//        endButton.setDisable(false);
+        rollButton.setDisable(true);
+        endButton.setDisable(false);
 
         if(!arrayCreated) {
             createFieldsArray();
@@ -399,7 +402,7 @@ public class Controller {
 
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
-        n = 1;
+        n = 3;
         switch (n) {
             case 1 -> diceImage.setImage(dice1);
             case 2 -> diceImage.setImage(dice2);
@@ -410,7 +413,7 @@ public class Controller {
         }
         gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
         int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
-        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard);
         if(playerMovement != playerPosition){
             movePawnToStart(gameEngine.getPlayerTurn());
             movePawn(playerMovement, gameEngine.getPlayerTurn());
