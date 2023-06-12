@@ -94,7 +94,7 @@ public class BoardBuilder {
         fields.add(field21);
 
         SpecialField DANTE = new SpecialField("Dante", 0, false);
-        DANTE.setEventCard("Dante event", EventType.PAYEVENT, 200, 0, 0, 0, "file:src/main/resources/images/event1.png");
+        DANTE.setEventCard("Dante event", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/event1.png");
         fields.add(DANTE);
 
         HouseField field22 = new HouseField("Hot dog", 100, 120, 40);

@@ -1,6 +1,8 @@
 package com.example.monopol;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -42,10 +44,12 @@ public class GameEngine {
         }
     }
 
-    public int eventFieldValidation(int playerNumber, TextArea messageBox, ImageView eventCard){
+    public int eventFieldValidation(int playerNumber, TextArea messageBox, ImageView eventCard, Media media){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.EVENTFIELD){
+            MediaPlayer mediaPlayerEventCard = new MediaPlayer(media);
+            mediaPlayerEventCard.play();
             return executeEventCard(playerNumber, messageBox, eventCard);
         }
         return player.getFieldNumber();

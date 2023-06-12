@@ -13,7 +13,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.IOException;
@@ -260,6 +263,12 @@ public class Controller {
     Image dice6 = new Image("file:src/main/resources/images/dice6.png");
 
 
+    Media ost = new Media(new File("src/main/resources/NecoArcDilemma.mp3").toURI().toString());
+    Media eventCardSound = new Media(new File("src/main/resources/EventCard.mp3").toURI().toString());
+
+    MediaPlayer mediaPlayer = new MediaPlayer(ost);
+//    MediaPlayer mediaPlayerEventCard = new MediaPlayer(eventCardSound);
+
 
     public void switchToGame(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("game_scene.fxml"));
@@ -267,6 +276,8 @@ public class Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        mediaPlayer.setVolume(0.30);
+        mediaPlayer.play();
     }
 
     public void switchToRules(ActionEvent event) throws IOException {
@@ -413,7 +424,7 @@ public class Controller {
         }
         gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
         int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
-        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard);
+        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound);
         if(playerMovement != playerPosition){
             movePawnToStart(gameEngine.getPlayerTurn());
             movePawn(playerMovement, gameEngine.getPlayerTurn());
