@@ -55,10 +55,14 @@ public class GameEngine {
         return player.getFieldNumber();
     }
 
-    public void houseFieldValidation(int playerNumber){
+    public void houseFieldValidation(int playerNumber, TextArea messageBox){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.HOUSEFIELD){
+            messageBox.setText("Field: " + getFieldName(playerNumber) + "\nField cost: " +
+                    board.getFieldPrice(player.getFieldNumber()) + "\nBuilding cost: " +
+                    board.getBuildingCost(player.getFieldNumber()) + "\nStaying cost: " +
+                    board.getStayingCost(player.getFieldNumber()));
             int fieldOwner = board.getFieldOwner(player.getFieldNumber());
             if(fieldOwner == playerNumber || fieldOwner == -1) return;
             editPlayerBalance(playerNumber, -board.getStayingCost(player.getFieldNumber()));
