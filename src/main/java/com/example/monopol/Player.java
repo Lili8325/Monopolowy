@@ -9,14 +9,16 @@ public class Player {
     private int turnsToSkip;
     private ArrayList<Integer> fieldBelongings;
     private boolean quickRelese;
+    private boolean gameOver;
 
     public Player(int playerNumber) {
         this.playerNumber = playerNumber;
-        this.playerBalance = 2200;
+        this.playerBalance = 300;
         this.fieldNumber = 0;
         this.turnsToSkip = 0;
         this.fieldBelongings = new ArrayList<>();
         this.quickRelese = false;
+        this.gameOver = false;
     }
 
     public int getPlayerBalance() {
@@ -56,5 +58,11 @@ public class Player {
     }
     public void setQuickRelese(boolean val){
         this.quickRelese = val;
+    }
+    public void setGameOver(boolean val){
+        this.gameOver = val;
+    }
+    public boolean getGameOver(){
+        return this.gameOver;
     }
 }

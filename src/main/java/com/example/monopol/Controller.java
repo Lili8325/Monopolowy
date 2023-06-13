@@ -15,6 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -50,6 +51,8 @@ public class Controller {
     private Button endButton;
     @FXML
     private Button rollButton;
+    @FXML
+    private Button sellButton;
     @FXML
     private Button quickRelese;
     @FXML
@@ -264,9 +267,10 @@ public class Controller {
 
 
     Media ost = new Media(new File("src/main/resources/NecoArcDilemma.mp3").toURI().toString());
-    Media eventCardSound = new Media(new File("src/main/resources/EventCard.mp3").toURI().toString());
-
+    Media eventCardSound = new Media(new File("src/main/resources/Gorenje.mp3").toURI().toString());
+    Media quickReleseSound = new Media(new File("src/main/resources/Persona.mp3").toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(ost);
+
 //    MediaPlayer mediaPlayerEventCard = new MediaPlayer(eventCardSound);
 
 
@@ -276,6 +280,11 @@ public class Controller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                mediaPlayer.seek(Duration.ZERO);
+            }
+        });
         mediaPlayer.setVolume(0.30);
         mediaPlayer.play();
     }
@@ -335,20 +344,41 @@ public class Controller {
         buildButton.setDisable(false);
         quickRelese.setOpacity(0);
         quickRelese.setDisable(true);
+        MediaPlayer mediaPlayer1 = new MediaPlayer(quickReleseSound);
+        mediaPlayer1.setVolume(0.3);
+        mediaPlayer1.play();
     }
 
     private void updateBalance() {
-        Player1Balance.setText(Integer.toString(gameEngine.getPlayerBalance(1)));
-        Player2Balance.setText(Integer.toString(gameEngine.getPlayerBalance(2)));
-        Player3Balance.setText(Integer.toString(gameEngine.getPlayerBalance(3)));
-        Player4Balance.setText(Integer.toString(gameEngine.getPlayerBalance(4)));
+        if((gameEngine.checkPlayerLoseCondition(1))){
+            Player1Balance.setText("BANKRUT");
+        }else{
+            Player1Balance.setText(Integer.toString(gameEngine.getPlayerBalance(1)));
+        }
+        if((gameEngine.checkPlayerLoseCondition(2))){
+            Player2Balance.setText("BANKRUT");
+        }else{
+            Player2Balance.setText(Integer.toString(gameEngine.getPlayerBalance(2)));
+        }
+        if((gameEngine.checkPlayerLoseCondition(3))){
+            Player3Balance.setText("BANKRUT");
+        }else{
+            Player3Balance.setText(Integer.toString(gameEngine.getPlayerBalance(3)));
+        }
+        if((gameEngine.checkPlayerLoseCondition(4))){
+            Player4Balance.setText("BANKRUT");
+        }else{
+            Player4Balance.setText(Integer.toString(gameEngine.getPlayerBalance(4)));
+        }
     }
-
     @FXML
     private void handleEndButton(ActionEvent event) {
         eventCard.setImage(null);
         hideFieldBelongings();
-        gameEngine.endTurn();
+        do {
+            gameEngine.endTurn();
+        }while (gameEngine.checkPlayerLoseCondition(gameEngine.getPlayerTurn()));
+
         boolean turnSkipVal = gameEngine.checkIfSkipTurn(gameEngine.getPlayerTurn());
         messageBox.setText("Teraz tura gracza: " + gameEngine.getPlayerTurn());
         showFieldBelongings();
@@ -357,6 +387,7 @@ public class Controller {
             rollButton.setDisable(true);
             buyButton.setDisable(true);
             buildButton.setDisable(true);
+            sellButton.setDisable(true);
             messageBox.setText("Musisz czekać jeszcze: " + (gameEngine.getPlayerSkipTurn(gameEngine.getPlayerTurn())+1) + " kolejki");
             if(gameEngine.hasPlayerQuickRelese(gameEngine.getPlayerTurn())){
                 quickRelese.setOpacity(1);
@@ -365,8 +396,9 @@ public class Controller {
         }else {
             endButton.setDisable(true);
             rollButton.setDisable(false);
-            buyButton.setDisable(false);
-            buildButton.setDisable(false);
+            buyButton.setDisable(true);
+            buildButton.setDisable(true);
+            sellButton.setDisable(true);
             quickRelese.setOpacity(0);
             quickRelese.setDisable(true);
         }
@@ -404,6 +436,9 @@ public class Controller {
     private void roll(ActionEvent event) {
         rollButton.setDisable(true);
         endButton.setDisable(false);
+        buildButton.setDisable(false);
+        buyButton.setDisable(false);
+        sellButton.setDisable(false);
 
         if(!arrayCreated) {
             createFieldsArray();
@@ -433,6 +468,7 @@ public class Controller {
         }
         gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox);
         gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+        gameEngine.setLoseCondition(gameEngine.getPlayerTurn());
         updateBalance();
     }
 

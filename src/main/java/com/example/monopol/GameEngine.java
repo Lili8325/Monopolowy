@@ -49,6 +49,7 @@ public class GameEngine {
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.EVENTFIELD){
             MediaPlayer mediaPlayerEventCard = new MediaPlayer(media);
+            mediaPlayerEventCard.setVolume(0.3);
             mediaPlayerEventCard.play();
             return executeEventCard(playerNumber, messageBox, eventCard);
         }
@@ -236,4 +237,14 @@ public class GameEngine {
         return player.isQuickRelese();
     }
 
+    public void setLoseCondition(int playerNumber){
+        Player player = players.get(playerNumber);
+        if(player.getPlayerBalance() <= 0){
+            player.setGameOver(true);
+        }
+    }
+    public boolean checkPlayerLoseCondition(int playerNumber){
+        Player player = players.get(playerNumber);
+        return player.getGameOver();
+    }
 }
