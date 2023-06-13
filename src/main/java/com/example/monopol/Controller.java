@@ -7,12 +7,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.IOException;
@@ -45,11 +50,15 @@ public class Controller {
     @FXML
     private Button endButton;
     @FXML
-    private ImageView Player1Image;
-    @FXML
     private Button rollButton;
     @FXML
+    private Button sellButton;
+    @FXML
+    private Button quickRelese;
+    @FXML
     private ImageView diceImage;
+    @FXML
+    private ImageView eventCard;
 
     @FXML
     private Pane Player1Pane;
@@ -80,7 +89,7 @@ public class Controller {
     private TextField Player4Balance;
 
     @FXML
-    private TextField messageBox;
+    private TextArea messageBox;
 
     private ArrayList<Pane> Fields = new ArrayList<>();
 
@@ -165,6 +174,88 @@ public class Controller {
     @FXML
     private Pane Field40;
 
+    private ArrayList<ImageView> Buildings = new ArrayList<>();
+    @FXML
+    private ImageView building1;
+    @FXML
+    private ImageView building2;
+    @FXML
+    private ImageView building3;
+    @FXML
+    private ImageView building4;
+    @FXML
+    private ImageView building5;
+    @FXML
+    private ImageView building6;
+    @FXML
+    private ImageView building7;
+    @FXML
+    private ImageView building8;
+    @FXML
+    private ImageView building9;
+    @FXML
+    private ImageView building10;
+    @FXML
+    private ImageView building11;
+    @FXML
+    private ImageView building12;
+    @FXML
+    private ImageView building13;
+    @FXML
+    private ImageView building14;
+    @FXML
+    private ImageView building15;
+    @FXML
+    private ImageView building16;
+    @FXML
+    private ImageView building17;
+    @FXML
+    private ImageView building18;
+    @FXML
+    private ImageView building19;
+    @FXML
+    private ImageView building20;
+    @FXML
+    private ImageView building21;
+    @FXML
+    private ImageView building22;
+    @FXML
+    private ImageView building23;
+    @FXML
+    private ImageView building24;
+    @FXML
+    private ImageView building25;
+    @FXML
+    private ImageView building26;
+    @FXML
+    private ImageView building27;
+    @FXML
+    private ImageView building28;
+    @FXML
+    private ImageView building29;
+    @FXML
+    private ImageView building30;
+    @FXML
+    private ImageView building31;
+    @FXML
+    private ImageView building32;
+    @FXML
+    private ImageView building33;
+    @FXML
+    private ImageView building34;
+    @FXML
+    private ImageView building35;
+    @FXML
+    private ImageView building36;
+    @FXML
+    private ImageView building37;
+    @FXML
+    private ImageView building38;
+    @FXML
+    private ImageView building39;
+    @FXML
+    private ImageView building40;
+
 
 
     Image dice1 = new Image("file:src/main/resources/images/dice1.png");
@@ -175,12 +266,41 @@ public class Controller {
     Image dice6 = new Image("file:src/main/resources/images/dice6.png");
 
 
+    Media ost = new Media(new File("src/main/resources/NecoArcDilemma.mp3").toURI().toString());
+    Media eventCardSound = new Media(new File("src/main/resources/Gorenje.mp3").toURI().toString());
+    Media quickReleseSound = new Media(new File("src/main/resources/Persona.mp3").toURI().toString());
+    MediaPlayer mediaPlayer = new MediaPlayer(ost);
+
+//    MediaPlayer mediaPlayerEventCard = new MediaPlayer(eventCardSound);
+
 
     public void switchToGame(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("game_scene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        stage.setTitle("Student Monopoly");
+        stage.setScene(scene);
+        stage.show();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            public void run() {
+                mediaPlayer.seek(Duration.ZERO);
+            }
+        });
+        mediaPlayer.setVolume(0.30);
+        mediaPlayer.play();
+    }
+
+    public void switchToRules(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("rules_scene.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToStart(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -197,22 +317,91 @@ public class Controller {
         updateBalance();
         showFieldBelongings();
     }
-
-    private void updateBalance() {
-        Player1Balance.setText(Integer.toString(gameEngine.getPlayerBalance(1)));
-        Player2Balance.setText(Integer.toString(gameEngine.getPlayerBalance(2)));
-        Player3Balance.setText(Integer.toString(gameEngine.getPlayerBalance(3)));
-        Player4Balance.setText(Integer.toString(gameEngine.getPlayerBalance(4)));
+    @FXML
+    private void handleSellButton(ActionEvent event) {
+        messageBox.setText(gameEngine.sellField(gameEngine.getPlayerTurn()));
+        updateBalance();
+//        showFieldBelongings();
+        Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
+        Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(0);
+    }
+    @FXML
+    private void handleBuildButton(ActionEvent event) {
+        messageBox.setText(gameEngine.buildHouse(gameEngine.getPlayerTurn()));
+        updateBalance();
+        if(gameEngine.isBuilt(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()))) {
+            Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(1);
+        }
+//        showFieldBelongings();
+    }
+    @FXML
+    private void quickReleaseButton(ActionEvent event) {
+        messageBox.setText("Uzywasz karty pominiecia tur!");
+        gameEngine.setPlayerSkipTurns(gameEngine.getPlayerTurn(), 0);
+        endButton.setDisable(true);
+        rollButton.setDisable(false);
+        buyButton.setDisable(false);
+        buildButton.setDisable(false);
+        quickRelese.setOpacity(0);
+        quickRelese.setDisable(true);
+        MediaPlayer mediaPlayer1 = new MediaPlayer(quickReleseSound);
+        mediaPlayer1.setVolume(0.3);
+        mediaPlayer1.play();
     }
 
+    private void updateBalance() {
+        if((gameEngine.checkPlayerLoseCondition(1))){
+            Player1Balance.setText("BANKRUT");
+        }else{
+            Player1Balance.setText(Integer.toString(gameEngine.getPlayerBalance(1)));
+        }
+        if((gameEngine.checkPlayerLoseCondition(2))){
+            Player2Balance.setText("BANKRUT");
+        }else{
+            Player2Balance.setText(Integer.toString(gameEngine.getPlayerBalance(2)));
+        }
+        if((gameEngine.checkPlayerLoseCondition(3))){
+            Player3Balance.setText("BANKRUT");
+        }else{
+            Player3Balance.setText(Integer.toString(gameEngine.getPlayerBalance(3)));
+        }
+        if((gameEngine.checkPlayerLoseCondition(4))){
+            Player4Balance.setText("BANKRUT");
+        }else{
+            Player4Balance.setText(Integer.toString(gameEngine.getPlayerBalance(4)));
+        }
+    }
     @FXML
     private void handleEndButton(ActionEvent event) {
+        eventCard.setImage(null);
         hideFieldBelongings();
-        gameEngine.endTurn();
+        do {
+            gameEngine.endTurn();
+        }while (gameEngine.checkPlayerLoseCondition(gameEngine.getPlayerTurn()));
+
+        boolean turnSkipVal = gameEngine.checkIfSkipTurn(gameEngine.getPlayerTurn());
         messageBox.setText("Teraz tura gracza: " + gameEngine.getPlayerTurn());
         showFieldBelongings();
-//        rollButton.setDisable(false);
-//        endButton.setDisable(true);
+        if(turnSkipVal){
+            endButton.setDisable(false);
+            rollButton.setDisable(true);
+            buyButton.setDisable(true);
+            buildButton.setDisable(true);
+            sellButton.setDisable(true);
+            messageBox.setText("Musisz czekać jeszcze: " + (gameEngine.getPlayerSkipTurn(gameEngine.getPlayerTurn())+1) + " kolejki");
+            if(gameEngine.hasPlayerQuickRelese(gameEngine.getPlayerTurn())){
+                quickRelese.setOpacity(1);
+                quickRelese.setDisable(false);
+            }
+        }else {
+            endButton.setDisable(true);
+            rollButton.setDisable(false);
+            buyButton.setDisable(true);
+            buildButton.setDisable(true);
+            sellButton.setDisable(true);
+            quickRelese.setOpacity(0);
+            quickRelese.setDisable(true);
+        }
         int turn = gameEngine.getPlayerTurn();
         switch (turn) {
             case 1 -> {
@@ -245,17 +434,21 @@ public class Controller {
 
     @FXML
     private void roll(ActionEvent event) {
-//        rollButton.setDisable(true);
-//        endButton.setDisable(false);
+        rollButton.setDisable(true);
+        endButton.setDisable(false);
+        buildButton.setDisable(false);
+        buyButton.setDisable(false);
+        sellButton.setDisable(false);
 
         if(!arrayCreated) {
-            createArray();
+            createFieldsArray();
+            createBuildingsArray();
             arrayCreated = true;
         }
 
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
-        n = 1;
+//        n = 3;
         switch (n) {
             case 1 -> diceImage.setImage(dice1);
             case 2 -> diceImage.setImage(dice2);
@@ -266,14 +459,16 @@ public class Controller {
         }
         gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
         int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
-        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound);
         if(playerMovement != playerPosition){
             movePawnToStart(gameEngine.getPlayerTurn());
             movePawn(playerMovement, gameEngine.getPlayerTurn());
         }else{
             movePawn(n, gameEngine.getPlayerTurn());
         }
-        gameEngine.houseFieldValidation(gameEngine.getPlayerTurn());
+        gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+        gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+        gameEngine.setLoseCondition(gameEngine.getPlayerTurn());
         updateBalance();
     }
 
@@ -369,7 +564,7 @@ public class Controller {
         }
     }
 
-    private void createArray() {
+    private void createFieldsArray() {
         Fields.add(Field1);
         Fields.add(Field2);
         Fields.add(Field3);
@@ -410,5 +605,48 @@ public class Controller {
         Fields.add(Field38);
         Fields.add(Field39);
         Fields.add(Field40);
+    }
+
+    private void createBuildingsArray() {
+        Buildings.add(building1);
+        Buildings.add(building2);
+        Buildings.add(building3);
+        Buildings.add(building4);
+        Buildings.add(building5);
+        Buildings.add(building6);
+        Buildings.add(building7);
+        Buildings.add(building8);
+        Buildings.add(building9);
+        Buildings.add(building10);
+        Buildings.add(building11);
+        Buildings.add(building12);
+        Buildings.add(building13);
+        Buildings.add(building14);
+        Buildings.add(building15);
+        Buildings.add(building16);
+        Buildings.add(building17);
+        Buildings.add(building18);
+        Buildings.add(building19);
+        Buildings.add(building20);
+        Buildings.add(building21);
+        Buildings.add(building22);
+        Buildings.add(building23);
+        Buildings.add(building24);
+        Buildings.add(building25);
+        Buildings.add(building26);
+        Buildings.add(building27);
+        Buildings.add(building28);
+        Buildings.add(building29);
+        Buildings.add(building30);
+        Buildings.add(building31);
+        Buildings.add(building32);
+        Buildings.add(building33);
+        Buildings.add(building34);
+        Buildings.add(building35);
+        Buildings.add(building36);
+        Buildings.add(building37);
+        Buildings.add(building38);
+        Buildings.add(building39);
+        Buildings.add(building40);
     }
 }

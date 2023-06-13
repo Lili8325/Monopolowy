@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: #78b1b6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
+<BorderPane prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: #78b1b6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
    <left>
-      <Pane fx:id="boardPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1016.0" prefWidth="1242.0" BorderPane.alignment="CENTER">
+      <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1016.0" prefWidth="1242.0" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="1016.0" fitWidth="1242.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -39,63 +40,344 @@
                   <Image url="@../../../images/pawn4.png" />
                </image>
             </ImageView>
-            <Pane fx:id="Field1" layoutX="1042.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0" />
-            <Pane fx:id="Field2" layoutX="957.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field3" layoutX="873.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field4" layoutX="789.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field5" layoutX="705.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field6" layoutX="621.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field7" layoutX="537.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field8" layoutX="453.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field9" layoutX="369.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field10" layoutX="285.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field11" layoutX="201.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field12" layoutX="55.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0" />
-            <Pane fx:id="Field13" layoutX="55.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field14" layoutX="55.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field15" layoutX="55.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field16" layoutX="55.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field17" layoutX="55.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field18" layoutX="55.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field19" layoutX="55.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field20" layoutX="55.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field21" layoutX="55.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0" />
-            <Pane fx:id="Field22" layoutX="201.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field23" layoutX="285.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field24" layoutX="369.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field25" layoutX="453.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field26" layoutX="537.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field27" layoutX="621.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field28" layoutX="705.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field29" layoutX="789.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field30" layoutX="873.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field31" layoutX="957.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0" />
-            <Pane fx:id="Field32" layoutX="1041.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0" />
-            <Pane fx:id="Field33" layoutX="1041.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field34" layoutX="1041.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field35" layoutX="1041.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field36" layoutX="1041.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field37" layoutX="1041.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field38" layoutX="1041.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field39" layoutX="1041.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0" />
-            <Pane fx:id="Field40" layoutX="1041.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0" />
+            <Pane fx:id="Field1" layoutX="1042.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building1" fitHeight="30.0" fitWidth="31.0" layoutX="55.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field2" layoutX="957.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building2" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="1.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field3" layoutX="873.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building3" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="1.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field4" layoutX="789.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building4" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="1.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field5" layoutX="705.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building5" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="1.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field6" layoutX="621.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building6" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="1.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field7" layoutX="537.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building7" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="1.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field8" layoutX="453.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building8" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="1.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field9" layoutX="369.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building9" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="1.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field10" layoutX="285.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building10" fitHeight="30.0" fitWidth="31.0" layoutX="27.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field11" layoutX="201.0" layoutY="846.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building11" fitHeight="30.0" fitWidth="31.0" layoutX="24.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field12" layoutX="55.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building12" fitHeight="30.0" fitWidth="31.0" layoutX="57.0" layoutY="5.0" opacity="0.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field13" layoutX="55.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building13" fitHeight="30.0" fitWidth="31.0" layoutX="116.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field14" layoutX="55.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building14" fitHeight="30.0" fitWidth="31.0" layoutX="116.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field15" layoutX="55.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building15" fitHeight="30.0" fitWidth="31.0" layoutX="116.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field16" layoutX="55.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building16" fitHeight="30.0" fitWidth="31.0" layoutX="116.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field17" layoutX="55.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building17" fitHeight="30.0" fitWidth="31.0" layoutX="115.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field18" layoutX="55.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building18" fitHeight="30.0" fitWidth="31.0" layoutX="116.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field19" layoutX="55.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building19" fitHeight="30.0" fitWidth="31.0" layoutX="116.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field20" layoutX="55.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building20" fitHeight="30.0" fitWidth="31.0" layoutX="116.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field21" layoutX="55.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building21" fitHeight="30.0" fitWidth="31.0" layoutX="59.0" layoutY="119.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field22" layoutX="201.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building22" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="119.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field23" layoutX="285.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building23" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field24" layoutX="369.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building24" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field25" layoutX="453.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building25" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field26" layoutX="537.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building26" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field27" layoutX="621.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building27" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field28" layoutX="705.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building28" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field29" layoutX="789.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building29" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field30" layoutX="873.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building30" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field31" layoutX="957.0" layoutY="26.0" prefHeight="145.0" prefWidth="83.0">
+               <children>
+                  <ImageView fx:id="building31" fitHeight="30.0" fitWidth="31.0" layoutX="26.0" layoutY="118.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field32" layoutX="1041.0" layoutY="26.0" prefHeight="145.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building32" fitHeight="30.0" fitWidth="31.0" layoutX="53.0" layoutY="119.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field33" layoutX="1041.0" layoutY="172.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building33" fitHeight="30.0" fitWidth="31.0" layoutX="-1.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field34" layoutX="1041.0" layoutY="256.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building34" fitHeight="30.0" fitWidth="31.0" layoutX="-1.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field35" layoutX="1041.0" layoutY="340.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building35" fitHeight="30.0" fitWidth="31.0" layoutX="-1.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field36" layoutX="1041.0" layoutY="424.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building36" fitHeight="30.0" fitWidth="31.0" layoutX="-1.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field37" layoutX="1041.0" layoutY="508.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building37" fitHeight="30.0" fitWidth="31.0" layoutX="-1.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field38" layoutX="1041.0" layoutY="592.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building38" fitHeight="30.0" fitWidth="31.0" layoutX="-1.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field39" layoutX="1041.0" layoutY="677.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building39" fitHeight="30.0" fitWidth="31.0" layoutX="-1.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <Pane fx:id="Field40" layoutX="1041.0" layoutY="761.0" prefHeight="83.0" prefWidth="145.0">
+               <children>
+                  <ImageView fx:id="building40" fitHeight="30.0" fitWidth="31.0" layoutX="-1.0" layoutY="29.0" opacity="0.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                     <image>
+                        <Image url="@../../../images/building.png" />
+                     </image>
+                  </ImageView>
+               </children></Pane>
+            <ImageView fx:id="eventCard" fitHeight="407.0" fitWidth="275.0" layoutX="483.0" layoutY="305.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </left>
-   <right>
+   <center>
       <Pane prefHeight="1016.0" prefWidth="678.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buyButton" layoutX="65.0" layoutY="542.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Buy" />
-            <Button fx:id="endButton" layoutX="431.0" layoutY="902.0" mnemonicParsing="false" onAction="#handleEndButton" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="End turn" />
+            <Button fx:id="buyButton" disable="true" layoutX="26.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Buy" />
+            <Button fx:id="endButton" disable="true" layoutX="431.0" layoutY="902.0" mnemonicParsing="false" onAction="#handleEndButton" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="End turn" />
             <Button fx:id="rollButton" layoutX="168.0" layoutY="903.0" mnemonicParsing="false" onAction="#roll" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Roll" />
             <Pane fx:id="Player1Pane" layoutX="31.0" layoutY="26.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: #B3E8AC;">
                <children>
-                  <ImageView fx:id="Player1Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/pawn1.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Player1Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 1">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 1">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -112,12 +394,12 @@
             </Pane>
             <Pane fx:id="Player2Pane" layoutX="355.0" layoutY="26.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
                <children>
-                  <ImageView fx:id="Player2Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/pawn2.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Player2Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 2">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 2">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -134,12 +416,12 @@
             </Pane>
             <Pane fx:id="Player3Pane" layoutX="31.0" layoutY="214.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
                <children>
-                  <ImageView fx:id="Player3Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/pawn3.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Player3Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 3">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 3">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -156,12 +438,12 @@
             </Pane>
             <Pane fx:id="Player4Pane" layoutX="355.0" layoutY="214.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: black; -fx-background-color: #D1EBE3;">
                <children>
-                  <ImageView fx:id="Player4Image" fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/pawn4.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="Player4Name" layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 4">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 4">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -181,13 +463,15 @@
                   <Image url="@../../../images/dice5.png" />
                </image>
             </ImageView>
-            <Button fx:id="buildButton" layoutX="393.0" layoutY="542.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Build" />
-            <TextField fx:id="messageBox" alignment="CENTER" editable="false" layoutX="92.0" layoutY="410.0" prefHeight="98.0" prefWidth="494.0" text="Tura gracza 1">
+            <Button fx:id="buildButton" disable="true" layoutX="453.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleBuildButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Build" />
+            <TextArea fx:id="messageBox" editable="false" layoutX="91.0" layoutY="405.0" prefHeight="110.0" prefWidth="500.0" styleClass="text-area" stylesheets="@Styles.css" text="Tura gracza 1" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font>
-            </TextField>
+            </TextArea>
+            <Button fx:id="sellButton" disable="true" layoutX="241.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleSellButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Sell" />
+            <Button fx:id="quickRelese" disable="true" layoutX="33.0" layoutY="783.0" mnemonicParsing="false" onAction="#quickReleaseButton" opacity="0.0" prefHeight="65.0" prefWidth="100.0" styleClass="buttons" stylesheets="@Styles.css" text="Quick release" textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>
-   </right>
+   </center>
 </BorderPane>

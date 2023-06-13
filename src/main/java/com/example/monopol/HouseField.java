@@ -4,6 +4,7 @@ public class HouseField extends Field{
     private int oneBuildingCost;
     private int stayingCost;
     private int belongToPlayerNumber;
+    private boolean houseBuilt;
 
     public HouseField(String fieldName, int defaultCost, int oneBuildingCost, int stayingCost){
         this.fieldName = fieldName;
@@ -13,6 +14,7 @@ public class HouseField extends Field{
         this.stayingCost = stayingCost;
         this.belongToPlayerNumber = -1;
         this.fieldType = FieldTypes.HOUSEFIELD;
+        this.houseBuilt = false;
     }
 
     public void setBelongToPlayerNumber(int playerNumber){
@@ -29,6 +31,17 @@ public class HouseField extends Field{
 
     public int getStayingCost() {
         return stayingCost;
+    }
+
+    public int getOneBuildingCost(){
+        return oneBuildingCost;
+    }
+
+    public void setHouseBuilt(boolean val){
+        this.houseBuilt = val;
+    }
+    public boolean getHouseBuilt(){
+        return houseBuilt;
     }
 }
 

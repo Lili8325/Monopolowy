@@ -1,8 +1,10 @@
 package com.example.monopol;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.TreeMap;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -42,23 +44,58 @@ public class GameEngine {
         }
     }
 
-    public int eventFieldValidation(int playerNumber, TextField messageBox){
+    public int eventFieldValidation(int playerNumber, TextArea messageBox, ImageView eventCard, Media media){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.EVENTFIELD){
-            return executeEventCard(playerNumber, messageBox);
+            MediaPlayer mediaPlayerEventCard = new MediaPlayer(media);
+            mediaPlayerEventCard.setVolume(0.3);
+            mediaPlayerEventCard.play();
+            return executeEventCard(playerNumber, messageBox, eventCard);
         }
         return player.getFieldNumber();
     }
 
-    public void houseFieldValidation(int playerNumber){
+    public void houseFieldValidation(int playerNumber, TextArea messageBox){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.HOUSEFIELD){
-            int fieldOwner = board.getFieldOwner(playerNumber);
+            messageBox.setText("Field: " + getFieldName(playerNumber) + "\nField cost: " +
+                    board.getFieldPrice(player.getFieldNumber()) + "\nBuilding cost: " +
+                    board.getBuildingCost(player.getFieldNumber()) + "\nStaying cost: " +
+                    board.getStayingCost(player.getFieldNumber()));
+            int fieldOwner = board.getFieldOwner(player.getFieldNumber());
             if(fieldOwner == playerNumber || fieldOwner == -1) return;
             editPlayerBalance(playerNumber, -board.getStayingCost(player.getFieldNumber()));
             editPlayerBalance(fieldOwner, board.getStayingCost(player.getFieldNumber()));
+            if(board.isBuilt(player.getFieldNumber())){
+                editPlayerBalance(playerNumber, -board.getBuildingCost(player.getFieldNumber()));
+                editPlayerBalance(fieldOwner, board.getBuildingCost(player.getFieldNumber()));
+            }
+        }
+    }
+    public void specialFieldValidation(int playerNumber, TextArea messageBox){
+        Player player = players.get(playerNumber);
+        int playerFieldNumber = player.getFieldNumber();
+        Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
+        if(fieldType == FieldTypes.SPECIALFIELD){
+            Event event = board.getFieldEvent(playerFieldNumber);
+            if(event == null) return;
+            Enum <EventType> type = event.getEventType();
+            messageBox.setText(event.getName());
+            if(type == EventType.MOVEEVENT){
+                if(event.getDeltaFieldIndex() != 0){
+                    player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());
+                }else{
+                    player.setFieldNumber(event.getFieldIndex());
+                }
+            } else if (type == EventType.PAYEVENT) {
+                editPlayerBalance(playerNumber, -event.getToPay());
+            }else if (type == EventType.TURNEVENT) {
+                setPlayerSkipTurns(playerNumber, event.getTurnSkipAmount());
+            }else if(type == EventType.QUICKRELESEEVENT){
+                player.setQuickRelese(true);
+            }
         }
     }
 
@@ -95,14 +132,55 @@ public class GameEngine {
         return "Can't buy field: " + board.getFieldName(playerFieldNumber);
     }
 
+    public String buildHouse(int builderPlayerNumber){
+        Player player = players.get(builderPlayerNumber);
+        int playerFieldNumber = player.getFieldNumber();
+        int buildingCost = board.getBuildingCost(playerFieldNumber);
+
+        if(builderPlayerNumber != board.getFieldOwner(playerFieldNumber) || buildingCost == -1){
+            return "Nie można tutaj nic wybudować!!";
+        }
+        if(player.getPlayerBalance() < board.getBuildingCost(playerFieldNumber)){
+            return "Not enought money to buy field!";
+        }
+        editPlayerBalance(builderPlayerNumber, -board.getBuildingCost(playerFieldNumber));
+        board.setBuilding(playerFieldNumber);
+
+        return "Posiadłość została wybudowana na polu " + board.getFieldName(player.getFieldNumber());
+    }
+
+    public String sellField(int selerPlayerNumber){
+        Player player = players.get(selerPlayerNumber);
+        int playerFieldNumber = player.getFieldNumber();
+
+        int fieldOwnerNumber = board.getFieldOwner(playerFieldNumber);
+        if(fieldOwnerNumber == selerPlayerNumber){
+            board.clearBuilding(playerFieldNumber);
+            board.setFieldOwner(playerFieldNumber, -1);
+            player.removeFieldCard(playerFieldNumber);
+            editPlayerBalance(selerPlayerNumber, board.getFieldPrice(playerFieldNumber) + board.getBuildingCost(playerFieldNumber));
+            return "Sprzedano pole " + board.getFieldName(playerFieldNumber);
+        }
+        return "Nie można sprzedać pola " + board.getFieldName(playerFieldNumber);
+    }
+
     public String getFieldName(int playerNumber){
         Player player = players.get(playerNumber);
         return board.getFieldName(player.getFieldNumber());
     }
 
+    public boolean isBuilt(int fieldIndex){
+        return board.isBuilt(fieldIndex);
+    }
+
     public int getPlayerBalance(int playerNumber){
         Player player = players.get(playerNumber);
         return player.getPlayerBalance();
+    }
+
+    public int getPlayerSkipTurn(int playerNumber){
+        Player player = players.get(playerNumber);
+        return player.getTurnsToSkip();
     }
 
     public ArrayList<Integer> getFieldBelongings(int playerNumber) {
@@ -115,11 +193,12 @@ public class GameEngine {
         return player.getFieldNumber();
     }
 
-    public int executeEventCard(int playerNumber, TextField messageBox){
+    public int executeEventCard(int playerNumber, TextArea messageBox, ImageView eventCard){
         Player player = players.get(playerNumber);
         Event event = board.drawEventCard();
         Enum<EventType> type = event.getEventType();
         messageBox.setText(event.getName());
+        eventCard.setImage(event.getEventCardImage());
         if(type == EventType.MOVEEVENT){
             if(event.getDeltaFieldIndex() != 0){
                 player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());
@@ -131,15 +210,41 @@ public class GameEngine {
         } else if (type == EventType.PAYEVENT) {
             editPlayerBalance(playerNumber, -event.getToPay());
         }else if (type == EventType.TURNEVENT) {
-            //todo placeholder
+            setPlayerSkipTurns(playerNumber, event.getTurnSkipAmount());
+        }else if(type == EventType.QUICKRELESEEVENT){
+            player.setQuickRelese(true);
         }
         return player.getFieldNumber();
     }
 
-//    public static void main(String[] args) {
-//        GameEngine tmp = new GameEngine(4);
-//        tmp.movePlayer(1, 1);
-//        System.out.println(tmp.buyField(1));
-//    }
+    public boolean checkIfSkipTurn(int playerNumber){
+        Player player = players.get(playerNumber);
+        if(player.getTurnsToSkip() == 0) return false;
+        player.setTurnsToSkip(player.getTurnsToSkip() - 1);
+        return true;
+    }
 
+    public void setPlayerSkipTurns(int playerNumber, int skipTurns){
+        Player player = players.get(playerNumber);
+        player.setTurnsToSkip(skipTurns);
+        if(skipTurns == 0){
+            player.setQuickRelese(false);
+        }
+    }
+
+    public boolean hasPlayerQuickRelese(int playerNumber){
+        Player player = players.get(playerNumber);
+        return player.isQuickRelese();
+    }
+
+    public void setLoseCondition(int playerNumber){
+        Player player = players.get(playerNumber);
+        if(player.getPlayerBalance() <= 0){
+            player.setGameOver(true);
+        }
+    }
+    public boolean checkPlayerLoseCondition(int playerNumber){
+        Player player = players.get(playerNumber);
+        return player.getGameOver();
+    }
 }
