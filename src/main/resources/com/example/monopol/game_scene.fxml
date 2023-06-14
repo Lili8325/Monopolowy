@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: #78b1b6;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
+<BorderPane prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: #78b1b6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
    <left>
       <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1016.0" prefWidth="1242.0" BorderPane.alignment="CENTER">
          <children>
@@ -367,7 +367,7 @@
    <center>
       <Pane prefHeight="1016.0" prefWidth="678.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buyButton" disable="true" layoutX="26.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Buy" />
+            <Button fx:id="buyButton" disable="true" layoutX="26.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Buy" />
             <Button fx:id="endButton" disable="true" layoutX="431.0" layoutY="902.0" mnemonicParsing="false" onAction="#handleEndButton" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="End turn" />
             <Button fx:id="rollButton" layoutX="168.0" layoutY="903.0" mnemonicParsing="false" onAction="#roll" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Roll" />
             <Pane fx:id="Player1Pane" layoutX="31.0" layoutY="26.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: #B3E8AC;">
@@ -379,12 +379,12 @@
                   </ImageView>
                   <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 1">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="28.0" />
                      </font>
                   </Label>
                   <TextField fx:id="Player1Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="22.0" />
                      </font>
                   </TextField>
                   <ImageView fx:id="quickReleaseSymbol1" fitHeight="30.0" fitWidth="30.0" layoutX="118.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
@@ -402,12 +402,12 @@
                   </ImageView>
                   <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 2">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="28.0" />
                      </font>
                   </Label>
                   <TextField fx:id="Player2Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="22.0" />
                      </font>
                   </TextField>
                   <ImageView fx:id="quickReleaseSymbol2" fitHeight="30.0" fitWidth="30.0" layoutX="118.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
@@ -425,12 +425,12 @@
                   </ImageView>
                   <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 3">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="28.0" />
                      </font>
                   </Label>
                   <TextField fx:id="Player3Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="22.0" />
                      </font>
                   </TextField>
                   <ImageView fx:id="quickReleaseSymbol3" fitHeight="30.0" fitWidth="30.0" layoutX="118.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
@@ -448,12 +448,12 @@
                   </ImageView>
                   <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 4">
                      <font>
-                        <Font size="24.0" />
+                        <Font size="28.0" />
                      </font>
                   </Label>
                   <TextField fx:id="Player4Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="22.0" />
                      </font>
                   </TextField>
                   <ImageView fx:id="quickReleaseSymbol4" fitHeight="30.0" fitWidth="30.0" layoutX="118.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
@@ -467,13 +467,13 @@
                   <Image url="@../../../images/dice5.png" />
                </image>
             </ImageView>
-            <Button fx:id="buildButton" disable="true" layoutX="453.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleBuildButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Build" />
-            <TextArea fx:id="messageBox" editable="false" layoutX="91.0" layoutY="405.0" prefHeight="110.0" prefWidth="500.0" styleClass="text-area" stylesheets="@Styles.css" text="Tura gracza 1" wrapText="true">
+            <Button fx:id="buildButton" disable="true" layoutX="453.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleBuildButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Build" />
+            <TextArea fx:id="messageBox" editable="false" layoutX="91.0" layoutY="405.0" prefHeight="135.0" prefWidth="500.0" stylesheets="@Styles.css" text="Tura gracza 1" wrapText="true">
                <font>
-                  <Font size="16.0" />
+                  <Font size="20.0" />
                </font>
             </TextArea>
-            <Button fx:id="sellButton" disable="true" layoutX="241.0" layoutY="543.0" mnemonicParsing="false" onAction="#handleSellButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Sell" />
+            <Button fx:id="sellButton" disable="true" layoutX="241.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSellButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Sell" />
             <Button fx:id="quickRelese" disable="true" layoutX="33.0" layoutY="783.0" mnemonicParsing="false" onAction="#quickReleaseButton" opacity="0.0" prefHeight="65.0" prefWidth="100.0" styleClass="buttons" stylesheets="@Styles.css" text="Quick release" textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>

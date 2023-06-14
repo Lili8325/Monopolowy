@@ -9,7 +9,7 @@
             radial-gradient(center 50% 50%, radius 100%,  rgb(99, 230, 189), rgb(47, 189, 144));
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
     -fx-font-weight: bold;
-    -fx-font-size: 1.1em;
+    -fx-font-size: 1.8em;
 }
 .buttons:hover {
     -fx-background-color:
@@ -22,11 +22,6 @@
     -fx-padding: 10 15 13 15;
     -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
 }
-.buttons Text {
-    -fx-fill: white;
-    -fx-effect: dropshadow( gaussian , rgb(0, 128, 87) , 0,0,0,2 );
-}
-
 .menu-Buttons {
     -fx-padding: 8 15 15 15;
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
@@ -56,14 +51,38 @@
     -fx-effect: dropshadow( gaussian , rgb(0, 128, 87) , 0,0,0,2 );
 }
 
+.text-area {
+    -fx-font-family: Verdana;
+    -fx-border-color: black;
+    -fx-border-radius: 4px;
+    -fx-border-insets: 6.5px;
+    -fx-background-color: #598BA3;
+}
+.text-area .content {
+    -fx-background-color: #F5F5F5;
+}
 .text-area .text {
     -fx-text-alignment: center;
 }
-
-.diff .content {
+.rules {
     -fx-background-color: #b7eff4;
 }
-
-.diff .text {
+.rules .content {
+    -fx-background-color: #b7eff4;
+}
+.rules .text {
     -fx-text-alignment: left;
+}
+
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+.scroll-bar:vertical .track{
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-border-color: transparent;
+    -fx-background-radius: 5em;
+}
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
 }

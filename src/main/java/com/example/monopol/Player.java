@@ -13,7 +13,7 @@ public class Player {
 
     public Player(int playerNumber) {
         this.playerNumber = playerNumber;
-        this.playerBalance = 300;
+        this.playerBalance = 2000;
         this.fieldNumber = 0;
         this.turnsToSkip = 0;
         this.fieldBelongings = new ArrayList<>();
