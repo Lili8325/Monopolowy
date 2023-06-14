@@ -89,6 +89,20 @@ public class Controller {
     private TextField Player4Balance;
 
     @FXML
+    private Image quickReleaseSymbol = new Image("file:src/main/resources/images/quickRelease.png");
+
+    private ArrayList<ImageView> quickReleaseSymbols = new ArrayList<>();
+
+    @FXML
+    private ImageView quickReleaseSymbol1;
+    @FXML
+    private ImageView quickReleaseSymbol2;
+    @FXML
+    private ImageView quickReleaseSymbol3;
+    @FXML
+    private ImageView quickReleaseSymbol4;
+
+    @FXML
     private TextArea messageBox;
 
     private ArrayList<Pane> Fields = new ArrayList<>();
@@ -347,6 +361,7 @@ public class Controller {
         MediaPlayer mediaPlayer1 = new MediaPlayer(quickReleseSound);
         mediaPlayer1.setVolume(0.3);
         mediaPlayer1.play();
+        clearQuickReleaseSymbol(gameEngine.getPlayerTurn());
     }
 
     private void updateBalance() {
@@ -443,6 +458,7 @@ public class Controller {
         if(!arrayCreated) {
             createFieldsArray();
             createBuildingsArray();
+            createQuickReleaseArray();
             arrayCreated = true;
         }
 
@@ -469,7 +485,18 @@ public class Controller {
         gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox, Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())));
         gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
         gameEngine.setLoseCondition(gameEngine.getPlayerTurn());
+        setQuickReleseSymbol(gameEngine.getPlayerTurn());
         updateBalance();
+    }
+
+    public void setQuickReleseSymbol(int playerNumber) {
+        if(gameEngine.hasPlayerQuickRelese(playerNumber)) {
+            quickReleaseSymbols.get(playerNumber-1).setImage(quickReleaseSymbol);
+        }
+    }
+
+    public void clearQuickReleaseSymbol(int playerNumber) {
+        quickReleaseSymbols.get(playerNumber-1).setImage(null);
     }
 
     public void movePawnToStart(int playerNumber) {
@@ -649,5 +676,12 @@ public class Controller {
         Buildings.add(building38);
         Buildings.add(building39);
         Buildings.add(building40);
+    }
+
+    private void createQuickReleaseArray() {
+        quickReleaseSymbols.add(quickReleaseSymbol1);
+        quickReleaseSymbols.add(quickReleaseSymbol2);
+        quickReleaseSymbols.add(quickReleaseSymbol3);
+        quickReleaseSymbols.add(quickReleaseSymbol4);
     }
 }

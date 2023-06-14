@@ -387,6 +387,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
+                  <ImageView fx:id="quickReleaseSymbol1" fitHeight="30.0" fitWidth="30.0" layoutX="118.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                <padding>
                   <Insets left="30.0" />
@@ -409,6 +410,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
+                  <ImageView fx:id="quickReleaseSymbol2" fitHeight="30.0" fitWidth="30.0" layoutX="118.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                <padding>
                   <Insets right="30.0" />
@@ -431,6 +433,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
+                  <ImageView fx:id="quickReleaseSymbol3" fitHeight="30.0" fitWidth="30.0" layoutX="118.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                <padding>
                   <Insets left="30.0" />
@@ -453,6 +456,7 @@
                         <Font size="18.0" />
                      </font>
                   </TextField>
+                  <ImageView fx:id="quickReleaseSymbol4" fitHeight="30.0" fitWidth="30.0" layoutX="118.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
                </children>
                <padding>
                   <Insets right="30.0" />
