@@ -1,6 +1,7 @@
 package com.example.monopol;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -56,7 +57,7 @@ public class GameEngine {
         return player.getFieldNumber();
     }
 
-    public void houseFieldValidation(int playerNumber, TextArea messageBox){
+    public void houseFieldValidation(int playerNumber, TextArea messageBox, Pane fieldPane){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.HOUSEFIELD){
@@ -66,11 +67,29 @@ public class GameEngine {
                     board.getStayingCost(player.getFieldNumber()));
             int fieldOwner = board.getFieldOwner(player.getFieldNumber());
             if(fieldOwner == playerNumber || fieldOwner == -1) return;
+            highlightField(fieldOwner, fieldPane);
             editPlayerBalance(playerNumber, -board.getStayingCost(player.getFieldNumber()));
             editPlayerBalance(fieldOwner, board.getStayingCost(player.getFieldNumber()));
             if(board.isBuilt(player.getFieldNumber())){
                 editPlayerBalance(playerNumber, -board.getBuildingCost(player.getFieldNumber()));
                 editPlayerBalance(fieldOwner, board.getBuildingCost(player.getFieldNumber()));
+            }
+        }
+    }
+
+    public void highlightField(int playerNumber, Pane fieldPane) {
+        switch(playerNumber) {
+            case 1 -> {
+                fieldPane.setStyle("-fx-background-color: rgba(0,23,255,0.3); -fx-border-color: #0017ff; -fx-border-width: 4px;");
+            }
+            case 2 -> {
+                fieldPane.setStyle("-fx-background-color: rgba(255,24,24,0.3); -fx-border-color: #ff1818; -fx-border-width: 4px;");
+            }
+            case 3 -> {
+                fieldPane.setStyle("-fx-background-color: rgba(4,251,4,0.3); -fx-border-color: #04fb04; -fx-border-width: 4px;");
+            }
+            case 4 -> {
+                fieldPane.setStyle("-fx-background-color: rgba(255, 255, 0, 0.3); -fx-border-color: yellow; -fx-border-width: 4px;");
             }
         }
     }

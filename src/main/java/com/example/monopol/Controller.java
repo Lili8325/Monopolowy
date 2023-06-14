@@ -466,7 +466,7 @@ public class Controller {
         }else{
             movePawn(n, gameEngine.getPlayerTurn());
         }
-        gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+        gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox, Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())));
         gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
         gameEngine.setLoseCondition(gameEngine.getPlayerTurn());
         updateBalance();
@@ -562,6 +562,7 @@ public class Controller {
         for (Integer fieldNumber: fieldBelongings) {
             Fields.get(fieldNumber).setStyle("");
         }
+        Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
     }
 
     private void createFieldsArray() {
