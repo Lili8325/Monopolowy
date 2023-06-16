@@ -53,6 +53,7 @@ public class Controller {
     private Button rollButton;
     @FXML
     private Button sellButton;
+
     @FXML
     private Button quickRelese;
     @FXML
@@ -270,59 +271,22 @@ public class Controller {
     @FXML
     private ImageView building40;
 
+    Image dice1 = new Image("file:src/main/resources/images/dices/dice1.png");
+    Image dice2 = new Image("file:src/main/resources/images/dices/dice2.png");
+    Image dice3 = new Image("file:src/main/resources/images/dices/dice3.png");
+    Image dice4 = new Image("file:src/main/resources/images/dices/dice4.png");
+    Image dice5 = new Image("file:src/main/resources/images/dices/dice5.png");
+    Image dice6 = new Image("file:src/main/resources/images/dices/dice6.png");
 
-
-    Image dice1 = new Image("file:src/main/resources/images/dice1.png");
-    Image dice2 = new Image("file:src/main/resources/images/dice2.png");
-    Image dice3 = new Image("file:src/main/resources/images/dice3.png");
-    Image dice4 = new Image("file:src/main/resources/images/dice4.png");
-    Image dice5 = new Image("file:src/main/resources/images/dice5.png");
-    Image dice6 = new Image("file:src/main/resources/images/dice6.png");
-
-
-    Media ost = new Media(new File("src/main/resources/NecoArcDilemma.mp3").toURI().toString());
     Media eventCardSound = new Media(new File("src/main/resources/Gorenje.mp3").toURI().toString());
     Media quickReleseSound = new Media(new File("src/main/resources/Persona.mp3").toURI().toString());
-    MediaPlayer mediaPlayer = new MediaPlayer(ost);
-
-//    MediaPlayer mediaPlayerEventCard = new MediaPlayer(eventCardSound);
-
-
-    public void switchToGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("game_scene.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        mediaPlayer.setOnEndOfMedia(new Runnable() {
-            public void run() {
-                mediaPlayer.seek(Duration.ZERO);
-            }
-        });
-        mediaPlayer.setVolume(0.30);
-        mediaPlayer.play();
-    }
-
-    public void switchToRules(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("rules_scene.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     public void switchToStart(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        root = FXMLLoader.load(getClass().getResource("start_scene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void exitGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("start.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.close();
     }
 
     @FXML
@@ -335,7 +299,6 @@ public class Controller {
     private void handleSellButton(ActionEvent event) {
         messageBox.setText(gameEngine.sellField(gameEngine.getPlayerTurn()));
         updateBalance();
-//        showFieldBelongings();
         Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
         Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(0);
     }
@@ -346,7 +309,6 @@ public class Controller {
         if(gameEngine.isBuilt(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()))) {
             Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(1);
         }
-//        showFieldBelongings();
     }
     @FXML
     private void quickReleaseButton(ActionEvent event) {
@@ -454,13 +416,6 @@ public class Controller {
         buildButton.setDisable(false);
         buyButton.setDisable(false);
         sellButton.setDisable(false);
-
-        if(!arrayCreated) {
-            createFieldsArray();
-            createBuildingsArray();
-            createQuickReleaseArray();
-            arrayCreated = true;
-        }
 
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
@@ -592,7 +547,7 @@ public class Controller {
         Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
     }
 
-    private void createFieldsArray() {
+    void createFieldsArray() {
         Fields.add(Field1);
         Fields.add(Field2);
         Fields.add(Field3);
@@ -635,7 +590,7 @@ public class Controller {
         Fields.add(Field40);
     }
 
-    private void createBuildingsArray() {
+    void createBuildingsArray() {
         Buildings.add(building1);
         Buildings.add(building2);
         Buildings.add(building3);
@@ -678,7 +633,7 @@ public class Controller {
         Buildings.add(building40);
     }
 
-    private void createQuickReleaseArray() {
+    void createQuickReleaseArray() {
         quickReleaseSymbols.add(quickReleaseSymbol1);
         quickReleaseSymbols.add(quickReleaseSymbol2);
         quickReleaseSymbols.add(quickReleaseSymbol3);

@@ -22,22 +22,22 @@
             </ImageView>
             <ImageView fx:id="Player1Pawn" fitHeight="72.0" fitWidth="24.0" layoutX="1050.0" layoutY="880.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pawn1.png" />
+                  <Image url="@../../../images/pawns/pawn1.png" />
                </image>
             </ImageView>
             <ImageView fx:id="Player2Pawn" fitHeight="72.0" fitWidth="24.0" layoutX="1090.0" layoutY="880.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pawn2.png" />
+                  <Image url="@../../../images/pawns/pawn2.png" />
                </image>
             </ImageView>
             <ImageView fx:id="Player3Pawn" fitHeight="72.0" fitWidth="24.0" layoutX="1050.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pawn3.png" />
+                  <Image url="@../../../images/pawns/pawn3.png" />
                </image>
             </ImageView>
             <ImageView fx:id="Player4Pawn" fitHeight="72.0" fitWidth="24.0" layoutX="1090.0" layoutY="930.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/pawn4.png" />
+                  <Image url="@../../../images/pawns/pawn4.png" />
                </image>
             </ImageView>
             <Pane fx:id="Field1" layoutX="1042.0" layoutY="846.0" prefHeight="145.0" prefWidth="145.0">
