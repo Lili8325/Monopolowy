@@ -15,7 +15,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -38,11 +37,12 @@ public class Controller {
 
     GameEngine gameEngine = new GameEngine(4);
 
-    private boolean arrayCreated = false;
-
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    boolean soundsOn;
+
     @FXML
     private Button buyButton;
     @FXML
@@ -69,7 +69,6 @@ public class Controller {
     private Pane Player3Pane;
     @FXML
     private Pane Player4Pane;
-
 
     @FXML
     private ImageView Player1Pawn;
@@ -320,9 +319,13 @@ public class Controller {
         buildButton.setDisable(false);
         quickRelese.setOpacity(0);
         quickRelese.setDisable(true);
-        MediaPlayer mediaPlayer1 = new MediaPlayer(quickReleseSound);
-        mediaPlayer1.setVolume(0.3);
-        mediaPlayer1.play();
+
+        if(soundsOn) {
+            MediaPlayer mediaPlayer1 = new MediaPlayer(quickReleseSound);
+            mediaPlayer1.setVolume(0.3);
+            mediaPlayer1.play();
+        }
+
         clearQuickReleaseSymbol(gameEngine.getPlayerTurn());
     }
 
@@ -430,7 +433,7 @@ public class Controller {
         }
         gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
         int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
-        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound);
+        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound, soundsOn);
         if(playerMovement != playerPosition){
             movePawnToStart(gameEngine.getPlayerTurn());
             movePawn(playerMovement, gameEngine.getPlayerTurn());

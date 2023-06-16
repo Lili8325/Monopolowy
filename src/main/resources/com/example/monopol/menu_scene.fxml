@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: #78b1b6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.MenuController">
+   <children>
+      <ImageView fitHeight="1020.0" fitWidth="1020.0" layoutX="450.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/zasady.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="maxBalanceTextField" layoutX="752.0" layoutY="248.0" prefHeight="89.0" prefWidth="416.0">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </TextField>
+      <Label layoutX="752.0" layoutY="192.0" prefHeight="46.0" prefWidth="256.0" text="Maksymalne saldo:">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Label>
+      <CheckBox fx:id="musicCheckBox" layoutX="752.0" layoutY="364.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="335.0" text="Muzyka">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="soundsCheckBox" layoutX="752.0" layoutY="450.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="335.0" text="Dźwięki">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </CheckBox>
+      <Button layoutX="800.0" layoutY="602.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="90.0" prefWidth="320.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Graj">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
+      <Button layoutX="800.0" layoutY="734.0" mnemonicParsing="false" onAction="#switchToStart" prefHeight="90.0" prefWidth="320.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Powrót">
+         <font>
+            <Font size="28.0" />
+         </font>
+      </Button>
+      <Label fx:id="notification" layoutX="752.0" layoutY="337.0" opacity="0.0" style="-fx-text-fill: red;" text="Pole musi być uzupełnione">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

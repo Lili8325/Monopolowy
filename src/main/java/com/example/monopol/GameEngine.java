@@ -16,6 +16,7 @@ public class GameEngine {
     private TreeMap<Integer, Player> players;
     private int playerNumber = 0;
     private int playerTurn = 1;
+    private int maxBalance;
 
     public GameEngine(int playerAmount){
         this.board = new Board();
@@ -26,6 +27,9 @@ public class GameEngine {
             Player newPlayer = new Player(playerNumber);
             players.put(playerNumber, newPlayer);
         }
+    }
+    public void setMaxBalance(int maxBalance) {
+        this.maxBalance = maxBalance;
     }
     public int getPlayerTurn() {
         return playerTurn;
@@ -45,13 +49,15 @@ public class GameEngine {
         }
     }
 
-    public int eventFieldValidation(int playerNumber, TextArea messageBox, ImageView eventCard, Media media){
+    public int eventFieldValidation(int playerNumber, TextArea messageBox, ImageView eventCard, Media media, boolean soundsOn){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.EVENTFIELD){
-            MediaPlayer mediaPlayerEventCard = new MediaPlayer(media);
-            mediaPlayerEventCard.setVolume(0.3);
-            mediaPlayerEventCard.play();
+            if(soundsOn) {
+                MediaPlayer mediaPlayerEventCard = new MediaPlayer(media);
+                mediaPlayerEventCard.setVolume(0.3);
+                mediaPlayerEventCard.play();
+            }
             return executeEventCard(playerNumber, messageBox, eventCard);
         }
         return player.getFieldNumber();
