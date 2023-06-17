@@ -1,9 +1,12 @@
 package com.example.monopol;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -223,7 +226,7 @@ public class GameEngine {
         Event event = board.drawEventCard();
         Enum<EventType> type = event.getEventType();
         messageBox.setText(event.getName());
-        eventCard.setImage(event.getEventCardImage());
+        showEventCard(eventCard, event);
         if(type == EventType.MOVEEVENT){
             if(event.getDeltaFieldIndex() != 0){
                 player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());
@@ -240,6 +243,24 @@ public class GameEngine {
             player.setQuickRelese(true);
         }
         return player.getFieldNumber();
+    }
+
+    public void showEventCard(ImageView eventCard, Event event) {
+        eventCard.setImage(event.getEventCardImage());
+        eventCard.setRotate(270);
+        eventCard.setScaleX(1);
+        eventCard.setScaleY(1);
+        RotateTransition rotate = new RotateTransition();
+        rotate.setNode(eventCard);
+        rotate.setDuration(Duration.seconds(0.5));
+        rotate.setByAngle(90);
+        rotate.play();
+        ScaleTransition scale = new ScaleTransition();
+        scale.setNode(eventCard);
+        scale.setDuration(Duration.seconds(0.5));
+        scale.setToX(2);
+        scale.setToY(2);
+        scale.play();
     }
 
     public boolean checkIfSkipTurn(int playerNumber){

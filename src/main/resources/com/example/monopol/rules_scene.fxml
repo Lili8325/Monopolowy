@@ -18,7 +18,7 @@
       <Button layoutX="850.0" layoutY="940.0" mnemonicParsing="false" onAction="#switchToStart" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Powrót" />
       <ScrollPane layoutX="560.0" layoutY="85.0" prefHeight="846.0" prefWidth="800.0" styleClass="rules" stylesheets="@Styles.css">
          <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1830.0" prefWidth="785.0" style="-fx-background-color: #b7eff4; -fx-border-color: #b7eff4;" styleClass="diff" stylesheets="@Styles.css">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1830.0" prefWidth="785.0" style="-fx-background-color: #b7eff4; -fx-border-color: #b7eff4;" styleClass="rules" stylesheets="@Styles.css">
                <children>
                   <Text layoutX="15.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Zasady ogólne:">
                      <font>
