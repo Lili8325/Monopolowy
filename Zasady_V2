@@ -4,7 +4,7 @@
  Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy lub osiągnie stan konta odpowiadaojący ustalonemu na początku rozgywki przez wszystkich graczy.
 • Zakup nieruchomości:
   W momencie, kiedy gracz staje na polu niewykupionym przez nikogo, może wykupić daną nieruchomość.
-  Jeżeli zdecyduje się na zakup nieruchomości, to wpłaca do banku należność oraz pole podświetla na kolor gracza który je kupił przez całą grę.
+  Jeżeli zdecyduje się na zakup nieruchomości, to wpłaca do banku należność oraz pole podświetla na kolor gracza który je kupił.
   Plansza posiada 4 pola wydarzeń organizowanych przez uczelnię:
     • Juwenalia
     •	Dzień wydziału 
@@ -15,7 +15,7 @@
   zwielokrotniając cenę postoju o ilość posiadanych pól. 
   // tu wolno migające pole z pionkiem na nim i think
 • Czynsz:
-  Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, to jest on zobowiązany zapłacić mu czynsz.
+  Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, podświetla się onon na kolor gracza który je posiada oraz jest on zobowiązany zapłacić mu czynsz.
   Jeżeli nie jest w stanie zapłacić czynszu, to automatycznie zostaje bankrutem, oddaje swoje nieruchomości bankowi i odpada z gry.
 • DANTE:
   Gracz może trafić na DANTE z trzech powodów. 
