@@ -1,5 +1,7 @@
 package com.example.monopol;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,9 +17,11 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 import java.io.IOException;
 
@@ -270,6 +274,7 @@ public class Controller {
     @FXML
     private ImageView building40;
 
+    private ArrayList<Image> dices = new ArrayList<>();
     Image dice1 = new Image("file:src/main/resources/images/dices/dice1.png");
     Image dice2 = new Image("file:src/main/resources/images/dices/dice2.png");
     Image dice3 = new Image("file:src/main/resources/images/dices/dice3.png");
@@ -414,37 +419,49 @@ public class Controller {
 
     @FXML
     private void roll(ActionEvent event) {
-        rollButton.setDisable(true);
-        endButton.setDisable(false);
-        buildButton.setDisable(false);
-        buyButton.setDisable(false);
-        sellButton.setDisable(false);
-
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
 //        n = 3;
-        switch (n) {
-            case 1 -> diceImage.setImage(dice1);
-            case 2 -> diceImage.setImage(dice2);
-            case 3 -> diceImage.setImage(dice3);
-            case 4 -> diceImage.setImage(dice4);
-            case 5 -> diceImage.setImage(dice5);
-            case 6 -> diceImage.setImage(dice6);
+
+        Timeline timeline = new Timeline();
+        Collection<KeyFrame> frames = timeline.getKeyFrames();
+        Duration frameGap = Duration.seconds(0.2);
+        Duration frameTime = Duration.ZERO;
+        dices.add(dices.get(n-1));
+
+        for (Image dice : dices) {
+            frameTime = frameTime.add(frameGap);
+            frames.add(new KeyFrame(frameTime, e -> diceImage.setImage(dice)));
         }
-        gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
-        int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
-        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound, soundsOn);
-        if(playerMovement != playerPosition){
-            movePawnToStart(gameEngine.getPlayerTurn());
-            movePawn(playerMovement, gameEngine.getPlayerTurn());
-        }else{
-            movePawn(n, gameEngine.getPlayerTurn());
-        }
-        gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox, Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())));
-        gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
-        gameEngine.setLoseCondition(gameEngine.getPlayerTurn());
-        setQuickReleseSymbol(gameEngine.getPlayerTurn());
-        updateBalance();
+
+        timeline.play();
+        timeline.setOnFinished(e -> {
+            dices.remove(6);
+
+            gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
+
+            int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
+            int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound, soundsOn);
+            if(playerMovement != playerPosition){
+                movePawnToStart(gameEngine.getPlayerTurn());
+                movePawn(playerMovement, gameEngine.getPlayerTurn());
+            }else{
+                movePawn(n, gameEngine.getPlayerTurn());
+            }
+
+            gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox, Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())));
+            gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+            gameEngine.setLoseCondition(gameEngine.getPlayerTurn());
+
+            setQuickReleseSymbol(gameEngine.getPlayerTurn());
+            updateBalance();
+
+            rollButton.setDisable(true);
+            endButton.setDisable(false);
+            buildButton.setDisable(false);
+            buyButton.setDisable(false);
+            sellButton.setDisable(false);
+        });
     }
 
     public void setQuickReleseSymbol(int playerNumber) {
@@ -540,18 +557,10 @@ public class Controller {
 
         for (Integer fieldNumber: fieldBelongings) {
             switch(gameEngine.getPlayerTurn()) {
-                case 1 -> {
-                    Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(0,23,255,0.3); -fx-border-color: #0017ff; -fx-border-width: 4px;");
-                }
-                case 2 -> {
-                    Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(255,24,24,0.3); -fx-border-color: #ff1818; -fx-border-width: 4px;");
-                }
-                case 3 -> {
-                    Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(4,251,4,0.3); -fx-border-color: #04fb04; -fx-border-width: 4px;");
-                }
-                case 4 -> {
-                    Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(255, 255, 0, 0.3); -fx-border-color: yellow; -fx-border-width: 4px;");
-                }
+                case 1 -> Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(0,23,255,0.3); -fx-border-color: #0017ff; -fx-border-width: 4px;");
+                case 2 -> Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(255,24,24,0.3); -fx-border-color: #ff1818; -fx-border-width: 4px;");
+                case 3 -> Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(4,251,4,0.3); -fx-border-color: #04fb04; -fx-border-width: 4px;");
+                case 4 -> Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(255, 255, 0, 0.3); -fx-border-color: yellow; -fx-border-width: 4px;");
             }
         }
     }
@@ -655,5 +664,14 @@ public class Controller {
         quickReleaseSymbols.add(quickReleaseSymbol2);
         quickReleaseSymbols.add(quickReleaseSymbol3);
         quickReleaseSymbols.add(quickReleaseSymbol4);
+    }
+
+    void createDicesArray() {
+        dices.add(dice1);
+        dices.add(dice2);
+        dices.add(dice3);
+        dices.add(dice4);
+        dices.add(dice5);
+        dices.add(dice6);
     }
 }

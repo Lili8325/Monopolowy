@@ -51,6 +51,7 @@ public class MenuController {
             game_sceneController.createFieldsArray();
             game_sceneController.createBuildingsArray();
             game_sceneController.createQuickReleaseArray();
+            game_sceneController.createDicesArray();
 
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
