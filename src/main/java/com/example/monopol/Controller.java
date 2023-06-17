@@ -537,8 +537,22 @@ public class Controller {
 
     void showFieldBelongings() {
         ArrayList<Integer> fieldBelongings = gameEngine.getFieldBelongings(gameEngine.getPlayerTurn());
+
         for (Integer fieldNumber: fieldBelongings) {
-            Fields.get(fieldNumber).setStyle("-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);");
+            switch(gameEngine.getPlayerTurn()) {
+                case 1 -> {
+                    Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(0,23,255,0.3); -fx-border-color: #0017ff; -fx-border-width: 4px;");
+                }
+                case 2 -> {
+                    Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(255,24,24,0.3); -fx-border-color: #ff1818; -fx-border-width: 4px;");
+                }
+                case 3 -> {
+                    Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(4,251,4,0.3); -fx-border-color: #04fb04; -fx-border-width: 4px;");
+                }
+                case 4 -> {
+                    Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(255, 255, 0, 0.3); -fx-border-color: yellow; -fx-border-width: 4px;");
+                }
+            }
         }
     }
 

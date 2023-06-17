@@ -374,7 +374,7 @@
                <children>
                   <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/pawn1.png" />
+                        <Image url="@../../../images/pawns/pawn1.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 1">
@@ -382,7 +382,7 @@
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="Player1Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
+                  <TextField fx:id="Player1Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2000">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -397,7 +397,7 @@
                <children>
                   <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/pawn2.png" />
+                        <Image url="@../../../images/pawns/pawn2.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 2">
@@ -405,7 +405,7 @@
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="Player2Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
+                  <TextField fx:id="Player2Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2000">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -420,7 +420,7 @@
                <children>
                   <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/pawn3.png" />
+                        <Image url="@../../../images/pawns/pawn3.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 3">
@@ -428,7 +428,7 @@
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="Player3Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
+                  <TextField fx:id="Player3Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2000">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -443,7 +443,7 @@
                <children>
                   <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/pawn4.png" />
+                        <Image url="@../../../images/pawns/pawn4.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 4">
@@ -451,7 +451,7 @@
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="Player4Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2200">
+                  <TextField fx:id="Player4Balance" editable="false" layoutX="19.0" layoutY="83.0" prefHeight="58.0" prefWidth="120.0" text="2000">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -464,7 +464,7 @@
             </Pane>
             <ImageView fx:id="diceImage" fitHeight="120.0" fitWidth="120.0" layoutX="23.0" layoutY="875.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../images/dice5.png" />
+                  <Image url="@../../../images/dices/dice5.png" />
                </image>
             </ImageView>
             <Button fx:id="buildButton" disable="true" layoutX="453.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleBuildButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Build" />
@@ -474,7 +474,7 @@
                </font>
             </TextArea>
             <Button fx:id="sellButton" disable="true" layoutX="241.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSellButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Sell" />
-            <Button fx:id="quickRelese" disable="true" layoutX="33.0" layoutY="783.0" mnemonicParsing="false" onAction="#quickReleaseButton" opacity="0.0" prefHeight="65.0" prefWidth="100.0" styleClass="buttons" stylesheets="@Styles.css" text="Quick release" textAlignment="CENTER" wrapText="true" />
+            <Button fx:id="quickRelese" disable="true" layoutX="4.0" layoutY="800.0" mnemonicParsing="false" onAction="#quickReleaseButton" opacity="0.0" prefHeight="65.0" prefWidth="159.0" styleClass="buttons" stylesheets="@Styles.css" text="Quick release" textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>
    </center>

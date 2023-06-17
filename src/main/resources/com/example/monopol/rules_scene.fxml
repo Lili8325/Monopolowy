@@ -18,7 +18,7 @@
       <Button layoutX="850.0" layoutY="940.0" mnemonicParsing="false" onAction="#switchToStart" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Powrót" />
       <ScrollPane layoutX="560.0" layoutY="85.0" prefHeight="846.0" prefWidth="800.0" styleClass="rules" stylesheets="@Styles.css">
          <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1700.0" prefWidth="785.0" style="-fx-background-color: #b7eff4; -fx-border-color: #b7eff4;" styleClass="diff" stylesheets="@Styles.css">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1830.0" prefWidth="785.0" style="-fx-background-color: #b7eff4; -fx-border-color: #b7eff4;" styleClass="diff" stylesheets="@Styles.css">
                <children>
                   <Text layoutX="15.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Zasady ogólne:">
                      <font>
@@ -40,221 +40,241 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="15.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Zakup nieruchomości:">
+                  <Text layoutX="15.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Zakup nieruchomości:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="W momencie, kiedy gracz staje na polu niewykupionym przez nikogo, może wykupić daną nieruchomość." wrappingWidth="552.728515625">
+                  <Text layoutX="20.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="W momencie, kiedy gracz staje na polu niewykupionym przez nikogo, może wykupić daną nieruchomość." wrappingWidth="552.728515625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli zdecyduje się na zakup nieruchomości, to wpłaca do banku należność oraz pole podświetla się podczas tury danego gracza." wrappingWidth="522.4658203125">
+                  <Text layoutX="20.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli zdecyduje się na zakup nieruchomości, to wpłaca do banku należność oraz pole podświetla się na kolor gracza który je kupił." wrappingWidth="522.4658203125">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="110.0" fitWidth="59.0" layoutX="581.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="110.0" fitWidth="59.0" layoutX="581.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/field.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="106.0" fitWidth="61.0" layoutX="653.0" layoutY="264.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="106.0" fitWidth="61.0" layoutX="653.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/highlighted_field.png" />
                      </image>
                   </ImageView>
-                  <Text layoutX="15.0" layoutY="590.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Czynsz:">
+                  <Text layoutX="15.0" layoutY="615.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Czynsz:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="625.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, to jest on zobowiązany zapłacić mu czynsz." wrappingWidth="749.63671875">
+                  <Text layoutX="20.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, podświetla się ono na kolor gracza który je posiada oraz jest on zobowiązany zapłacić mu czynsz." wrappingWidth="749.63671875">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="675.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli nie jest w stanie zapłacić czynszu, to automatycznie zostaje bankrutem, oddaje swoje nieruchomości bankowi i odpada z gry." wrappingWidth="743.330078125">
+                  <Text layoutX="20.0" layoutY="705.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli nie jest w stanie zapłacić czynszu, to automatycznie zostaje bankrutem, oddaje swoje nieruchomości bankowi i odpada z gry." wrappingWidth="743.330078125">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="750.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• DANTE:">
+                  <Text layoutX="15.0" layoutY="775.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• DANTE:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="785.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz może trafić na DANTE z trzech powodów. ">
+                  <Text layoutX="20.0" layoutY="810.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz może trafić na DANTE z trzech powodów. ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="810.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pierwszym z nich jest stanięcie na polu „idź rób Dante”, drugi sposób to wylosowanie karty z puli „Eventów”, która nakazuje iść robić dante. " wrappingWidth="548.2646484375">
+                  <Text layoutX="20.0" layoutY="835.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pierwszym z nich jest stanięcie na polu „idź rób Dante”, drugi sposób to wylosowanie karty z puli „Eventów”, która nakazuje iść robić dante, trzecim sposobem jest stanięcie na narożnikowym polu &quot;Dante&quot;." wrappingWidth="556.625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="880.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli chcemy zrobić dante to: może pokazać kartę zwolnienia z dante lub czekać 3 tury. " wrappingWidth="556.625">
+                  <Text layoutX="20.0" layoutY="910.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli chcemy zrobić dante to: może pokazać kartę zwolnienia z dante lub czekać 3 tury. " wrappingWidth="556.625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="955.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Eventy: ">
+                  <Text layoutX="15.0" layoutY="975.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Eventy: ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="990.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli gracz stanie na pola o tych nazwach, to loswana jest katra i pokazywana wszystkim uczestnikom rozgrywki, a następnie wykonywana jest czynność, która jest na niej opisana." wrappingWidth="714.0">
+                  <Text layoutX="20.0" layoutY="1010.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli gracz stanie na pola o tych nazwach, to loswana jest katra i pokazywana wszystkim uczestnikom rozgrywki, a następnie wykonywana jest czynność, która jest na niej opisana." wrappingWidth="714.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="592.0" layoutY="766.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="590.0" layoutY="780.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                      <image>
                         <Image url="@../../../images/dante.jpg" />
                      </image>
                   </ImageView>
-                  <Text layoutX="20.0" layoutY="1065.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Opłata przedmiotu:">
+                  <Text layoutX="15.0" layoutY="1085.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Opłata przedmiotu:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plansza posiada dwa pola związane z opłatami przedmiotu.">
+                  <Text layoutX="20.0" layoutY="1120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plansza posiada dwa pola związane z opłatami przedmiotu.">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Na na nim pobiera się opłątę w wysokości 10% wartość przedsiębiorstw osoby która na niej stanęła. " wrappingWidth="709.8984375">
+                  <Text layoutX="20.0" layoutY="1145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Na na nim pobiera się opłątę w wysokości 10% wartość przedsiębiorstw osoby która na niej stanęła. " wrappingWidth="709.8984375">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz, który stanie na pole musi zapłacić na rzecz banku dana kwotę.">
+                  <Text layoutX="20.0" layoutY="1195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz, który stanie na pole musi zapłacić na rzecz banku dana kwotę.">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli go nie stać, to staje się bankrutem, jego nieruchomości przejmuje bank, a on sam kończy grę." wrappingWidth="714.0">
+                  <Text layoutX="20.0" layoutY="1220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeżeli go nie stać, to staje się bankrutem, jego nieruchomości przejmuje bank, a on sam kończy grę." wrappingWidth="714.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="1272.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Punkt handlowy: ">
+                  <Text layoutX="15.0" layoutY="1290.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Punkt handlowy: ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="616.0" layoutY="1275.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="70.0" fitWidth="80.0" layoutX="617.0" layoutY="1295.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/building.png" />
                      </image>
                   </ImageView>
-                  <Text layoutX="25.0" layoutY="1305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz może także wykupywać na swoich ulicach punkty handlowe.">
+                  <Text layoutX="20.0" layoutY="1325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz może także wykupywać na swoich ulicach punkty handlowe.">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Punkty handlowe można kupować tylko w momencie gdy gracz stoij na określonym polu." wrappingWidth="570.330078125">
+                  <Text layoutX="20.0" layoutY="1350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Punkty handlowe można kupować tylko w momencie gdy gracz stoi na określonym polu." wrappingWidth="570.330078125">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dzięki temu gracz będzie mógł pobierać najwyższy możliwy czynsz na danym polu (stawki czynszu podane są na karcie nieruchomości)." wrappingWidth="714.0">
+                  <Text layoutX="20.0" layoutY="1400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dzięki temu gracz będzie mógł pobierać dwa razy większy czynsz na danym polu (stawki czynszu podane są na karcie nieruchomości)." wrappingWidth="714.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="1450.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Premie: ">
+                  <Text layoutX="15.0" layoutY="1470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Premie: ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1480.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Każdy gracz, który przechodzi linie startu, otrzymuje od banku premię w wysokości 200." wrappingWidth="556.625">
+                  <Text layoutX="20.0" layoutY="1500.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Każdy gracz, który przechodzi linie startu, otrzymuje od banku premię w wysokości 200." wrappingWidth="556.625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1530.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pole konkurs WRS daje graczowi który na nim stanął 100.">
+                  <Text layoutX="20.0" layoutY="1550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pole konkurs WRS daje graczowi który na nim stanął 100.">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="592.0" layoutY="1410.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="593.0" layoutY="1435.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                      <image>
                         <Image url="@../../../images/wrs.jpg" />
                      </image>
                   </ImageView>
-                  <Text layoutX="20.0" layoutY="1575.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Szpital:">
+                  <Text layoutX="15.0" layoutY="1595.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Szpital:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1605.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz może trafić do szpitala z dwóch powodów: Stanął na pole szpital lub wylosował kartę „Event” nakazujący pójście od szpitala." wrappingWidth="714.0">
+                  <Text layoutX="20.0" layoutY="1625.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz może trafić do szpitala z dwóch powodów: Stanął na pole szpital lub wylosował kartę „Event” nakazujący pójście od szpitala." wrappingWidth="714.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="25.0" layoutY="1655.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeśli gracz chce opuścić szpital to: może pokazać kartę zwolnienia ze szpitala lub czekać 2 tury.">
+                  <Text layoutX="20.0" layoutY="1675.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeśli gracz chce opuścić szpital to: może pokazać kartę zwolnienia ze szpitala lub czekać 2 tury.">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.">
+                  <Text layoutX="20.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy lub osiągnie stan konta odpowiadaojący ustalonemu na początku rozgywki przez wszystkich graczy." wrappingWidth="749.63671875">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="20.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plansza posiada 4 pola wydarzeń organizowanych przez uczelnię:">
+                  <Text layoutX="20.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plansza posiada 4 pola wydarzeń organizowanych przez uczelnię:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="35.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Juwenalia">
+                  <Text layoutX="35.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Juwenalia">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="35.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Dzień wydziału ">
+                  <Text layoutX="35.0" layoutY="440.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Dzień wydziału ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="34.0" layoutY="441.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Akcja rekrutacja ">
+                  <Text layoutX="34.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Akcja rekrutacja ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="35.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Targi pracy">
+                  <Text layoutX="35.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Targi pracy">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <ImageView fitHeight="95.0" fitWidth="59.0" layoutX="202.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                  <ImageView fitHeight="95.0" fitWidth="59.0" layoutX="202.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                      <image>
                         <Image url="@../../../images/juwenalia.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="103.0" fitWidth="54.0" layoutX="268.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="103.0" fitWidth="54.0" layoutX="268.0" layoutY="400.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../images/dni_wydzialu.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="54.0" fitWidth="100.0" layoutX="312.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+                  <ImageView fitHeight="54.0" fitWidth="100.0" layoutX="312.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" rotate="270.0">
                      <image>
                         <Image url="@../../../images/akcja_rekrutacja.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="55.0" fitWidth="136.0" layoutX="377.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                  <ImageView fitHeight="55.0" fitWidth="136.0" layoutX="377.0" layoutY="420.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                      <image>
                         <Image url="@../../../images/targi_pracy.jpg" />
                      </image>
                   </ImageView>
-                  <Text layoutX="20.0" layoutY="493.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz stając na danym polu ma możliwość jego zakupu, domyślna cena postoju wynosi 100 lecz zwiększa się ona wraz z ilością posiadanych wydarzeń przez gracza,  zwielokrotniając cenę postoju o ilość posiadanych pól." wrappingWidth="749.63671875">
+                  <Text layoutX="20.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gracz stając na danym polu ma możliwość jego zakupu, domyślna cena postoju wynosi 100 lecz zwiększa się ona wraz z ilością posiadanych wydarzeń przez gracza, zwielokrotniając cenę postoju o ilość posiadanych pól." wrappingWidth="749.63671875">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
+                  <Text layoutX="15.0" layoutY="1720.0" strokeType="OUTSIDE" strokeWidth="0.0" text="• Quick relase:">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="20.0" layoutY="1755.0" strokeType="OUTSIDE" strokeWidth="0.0" text="W póli kart &quot;Event&quot; znajdują się katy upoważniające do wczesniejszego wyjścia ze Szpitala lub wcześniejszego ukończenia &quot;Dante&quot;." wrappingWidth="747.03515625">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="20.0" layoutY="1805.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jeśli gracz wylosuje którąś z tych kart obok jego nazwy pokazule się ikona">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="39.0" fitWidth="41.0" layoutX="621.0" layoutY="1766.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/quickRelease.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </content>
