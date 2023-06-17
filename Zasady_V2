@@ -1,10 +1,10 @@
 •Zasady ogólne:
   Każdy gracz porusza się po planszy zgodnie z ruchem wskazówek zegara oraz wykupuje dostępne obiekty. Tura gracza musi zacząć się od rzutu kostką.  \\ tu dałbym obok kostkę i obok przycisk roll
  Wysokość czynszu zależna jest od rodzaju nieruchomości, czy właściciel posiada na tym polu  punkt handlowy. \\ tutaj grafa tego domku 
- Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy.
+ Zwycięża zawodnik, który doprowadzi do bankructwa pozostałych graczy lub osiągnie stan konta odpowiadaojący ustalonemu na początku rozgywki przez wszystkich graczy.
 • Zakup nieruchomości:
   W momencie, kiedy gracz staje na polu niewykupionym przez nikogo, może wykupić daną nieruchomość.
-  Jeżeli zdecyduje się na zakup nieruchomości, to wpłaca do banku należność oraz pole podświetla się podczas tury danego gracza.
+  Jeżeli zdecyduje się na zakup nieruchomości, to wpłaca do banku należność oraz pole podświetla na kolor gracza który je kupił przez całą grę.
   Plansza posiada 4 pola wydarzeń organizowanych przez uczelnię:
     • Juwenalia
     •	Dzień wydziału 
@@ -13,7 +13,7 @@
   Gracz stając na danym polu ma możliwość jego zakupu, 
   domyślna cena postoju wynosi 100 lecz zwiększa się ona wraz z ilością posiadanych wydarzeń przez gracza,
   zwielokrotniając cenę postoju o ilość posiadanych pól. 
-// tu wolno migające pole z pionkiem na nim i think
+  // tu wolno migające pole z pionkiem na nim i think
 • Czynsz:
   Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, to jest on zobowiązany zapłacić mu czynsz.
   Jeżeli nie jest w stanie zapłacić czynszu, to automatycznie zostaje bankrutem, oddaje swoje nieruchomości bankowi i odpada z gry.
@@ -36,7 +36,9 @@
  • Premie: 
   Każdy gracz, który przechodzi linie startu, otrzymuje od banku premię w wysokości 200.
 Pole konkurs WRS daje graczowi który na nim stanął 100. / i tu fota konkurs WRS
-• Szpital:
+ • Szpital:
 Gracz może trafić do szpitala z dwóch powodów: Stanął na pole szpital lub wylosował kartę „Event” nakazujący pójście od szpitala.
 Jeśli gracz chce opuścić szpital to: może pokazać kartę zwolnienia ze szpitala lub czekać 2 tury.
-
+ • Quick relase:
+W póli kart "Event" znajdują się katy upoważniające do wczesniejszego wyjścia ze Szpitala lub wcześniejszego ukończenia "Dante".
+Jeśli gracz wylosuje którąś z tych kart obok jego nazwy pokazule się ikona //tu mały pictogranm tylko tej ikony//.
