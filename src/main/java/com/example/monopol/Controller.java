@@ -93,10 +93,10 @@ public class Controller {
     @FXML
     private TextField Player4Balance;
 
-    @FXML
-    private Image quickReleaseSymbol = new Image("file:src/main/resources/images/quickRelease.png");
 
-    private ArrayList<ImageView> quickReleaseSymbols = new ArrayList<>();
+    private final Image quickReleaseSymbol = new Image("file:src/main/resources/images/quickRelease.png");
+
+    private final ArrayList<ImageView> quickReleaseSymbols = new ArrayList<>();
 
     @FXML
     private ImageView quickReleaseSymbol1;
@@ -110,7 +110,7 @@ public class Controller {
     @FXML
     private TextArea messageBox;
 
-    private ArrayList<Pane> Fields = new ArrayList<>();
+    private final ArrayList<Pane> Fields = new ArrayList<>();
 
     @FXML
     private Pane Field1;
@@ -193,7 +193,7 @@ public class Controller {
     @FXML
     private Pane Field40;
 
-    private ArrayList<ImageView> Buildings = new ArrayList<>();
+    private final ArrayList<ImageView> Buildings = new ArrayList<>();
     @FXML
     private ImageView building1;
     @FXML
@@ -275,22 +275,22 @@ public class Controller {
     @FXML
     private ImageView building40;
 
-    private ArrayList<Image> dices = new ArrayList<>();
-    private Image dice1 = new Image("file:src/main/resources/images/dices/dice1.png");
-    private Image dice2 = new Image("file:src/main/resources/images/dices/dice2.png");
-    private Image dice3 = new Image("file:src/main/resources/images/dices/dice3.png");
-    private Image dice4 = new Image("file:src/main/resources/images/dices/dice4.png");
-    private Image dice5 = new Image("file:src/main/resources/images/dices/dice5.png");
-    private Image dice6 = new Image("file:src/main/resources/images/dices/dice6.png");
+    private final ArrayList<Image> dices = new ArrayList<>();
+    private final Image dice1 = new Image("file:src/main/resources/images/dices/dice1.png");
+    private final Image dice2 = new Image("file:src/main/resources/images/dices/dice2.png");
+    private final Image dice3 = new Image("file:src/main/resources/images/dices/dice3.png");
+    private final Image dice4 = new Image("file:src/main/resources/images/dices/dice4.png");
+    private final Image dice5 = new Image("file:src/main/resources/images/dices/dice5.png");
+    private final Image dice6 = new Image("file:src/main/resources/images/dices/dice6.png");
 
     Media eventCardSound = new Media(new File("src/main/resources/Gorenje.mp3").toURI().toString());
     Media quickReleseSound = new Media(new File("src/main/resources/Persona.mp3").toURI().toString());
 
-    private ArrayList<Image> pawns = new ArrayList<>();
-    private Image pawn1 = new Image("file:src/main/resources/images/pawns/pawn1.png");
-    private Image pawn2 = new Image("file:src/main/resources/images/pawns/pawn2.png");
-    private Image pawn3 = new Image("file:src/main/resources/images/pawns/pawn3.png");
-    private Image pawn4 = new Image("file:src/main/resources/images/pawns/pawn4.png");
+    private final ArrayList<Image> pawns = new ArrayList<>();
+    private final Image pawn1 = new Image("file:src/main/resources/images/pawns/pawn1.png");
+    private final Image pawn2 = new Image("file:src/main/resources/images/pawns/pawn2.png");
+    private final Image pawn3 = new Image("file:src/main/resources/images/pawns/pawn3.png");
+    private final Image pawn4 = new Image("file:src/main/resources/images/pawns/pawn4.png");
 
     @FXML
     private ImageView firstPlaceImage;
