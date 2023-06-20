@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -275,19 +276,62 @@ public class Controller {
     private ImageView building40;
 
     private ArrayList<Image> dices = new ArrayList<>();
-    Image dice1 = new Image("file:src/main/resources/images/dices/dice1.png");
-    Image dice2 = new Image("file:src/main/resources/images/dices/dice2.png");
-    Image dice3 = new Image("file:src/main/resources/images/dices/dice3.png");
-    Image dice4 = new Image("file:src/main/resources/images/dices/dice4.png");
-    Image dice5 = new Image("file:src/main/resources/images/dices/dice5.png");
-    Image dice6 = new Image("file:src/main/resources/images/dices/dice6.png");
+    private Image dice1 = new Image("file:src/main/resources/images/dices/dice1.png");
+    private Image dice2 = new Image("file:src/main/resources/images/dices/dice2.png");
+    private Image dice3 = new Image("file:src/main/resources/images/dices/dice3.png");
+    private Image dice4 = new Image("file:src/main/resources/images/dices/dice4.png");
+    private Image dice5 = new Image("file:src/main/resources/images/dices/dice5.png");
+    private Image dice6 = new Image("file:src/main/resources/images/dices/dice6.png");
 
     Media eventCardSound = new Media(new File("src/main/resources/Gorenje.mp3").toURI().toString());
     Media quickReleseSound = new Media(new File("src/main/resources/Persona.mp3").toURI().toString());
 
+    private ArrayList<Image> pawns = new ArrayList<>();
+    private Image pawn1 = new Image("file:src/main/resources/images/pawns/pawn1.png");
+    private Image pawn2 = new Image("file:src/main/resources/images/pawns/pawn2.png");
+    private Image pawn3 = new Image("file:src/main/resources/images/pawns/pawn3.png");
+    private Image pawn4 = new Image("file:src/main/resources/images/pawns/pawn4.png");
+
+    @FXML
+    private ImageView firstPlaceImage;
+    @FXML
+    private ImageView secondPlaceImage;
+    @FXML
+    private ImageView thirdPlaceImage;
+    @FXML
+    private Label firstPlaceName;
+    @FXML
+    private Label secondPlaceName;
+    @FXML
+    private Label thirdPlaceName;
+    @FXML
+    private TextField firstPlaceBalance;
+    @FXML
+    private TextField secondPlaceBalance;
+    @FXML
+    private TextField thirdPlaceBalance;
+
     public void switchToStart(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("start_scene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToEndgame() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("endgame_scene.fxml"));
+        root = loader.load();
+
+        Controller endGameController = loader.getController();
+
+        ArrayList<Integer> winners = playerLeaderboard();
+        endGameController.setImages(pawns.get(winners.get(0) - 1), pawns.get(winners.get(1) - 1), pawns.get(winners.get(2) - 1));
+        endGameController.setNames("Gracz " + winners.get(0), "Gracz " + winners.get(1), "Gracz " + winners.get(2));
+        endGameController.setBalances(gameEngine.getPlayerBalance(winners.get(0)), gameEngine.getPlayerBalance(winners.get(1)), gameEngine.getPlayerBalance(winners.get(2)));
+
+        stage = (Stage) diceImage.getScene().getWindow();
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -360,7 +404,7 @@ public class Controller {
         }
     }
     @FXML
-    private void handleEndButton(ActionEvent event) {
+    private void handleEndButton(ActionEvent event) throws IOException {
         eventCard.setImage(null);
         hideFieldBelongings();
         for (int i = 0; i < 4; ++i){
@@ -682,5 +726,12 @@ public class Controller {
         dices.add(dice4);
         dices.add(dice5);
         dices.add(dice6);
+    }
+
+    void createPawnsArray() {
+        pawns.add(pawn1);
+        pawns.add(pawn2);
+        pawns.add(pawn3);
+        pawns.add(pawn4);
     }
 }

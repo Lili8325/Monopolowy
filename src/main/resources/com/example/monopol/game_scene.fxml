@@ -367,9 +367,9 @@
    <center>
       <Pane prefHeight="1016.0" prefWidth="678.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="buyButton" disable="true" layoutX="26.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Buy" />
-            <Button fx:id="endButton" disable="true" layoutX="431.0" layoutY="903.0" mnemonicParsing="false" onAction="#handleEndButton" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="End turn" />
-            <Button fx:id="rollButton" layoutX="168.0" layoutY="903.0" mnemonicParsing="false" onAction="#roll" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Roll" />
+            <Button fx:id="buyButton" disable="true" layoutX="26.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleBuyButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Kup" />
+            <Button fx:id="endButton" disable="true" layoutX="431.0" layoutY="903.0" mnemonicParsing="false" onAction="#handleEndButton" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Zakończ turę" />
+            <Button fx:id="rollButton" layoutX="168.0" layoutY="903.0" mnemonicParsing="false" onAction="#roll" prefHeight="65.0" prefWidth="220.0" styleClass="buttons" stylesheets="@Styles.css" text="Rzuć kostką" />
             <Pane fx:id="Player1Pane" layoutX="31.0" layoutY="26.0" prefHeight="164.0" prefWidth="296.0" style="-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: #B3E8AC;">
                <children>
                   <ImageView fitHeight="117.0" fitWidth="69.0" layoutX="210.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
@@ -377,7 +377,7 @@
                         <Image url="@../../../images/pawns/pawn1.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 1">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Gracz 1">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -400,7 +400,7 @@
                         <Image url="@../../../images/pawns/pawn2.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 2">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Gracz 1">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -423,7 +423,7 @@
                         <Image url="@../../../images/pawns/pawn3.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 3">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Gracz 3">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -446,7 +446,7 @@
                         <Image url="@../../../images/pawns/pawn4.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Player 4">
+                  <Label layoutX="15.0" layoutY="15.0" prefHeight="52.0" prefWidth="127.0" text="Gracz 4">
                      <font>
                         <Font size="28.0" />
                      </font>
@@ -467,13 +467,13 @@
                   <Image url="@../../../images/dices/dice5.png" />
                </image>
             </ImageView>
-            <Button fx:id="buildButton" disable="true" layoutX="451.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleBuildButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Build" />
+            <Button fx:id="buildButton" disable="true" layoutX="451.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleBuildButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Kup budynek" />
             <TextArea fx:id="messageBox" editable="false" layoutX="91.0" layoutY="405.0" prefHeight="135.0" prefWidth="500.0" stylesheets="@Styles.css" text="Tura gracza 1" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
             </TextArea>
-            <Button fx:id="sellButton" disable="true" layoutX="239.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSellButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Sell" />
+            <Button fx:id="sellButton" disable="true" layoutX="239.0" layoutY="570.0" mnemonicParsing="false" onAction="#handleSellButton" prefHeight="65.0" prefWidth="200.0" styleClass="buttons" stylesheets="@Styles.css" text="Sprzedaj" />
             <Button fx:id="quickRelese" disable="true" layoutX="4.0" layoutY="800.0" mnemonicParsing="false" onAction="#quickReleaseButton" opacity="0.0" prefHeight="65.0" prefWidth="159.0" styleClass="buttons" stylesheets="@Styles.css" text="Quick release" textAlignment="CENTER" wrapText="true" />
          </children>
       </Pane>

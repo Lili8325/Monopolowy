@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: #78b1b6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
+   <children>
+      <ImageView fitHeight="1016.0" fitWidth="1016.0" layoutX="452.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/endgame.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="firstPlaceImage" fitHeight="150.0" fitWidth="79.0" layoutX="914.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/pawns/pawn2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="thirdPlaceImage" fitHeight="150.0" fitWidth="79.0" layoutX="750.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/pawns/pawn4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="secondPlaceImage" fitHeight="150.0" fitWidth="79.0" layoutX="1075.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/pawns/pawn3.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="thirdPlaceName" layoutX="740.0" layoutY="374.0" text="Gracz 4">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="firstPlaceName" layoutX="904.0" layoutY="202.0" text="Gracz 2">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="secondPlaceName" layoutX="1065.0" layoutY="288.0" text="Gracz 3">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <TextField fx:id="thirdPlaceBalance" editable="false" layoutX="735.0" layoutY="333.0" prefHeight="45.0" prefWidth="109.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="firstPlaceBalance" editable="false" layoutX="899.0" layoutY="157.0" prefHeight="45.0" prefWidth="109.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="secondPlaceBalance" editable="false" layoutX="1060.0" layoutY="247.0" prefHeight="45.0" prefWidth="109.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label layoutX="787.0" layoutY="42.0" style="-fx-text-fill: black;" text="Koniec gry!">
+         <font>
+            <Font size="70.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
