@@ -12,7 +12,7 @@ public class Board {
 
         events = new ArrayList<>();
         BoardBuilder.createEventCards(events);
-//        Collections.shuffle(events);
+        Collections.shuffle(events);
     }
 
     public int setFieldOwner(int fieldIndex, int playerNumber){

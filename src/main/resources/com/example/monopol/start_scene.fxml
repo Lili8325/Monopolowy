@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1016.0" prefWidth="1920.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.monopol.StartController">
    <children>
       <ImageView fitHeight="1016.0" fitWidth="1030.0" layoutX="452.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/start.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="756.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToGame" prefHeight="80.0" prefWidth="400.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Nowa gra">
+      <Button layoutX="756.0" layoutY="300.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="80.0" prefWidth="400.0" styleClass="menu-Buttons" stylesheets="@Styles.css" text="Nowa gra">
          <font>
             <Font name="Calibri Bold" size="37.0" />
          </font>

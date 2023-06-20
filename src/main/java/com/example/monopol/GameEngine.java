@@ -1,9 +1,12 @@
 package com.example.monopol;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.TreeMap;
@@ -16,6 +19,7 @@ public class GameEngine {
     private TreeMap<Integer, Player> players;
     private int playerNumber = 0;
     private int playerTurn = 1;
+    private int maxBalance;
 
     public GameEngine(int playerAmount){
         this.board = new Board();
@@ -26,6 +30,9 @@ public class GameEngine {
             Player newPlayer = new Player(playerNumber);
             players.put(playerNumber, newPlayer);
         }
+    }
+    public void setMaxBalance(int maxBalance) {
+        this.maxBalance = maxBalance;
     }
     public int getPlayerTurn() {
         return playerTurn;
@@ -45,13 +52,15 @@ public class GameEngine {
         }
     }
 
-    public int eventFieldValidation(int playerNumber, TextArea messageBox, ImageView eventCard, Media media){
+    public int eventFieldValidation(int playerNumber, TextArea messageBox, ImageView eventCard, Media media, boolean soundsOn){
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.EVENTFIELD){
-            MediaPlayer mediaPlayerEventCard = new MediaPlayer(media);
-            mediaPlayerEventCard.setVolume(0.3);
-            mediaPlayerEventCard.play();
+            if(soundsOn) {
+                MediaPlayer mediaPlayerEventCard = new MediaPlayer(media);
+                mediaPlayerEventCard.setVolume(0.3);
+                mediaPlayerEventCard.play();
+            }
             return executeEventCard(playerNumber, messageBox, eventCard);
         }
         return player.getFieldNumber();
@@ -61,9 +70,9 @@ public class GameEngine {
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.HOUSEFIELD){
-            messageBox.setText("Field: " + getFieldName(playerNumber) + "\nField cost: " +
-                    board.getFieldPrice(player.getFieldNumber()) + "\nBuilding cost: " +
-                    board.getBuildingCost(player.getFieldNumber()) + "\nStaying cost: " +
+            messageBox.setText("Pole: " + getFieldName(playerNumber) + "\nCena pola: " +
+                    board.getFieldPrice(player.getFieldNumber()) + "\nCena postawienia budynku: " +
+                    board.getBuildingCost(player.getFieldNumber()) + "\nCena wejścia na pole: " +
                     board.getStayingCost(player.getFieldNumber()));
             int fieldOwner = board.getFieldOwner(player.getFieldNumber());
             if(fieldOwner == playerNumber || fieldOwner == -1) return;
@@ -75,6 +84,14 @@ public class GameEngine {
                 editPlayerBalance(fieldOwner, board.getBuildingCost(player.getFieldNumber()));
             }
         }
+    }
+
+    public int getFieldOwner(int fieldIndex){
+        return board.getFieldOwner(fieldIndex);
+    }
+
+    public int getMaxBalance(){
+        return maxBalance;
     }
 
     public void highlightField(int playerNumber, Pane fieldPane) {
@@ -136,7 +153,7 @@ public class GameEngine {
         Player player = players.get(buyerPlayerNumber);
         int playerFieldNumber = player.getFieldNumber();
         if(player.getPlayerBalance() < board.getFieldPrice(playerFieldNumber)){
-            return "Not enought money to buy field!";
+            return "Nie wystarczająco pieniędzy żeby kupić to pole!";
         }
 
         int value = board.setFieldOwner(playerFieldNumber, buyerPlayerNumber);
@@ -144,11 +161,11 @@ public class GameEngine {
             player.addFieldCard(playerFieldNumber);
             player.setPlayerBalance(player.getPlayerBalance() - board.getFieldPrice(playerFieldNumber));
             if(player.getPlayerBalance() < 0) player.setPlayerBalance(0);
-            return "Field " + board.getFieldName(playerFieldNumber) + " belongs now to player: " + buyerPlayerNumber;
+            return "Pole " + board.getFieldName(playerFieldNumber) + " należy teraz do gracza " + buyerPlayerNumber;
         }else if(value == 1) {
-            return "Field " + board.getFieldName(playerFieldNumber) + " is occupied by player: " + board.getFieldOwner(playerFieldNumber);
+            return "Pole " + board.getFieldName(playerFieldNumber) + " jest zajęte do gracza " + board.getFieldOwner(playerFieldNumber);
         }
-        return "Can't buy field: " + board.getFieldName(playerFieldNumber);
+        return "Nie możesz kupić pola: " + board.getFieldName(playerFieldNumber);
     }
 
     public String buildHouse(int builderPlayerNumber){
@@ -160,7 +177,7 @@ public class GameEngine {
             return "Nie można tutaj nic wybudować!!";
         }
         if(player.getPlayerBalance() < board.getBuildingCost(playerFieldNumber)){
-            return "Not enought money to buy field!";
+            return "Nie wystarczająco pieniędzy żeby wybudować budynek!";
         }
         editPlayerBalance(builderPlayerNumber, -board.getBuildingCost(playerFieldNumber));
         board.setBuilding(playerFieldNumber);
@@ -217,7 +234,7 @@ public class GameEngine {
         Event event = board.drawEventCard();
         Enum<EventType> type = event.getEventType();
         messageBox.setText(event.getName());
-        eventCard.setImage(event.getEventCardImage());
+        showEventCard(eventCard, event);
         if(type == EventType.MOVEEVENT){
             if(event.getDeltaFieldIndex() != 0){
                 player.setFieldNumber(player.getFieldNumber() + event.getDeltaFieldIndex());
@@ -227,13 +244,37 @@ public class GameEngine {
                 return player.getFieldNumber();
             }
         } else if (type == EventType.PAYEVENT) {
-            editPlayerBalance(playerNumber, -event.getToPay());
+            int toPay = event.getToPay();
+            if (toPay == -1){
+                int partPlayerBalance = (int)(getPlayerBalance(playerNumber)*0.1);
+                editPlayerBalance(playerNumber, -partPlayerBalance);
+            }else {
+                editPlayerBalance(playerNumber, -toPay);
+            }
         }else if (type == EventType.TURNEVENT) {
             setPlayerSkipTurns(playerNumber, event.getTurnSkipAmount());
         }else if(type == EventType.QUICKRELESEEVENT){
             player.setQuickRelese(true);
         }
         return player.getFieldNumber();
+    }
+
+    public void showEventCard(ImageView eventCard, Event event) {
+        eventCard.setImage(event.getEventCardImage());
+        eventCard.setRotate(270);
+        eventCard.setScaleX(1);
+        eventCard.setScaleY(1);
+        RotateTransition rotate = new RotateTransition();
+        rotate.setNode(eventCard);
+        rotate.setDuration(Duration.seconds(0.5));
+        rotate.setByAngle(90);
+        rotate.play();
+        ScaleTransition scale = new ScaleTransition();
+        scale.setNode(eventCard);
+        scale.setDuration(Duration.seconds(0.5));
+        scale.setToX(2);
+        scale.setToY(2);
+        scale.play();
     }
 
     public boolean checkIfSkipTurn(int playerNumber){

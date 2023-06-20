@@ -6,7 +6,7 @@ public class SpecialField extends Field{
     public SpecialField(String fieldName, int defaultCost, boolean canBuy){
         this.fieldName = fieldName;
         this.defaultCost = defaultCost;
-        this.canBuy = canBuy; //maybe???
+        this.canBuy = canBuy;
         this.fieldType = FieldTypes.SPECIALFIELD;
         this.eventCard = null;
     }
@@ -16,11 +16,4 @@ public class SpecialField extends Field{
     public Event getEventCard(){
         return eventCard;
     }
-
-    //corners and special fields (ex. "Dzień wydziału", "Dante")
-    //Pola ForcePay
-    //pola GoDante
-    //pole więzienie
-    //pole Konkurs
-    //pole akcji
 }

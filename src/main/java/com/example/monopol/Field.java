@@ -1,8 +1,5 @@
 package com.example.monopol;
 
-import javafx.fxml.FXML;
-import javafx.scene.layout.Pane;
-
 enum FieldTypes {
     HOUSEFIELD,
     EVENTFIELD,
@@ -26,10 +23,5 @@ abstract public class Field {
     public int getDefaultCost() {
         return defaultCost;
     }
-
-    public boolean isCanBuy() {
-        return canBuy;
-    }
-
 }
 

@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Game extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("start_scene.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Student Monopoly");
         stage.getIcons().add(new Image("file:src/main/resources/images/ikonka.jpg"));

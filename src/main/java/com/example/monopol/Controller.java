@@ -1,5 +1,7 @@
 package com.example.monopol;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -19,6 +22,7 @@ import javafx.util.Duration;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 import java.io.IOException;
 
@@ -38,11 +42,12 @@ public class Controller {
 
     GameEngine gameEngine = new GameEngine(4);
 
-    private boolean arrayCreated = false;
-
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    boolean soundsOn;
+
     @FXML
     private Button buyButton;
     @FXML
@@ -53,6 +58,7 @@ public class Controller {
     private Button rollButton;
     @FXML
     private Button sellButton;
+
     @FXML
     private Button quickRelese;
     @FXML
@@ -68,7 +74,6 @@ public class Controller {
     private Pane Player3Pane;
     @FXML
     private Pane Player4Pane;
-
 
     @FXML
     private ImageView Player1Pawn;
@@ -88,10 +93,10 @@ public class Controller {
     @FXML
     private TextField Player4Balance;
 
-    @FXML
-    private Image quickReleaseSymbol = new Image("file:src/main/resources/images/quickRelease.png");
 
-    private ArrayList<ImageView> quickReleaseSymbols = new ArrayList<>();
+    private final Image quickReleaseSymbol = new Image("file:src/main/resources/images/quickRelease.png");
+
+    private final ArrayList<ImageView> quickReleaseSymbols = new ArrayList<>();
 
     @FXML
     private ImageView quickReleaseSymbol1;
@@ -105,7 +110,7 @@ public class Controller {
     @FXML
     private TextArea messageBox;
 
-    private ArrayList<Pane> Fields = new ArrayList<>();
+    private final ArrayList<Pane> Fields = new ArrayList<>();
 
     @FXML
     private Pane Field1;
@@ -188,7 +193,7 @@ public class Controller {
     @FXML
     private Pane Field40;
 
-    private ArrayList<ImageView> Buildings = new ArrayList<>();
+    private final ArrayList<ImageView> Buildings = new ArrayList<>();
     @FXML
     private ImageView building1;
     @FXML
@@ -270,59 +275,66 @@ public class Controller {
     @FXML
     private ImageView building40;
 
+    private final ArrayList<Image> dices = new ArrayList<>();
+    private final Image dice1 = new Image("file:src/main/resources/images/dices/dice1.png");
+    private final Image dice2 = new Image("file:src/main/resources/images/dices/dice2.png");
+    private final Image dice3 = new Image("file:src/main/resources/images/dices/dice3.png");
+    private final Image dice4 = new Image("file:src/main/resources/images/dices/dice4.png");
+    private final Image dice5 = new Image("file:src/main/resources/images/dices/dice5.png");
+    private final Image dice6 = new Image("file:src/main/resources/images/dices/dice6.png");
 
-
-    Image dice1 = new Image("file:src/main/resources/images/dice1.png");
-    Image dice2 = new Image("file:src/main/resources/images/dice2.png");
-    Image dice3 = new Image("file:src/main/resources/images/dice3.png");
-    Image dice4 = new Image("file:src/main/resources/images/dice4.png");
-    Image dice5 = new Image("file:src/main/resources/images/dice5.png");
-    Image dice6 = new Image("file:src/main/resources/images/dice6.png");
-
-
-    Media ost = new Media(new File("src/main/resources/NecoArcDilemma.mp3").toURI().toString());
     Media eventCardSound = new Media(new File("src/main/resources/Gorenje.mp3").toURI().toString());
     Media quickReleseSound = new Media(new File("src/main/resources/Persona.mp3").toURI().toString());
-    MediaPlayer mediaPlayer = new MediaPlayer(ost);
 
-//    MediaPlayer mediaPlayerEventCard = new MediaPlayer(eventCardSound);
+    private final ArrayList<Image> pawns = new ArrayList<>();
+    private final Image pawn1 = new Image("file:src/main/resources/images/pawns/pawn1.png");
+    private final Image pawn2 = new Image("file:src/main/resources/images/pawns/pawn2.png");
+    private final Image pawn3 = new Image("file:src/main/resources/images/pawns/pawn3.png");
+    private final Image pawn4 = new Image("file:src/main/resources/images/pawns/pawn4.png");
 
-
-    public void switchToGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("game_scene.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-        mediaPlayer.setOnEndOfMedia(new Runnable() {
-            public void run() {
-                mediaPlayer.seek(Duration.ZERO);
-            }
-        });
-        mediaPlayer.setVolume(0.30);
-        mediaPlayer.play();
-    }
-
-    public void switchToRules(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("rules_scene.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+    @FXML
+    private ImageView firstPlaceImage;
+    @FXML
+    private ImageView secondPlaceImage;
+    @FXML
+    private ImageView thirdPlaceImage;
+    @FXML
+    private Label firstPlaceName;
+    @FXML
+    private Label secondPlaceName;
+    @FXML
+    private Label thirdPlaceName;
+    @FXML
+    private TextField firstPlaceBalance;
+    @FXML
+    private TextField secondPlaceBalance;
+    @FXML
+    private TextField thirdPlaceBalance;
 
     public void switchToStart(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        root = FXMLLoader.load(getClass().getResource("start_scene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void exitGame(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("start.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.close();
+    public void switchToEndgame() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("endgame_scene.fxml"));
+        root = loader.load();
+
+        Controller endGameController = loader.getController();
+
+        ArrayList<Integer> winners = playerLeaderboard();
+        endGameController.setImages(pawns.get(winners.get(0) - 1), pawns.get(winners.get(1) - 1), pawns.get(winners.get(2) - 1));
+        endGameController.setNames("Gracz " + winners.get(0), "Gracz " + winners.get(1), "Gracz " + winners.get(2));
+        endGameController.setBalances(gameEngine.getPlayerBalance(winners.get(0)), gameEngine.getPlayerBalance(winners.get(1)), gameEngine.getPlayerBalance(winners.get(2)));
+
+        stage = (Stage) diceImage.getScene().getWindow();
+//        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -333,20 +345,21 @@ public class Controller {
     }
     @FXML
     private void handleSellButton(ActionEvent event) {
+        if (gameEngine.getFieldOwner(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())) == gameEngine.getPlayerTurn()){
+            Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
+            Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(0);
+        }
         messageBox.setText(gameEngine.sellField(gameEngine.getPlayerTurn()));
         updateBalance();
-//        showFieldBelongings();
-        Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
-        Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(0);
     }
     @FXML
     private void handleBuildButton(ActionEvent event) {
+        if (gameEngine.isBuilt(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()))) return;
         messageBox.setText(gameEngine.buildHouse(gameEngine.getPlayerTurn()));
         updateBalance();
         if(gameEngine.isBuilt(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()))) {
             Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(1);
         }
-//        showFieldBelongings();
     }
     @FXML
     private void quickReleaseButton(ActionEvent event) {
@@ -358,10 +371,67 @@ public class Controller {
         buildButton.setDisable(false);
         quickRelese.setOpacity(0);
         quickRelese.setDisable(true);
-        MediaPlayer mediaPlayer1 = new MediaPlayer(quickReleseSound);
-        mediaPlayer1.setVolume(0.3);
-        mediaPlayer1.play();
+
+        if(soundsOn) {
+            MediaPlayer mediaPlayer1 = new MediaPlayer(quickReleseSound);
+            mediaPlayer1.setVolume(0.3);
+            mediaPlayer1.play();
+        }
         clearQuickReleaseSymbol(gameEngine.getPlayerTurn());
+    }
+
+    public ArrayList<Integer> playerLeaderboard(){
+        int firstMoney = 0;
+        int secondMoney = 0;
+        int thirdMoney = 0;
+
+        int firstPlace = 0;
+        for (int i = 1; i <= 4; ++i){
+            int playerMoney = gameEngine.getPlayerBalance(i);
+            if(playerMoney > firstMoney) {
+                firstMoney = playerMoney;
+                firstPlace = i;
+            }
+        }
+        int secondPlace = 0;
+        for (int i = 1; i <= 4; ++i){
+            int playerMoney = gameEngine.getPlayerBalance(i);
+            if(playerMoney > secondMoney && playerMoney != firstMoney) {
+                secondMoney = playerMoney;
+                secondPlace = i;
+            }
+        }
+        int thirdPlace = 0;
+        for (int i = 1; i <= 4; ++i){
+            int playerMoney = gameEngine.getPlayerBalance(i);
+            if(playerMoney > thirdMoney && playerMoney != firstMoney && secondPlace != i) {
+                thirdMoney = playerMoney;
+                thirdPlace = i;
+            }
+        }
+        ArrayList<Integer> leaderboard = new ArrayList<>();
+        leaderboard.add(firstPlace);
+        leaderboard.add(secondPlace);
+        leaderboard.add(thirdPlace);
+        return leaderboard;
+    }
+
+    public void setImages(Image firstPlace, Image secondPlace, Image thirdPlace) {
+        firstPlaceImage.setImage(firstPlace);
+        secondPlaceImage.setImage(secondPlace);
+        thirdPlaceImage.setImage(thirdPlace);
+    }
+
+    public void setNames(String firstPlace, String secondPlace, String thirdPlace) {
+        firstPlaceName.setText(firstPlace);
+        secondPlaceName.setText(secondPlace);
+        thirdPlaceName.setText(thirdPlace);
+    }
+
+    public void setBalances(int firstPlace, int secondPlace, int thirdPlace) {
+        firstPlaceBalance.setText(String.valueOf(firstPlace));
+        secondPlaceBalance.setText(String.valueOf(secondPlace));
+        thirdPlaceBalance.setText(String.valueOf(thirdPlace));
     }
 
     private void updateBalance() {
@@ -387,9 +457,14 @@ public class Controller {
         }
     }
     @FXML
-    private void handleEndButton(ActionEvent event) {
+    private void handleEndButton(ActionEvent event) throws IOException {
         eventCard.setImage(null);
         hideFieldBelongings();
+        for (int i = 1; i <= 4; ++i){
+            if(gameEngine.getPlayerBalance(i) > gameEngine.getMaxBalance()){
+                switchToEndgame();
+            }
+        }
         do {
             gameEngine.endTurn();
         }while (gameEngine.checkPlayerLoseCondition(gameEngine.getPlayerTurn()));
@@ -449,44 +524,48 @@ public class Controller {
 
     @FXML
     private void roll(ActionEvent event) {
-        rollButton.setDisable(true);
-        endButton.setDisable(false);
-        buildButton.setDisable(false);
-        buyButton.setDisable(false);
-        sellButton.setDisable(false);
-
-        if(!arrayCreated) {
-            createFieldsArray();
-            createBuildingsArray();
-            createQuickReleaseArray();
-            arrayCreated = true;
-        }
-
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
-//        n = 3;
-        switch (n) {
-            case 1 -> diceImage.setImage(dice1);
-            case 2 -> diceImage.setImage(dice2);
-            case 3 -> diceImage.setImage(dice3);
-            case 4 -> diceImage.setImage(dice4);
-            case 5 -> diceImage.setImage(dice5);
-            case 6 -> diceImage.setImage(dice6);
+
+        Timeline timeline = new Timeline();
+        Collection<KeyFrame> frames = timeline.getKeyFrames();
+        Duration frameGap = Duration.seconds(0.2);
+        Duration frameTime = Duration.ZERO;
+        dices.add(dices.get(n-1));
+
+        for (Image dice : dices) {
+            frameTime = frameTime.add(frameGap);
+            frames.add(new KeyFrame(frameTime, e -> diceImage.setImage(dice)));
         }
-        gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
-        int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
-        int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound);
-        if(playerMovement != playerPosition){
-            movePawnToStart(gameEngine.getPlayerTurn());
-            movePawn(playerMovement, gameEngine.getPlayerTurn());
-        }else{
-            movePawn(n, gameEngine.getPlayerTurn());
-        }
-        gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox, Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())));
-        gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
-        gameEngine.setLoseCondition(gameEngine.getPlayerTurn());
-        setQuickReleseSymbol(gameEngine.getPlayerTurn());
-        updateBalance();
+
+        timeline.play();
+        timeline.setOnFinished(e -> {
+            dices.remove(6);
+
+            gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
+
+            int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
+            int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound, soundsOn);
+            if(playerMovement != playerPosition){
+                movePawnToStart(gameEngine.getPlayerTurn());
+                movePawn(playerMovement, gameEngine.getPlayerTurn());
+            }else{
+                movePawn(n, gameEngine.getPlayerTurn());
+            }
+
+            gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox, Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())));
+            gameEngine.specialFieldValidation(gameEngine.getPlayerTurn(), messageBox);
+            gameEngine.setLoseCondition(gameEngine.getPlayerTurn());
+
+            setQuickReleseSymbol(gameEngine.getPlayerTurn());
+            updateBalance();
+
+            rollButton.setDisable(true);
+            endButton.setDisable(false);
+            buildButton.setDisable(false);
+            buyButton.setDisable(false);
+            sellButton.setDisable(false);
+        });
     }
 
     public void setQuickReleseSymbol(int playerNumber) {
@@ -579,8 +658,14 @@ public class Controller {
 
     void showFieldBelongings() {
         ArrayList<Integer> fieldBelongings = gameEngine.getFieldBelongings(gameEngine.getPlayerTurn());
+
         for (Integer fieldNumber: fieldBelongings) {
-            Fields.get(fieldNumber).setStyle("-fx-border-color: yellow; -fx-border-width: 4px; -fx-background-color: rgba(255, 255, 0, 0.3);");
+            switch(gameEngine.getPlayerTurn()) {
+                case 1 -> Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(0,23,255,0.3); -fx-border-color: #0017ff; -fx-border-width: 4px;");
+                case 2 -> Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(255,24,24,0.3); -fx-border-color: #ff1818; -fx-border-width: 4px;");
+                case 3 -> Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(4,251,4,0.3); -fx-border-color: #04fb04; -fx-border-width: 4px;");
+                case 4 -> Fields.get(fieldNumber).setStyle("-fx-background-color: rgba(255, 255, 0, 0.3); -fx-border-color: yellow; -fx-border-width: 4px;");
+            }
         }
     }
 
@@ -592,7 +677,7 @@ public class Controller {
         Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
     }
 
-    private void createFieldsArray() {
+    void createFieldsArray() {
         Fields.add(Field1);
         Fields.add(Field2);
         Fields.add(Field3);
@@ -635,7 +720,7 @@ public class Controller {
         Fields.add(Field40);
     }
 
-    private void createBuildingsArray() {
+    void createBuildingsArray() {
         Buildings.add(building1);
         Buildings.add(building2);
         Buildings.add(building3);
@@ -678,10 +763,26 @@ public class Controller {
         Buildings.add(building40);
     }
 
-    private void createQuickReleaseArray() {
+    void createQuickReleaseArray() {
         quickReleaseSymbols.add(quickReleaseSymbol1);
         quickReleaseSymbols.add(quickReleaseSymbol2);
         quickReleaseSymbols.add(quickReleaseSymbol3);
         quickReleaseSymbols.add(quickReleaseSymbol4);
+    }
+
+    void createDicesArray() {
+        dices.add(dice1);
+        dices.add(dice2);
+        dices.add(dice3);
+        dices.add(dice4);
+        dices.add(dice5);
+        dices.add(dice6);
+    }
+
+    void createPawnsArray() {
+        pawns.add(pawn1);
+        pawns.add(pawn2);
+        pawns.add(pawn3);
+        pawns.add(pawn4);
     }
 }

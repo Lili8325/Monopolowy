@@ -10,13 +10,13 @@ enum EventType {
 }
 
 public class Event {
-    private String name;
-    private Enum<EventType> eventType;
-    private int toPay;
-    private int fieldIndex;
-    private int deltaFieldIndex;
-    private int turnSkipAmount;
-    private Image eventCardImage;
+    private final String name;
+    private final Enum<EventType> eventType;
+    private final int toPay;
+    private final int fieldIndex;
+    private final int deltaFieldIndex;
+    private final int turnSkipAmount;
+    private final Image eventCardImage;
 
     public Event(String name, Enum<EventType> eventType, int toPay, int fieldIndex, int deltaFieldIndex, int turnSkipAmount, String eventCardImagePath) {
         this.name = name;
