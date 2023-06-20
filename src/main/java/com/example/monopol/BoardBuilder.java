@@ -25,7 +25,7 @@ public class BoardBuilder {
         fields.add(field5);
 
         SpecialField dzienWydzialu = new SpecialField("Dzien wydzialu", 0, false);
-        dzienWydzialu.setEventCard("Dzien wydzialu event", EventType.PAYEVENT, 20, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
+        dzienWydzialu.setEventCard("Dzien wydzialu event", EventType.PAYEVENT, 100, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
         fields.add(dzienWydzialu);
 
         HouseField field6 = new HouseField("Jednorazowka", 200, 240, 80);
@@ -60,7 +60,7 @@ public class BoardBuilder {
         fields.add(field13);
 
         SpecialField akcjaRekrutacja = new SpecialField("Akcja rekrutacja", 0, false);
-        akcjaRekrutacja.setEventCard("Akcja rekrutacja event", EventType.MOVEEVENT, 0, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
+        akcjaRekrutacja.setEventCard("Akcja rekrutacja event", EventType.TURNEVENT, 0, 0, 0, 1, "file:src/main/resources/images/events/event1.png");
         fields.add(akcjaRekrutacja);
 
         SpecialField konkursWRS = new SpecialField("Konkurs WRS", 0, false);
@@ -83,7 +83,7 @@ public class BoardBuilder {
         fields.add(field18);
 
         SpecialField juwenalia = new SpecialField("Juwenalia", 0, false);
-        juwenalia.setEventCard("Juwenalia event", EventType.TURNEVENT, 0, 0, 0, 2, "file:src/main/resources/images/events/event1.png");
+        juwenalia.setEventCard("Juwenalia event", EventType.TURNEVENT, 0, 0, 0, 1, "file:src/main/resources/images/events/event1.png");
         fields.add(juwenalia);
 
         HouseField field19 = new HouseField("Asus rog strix", 510, 610, 240);
@@ -113,7 +113,7 @@ public class BoardBuilder {
         fields.add(field26);
 
         SpecialField targiPracy = new SpecialField("Targi pracy", 0, false);
-        targiPracy.setEventCard("Targi pracy event", EventType.TURNEVENT, 0, 0, 0, 2, "file:src/main/resources/images/events/event1.png");
+        targiPracy.setEventCard("Targi pracy event", EventType.PAYEVENT, 100, 0, 0, 2, "file:src/main/resources/images/events/event1.png");
         fields.add(targiPracy);
 
         SpecialField oplataZaPrzedmiot2 = new SpecialField("Oplata za przedmiot 2", 0, false);

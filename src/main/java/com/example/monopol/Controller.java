@@ -377,8 +377,61 @@ public class Controller {
             mediaPlayer1.setVolume(0.3);
             mediaPlayer1.play();
         }
-
         clearQuickReleaseSymbol(gameEngine.getPlayerTurn());
+    }
+
+    public ArrayList<Integer> playerLeaderboard(){
+        int firstMoney = 0;
+        int secondMoney = 0;
+        int thirdMoney = 0;
+
+        int firstPlace = 0;
+        for (int i = 1; i <= 4; ++i){
+            int playerMoney = gameEngine.getPlayerBalance(i);
+            if(playerMoney > firstMoney) {
+                firstMoney = playerMoney;
+                firstPlace = i;
+            }
+        }
+        int secondPlace = 0;
+        for (int i = 1; i <= 4; ++i){
+            int playerMoney = gameEngine.getPlayerBalance(i);
+            if(playerMoney > secondMoney && playerMoney != firstMoney) {
+                secondMoney = playerMoney;
+                secondPlace = i;
+            }
+        }
+        int thirdPlace = 0;
+        for (int i = 1; i <= 4; ++i){
+            int playerMoney = gameEngine.getPlayerBalance(i);
+            if(playerMoney > thirdMoney && playerMoney != firstMoney && secondPlace != i) {
+                thirdMoney = playerMoney;
+                thirdPlace = i;
+            }
+        }
+        ArrayList<Integer> leaderboard = new ArrayList<>();
+        leaderboard.add(firstPlace);
+        leaderboard.add(secondPlace);
+        leaderboard.add(thirdPlace);
+        return leaderboard;
+    }
+
+    public void setImages(Image firstPlace, Image secondPlace, Image thirdPlace) {
+        firstPlaceImage.setImage(firstPlace);
+        secondPlaceImage.setImage(secondPlace);
+        thirdPlaceImage.setImage(thirdPlace);
+    }
+
+    public void setNames(String firstPlace, String secondPlace, String thirdPlace) {
+        firstPlaceName.setText(firstPlace);
+        secondPlaceName.setText(secondPlace);
+        thirdPlaceName.setText(thirdPlace);
+    }
+
+    public void setBalances(int firstPlace, int secondPlace, int thirdPlace) {
+        firstPlaceBalance.setText(String.valueOf(firstPlace));
+        secondPlaceBalance.setText(String.valueOf(secondPlace));
+        thirdPlaceBalance.setText(String.valueOf(thirdPlace));
     }
 
     private void updateBalance() {
@@ -407,9 +460,9 @@ public class Controller {
     private void handleEndButton(ActionEvent event) throws IOException {
         eventCard.setImage(null);
         hideFieldBelongings();
-        for (int i = 0; i < 4; ++i){
+        for (int i = 1; i <= 4; ++i){
             if(gameEngine.getPlayerBalance(i) > gameEngine.getMaxBalance()){
-                //TODO SWITCH TO END
+                switchToEndgame();
             }
         }
         do {
@@ -473,7 +526,6 @@ public class Controller {
     private void roll(ActionEvent event) {
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
-        n = 4;
 
         Timeline timeline = new Timeline();
         Collection<KeyFrame> frames = timeline.getKeyFrames();
@@ -487,11 +539,10 @@ public class Controller {
         }
 
         timeline.play();
-        int finalN = n;
         timeline.setOnFinished(e -> {
             dices.remove(6);
 
-            gameEngine.movePlayer(gameEngine.getPlayerTurn(), finalN);
+            gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
 
             int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
             int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound, soundsOn);
@@ -499,7 +550,7 @@ public class Controller {
                 movePawnToStart(gameEngine.getPlayerTurn());
                 movePawn(playerMovement, gameEngine.getPlayerTurn());
             }else{
-                movePawn(finalN, gameEngine.getPlayerTurn());
+                movePawn(n, gameEngine.getPlayerTurn());
             }
 
             gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox, Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())));
