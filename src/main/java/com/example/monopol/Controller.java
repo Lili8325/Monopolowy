@@ -301,13 +301,16 @@ public class Controller {
     }
     @FXML
     private void handleSellButton(ActionEvent event) {
+        if (gameEngine.getFieldOwner(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())) == gameEngine.getPlayerTurn()){
+            Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
+            Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(0);
+        }
         messageBox.setText(gameEngine.sellField(gameEngine.getPlayerTurn()));
         updateBalance();
-        Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setStyle("");
-        Buildings.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())).setOpacity(0);
     }
     @FXML
     private void handleBuildButton(ActionEvent event) {
+        if (gameEngine.isBuilt(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()))) return;
         messageBox.setText(gameEngine.buildHouse(gameEngine.getPlayerTurn()));
         updateBalance();
         if(gameEngine.isBuilt(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn()))) {
@@ -360,6 +363,11 @@ public class Controller {
     private void handleEndButton(ActionEvent event) {
         eventCard.setImage(null);
         hideFieldBelongings();
+        for (int i = 0; i < 4; ++i){
+            if(gameEngine.getPlayerBalance(i) > gameEngine.getMaxBalance()){
+                //TODO SWITCH TO END
+            }
+        }
         do {
             gameEngine.endTurn();
         }while (gameEngine.checkPlayerLoseCondition(gameEngine.getPlayerTurn()));
@@ -421,7 +429,7 @@ public class Controller {
     private void roll(ActionEvent event) {
         Random rand = new Random();
         int n = rand.nextInt(1, 7);
-//        n = 3;
+        n = 4;
 
         Timeline timeline = new Timeline();
         Collection<KeyFrame> frames = timeline.getKeyFrames();
@@ -435,10 +443,11 @@ public class Controller {
         }
 
         timeline.play();
+        int finalN = n;
         timeline.setOnFinished(e -> {
             dices.remove(6);
 
-            gameEngine.movePlayer(gameEngine.getPlayerTurn(), n);
+            gameEngine.movePlayer(gameEngine.getPlayerTurn(), finalN);
 
             int playerPosition = gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn());
             int playerMovement = gameEngine.eventFieldValidation(gameEngine.getPlayerTurn(), messageBox, eventCard, eventCardSound, soundsOn);
@@ -446,7 +455,7 @@ public class Controller {
                 movePawnToStart(gameEngine.getPlayerTurn());
                 movePawn(playerMovement, gameEngine.getPlayerTurn());
             }else{
-                movePawn(n, gameEngine.getPlayerTurn());
+                movePawn(finalN, gameEngine.getPlayerTurn());
             }
 
             gameEngine.houseFieldValidation(gameEngine.getPlayerTurn(), messageBox, Fields.get(gameEngine.getPlayerFieldIndex(gameEngine.getPlayerTurn())));

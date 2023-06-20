@@ -14,7 +14,7 @@ public class BoardBuilder {
         HouseField field2 = new HouseField("Zupa pomidorowa", 100, 120, 40);
         fields.add(field2);
 
-        EventField event1 = new EventField("Event1");
+        EventField event1 = new EventField("Bierzesz karte eventową");
         fields.add(event1);
 
         HouseField field3 = new HouseField("Zupa serowa", 120, 140, 50);
@@ -36,7 +36,7 @@ public class BoardBuilder {
         fields.add(field8);
 
         SpecialField szpital = new SpecialField("Szpital", 0, false);
-        szpital.setEventCard("Szpitel event", EventType.TURNEVENT, 0, 0, 0, 2, "file:src/main/resources/images/events/event1.png");
+        szpital.setEventCard("Spedzasz troche czasu na oddziale zamkniętym!", EventType.TURNEVENT, 0, 0, 0, 2, "file:src/main/resources/images/events/event1.png");
         fields.add(szpital);
 
         HouseField field9 = new HouseField("Piwo Tesco", 70, 80, 30);
@@ -45,11 +45,11 @@ public class BoardBuilder {
         fields.add(field10);
 
         SpecialField dante = new SpecialField("Dante", 0, false);
-        dante.setEventCard("Dante event", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/events/event1.png");
+        dante.setEventCard("Idziesz robić dante", EventType.MOVEEVENT, 32, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
         fields.add(dante);
 
         SpecialField oplataZaPrzedmiot = new SpecialField("Oplata za przedmiot", 0, false);
-        oplataZaPrzedmiot.setEventCard("Oplata za przedmiot event", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/events/event1.png");
+        oplataZaPrzedmiot.setEventCard("Płacisz 10% swojej wartości rynkowej", EventType.PAYEVENT, -1, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
         fields.add(oplataZaPrzedmiot);
 
         HouseField field11 = new HouseField("Piwo Corona", 200, 240, 80);
@@ -60,11 +60,11 @@ public class BoardBuilder {
         fields.add(field13);
 
         SpecialField akcjaRekrutacja = new SpecialField("Akcja rekrutacja", 0, false);
-        akcjaRekrutacja.setEventCard("Akcja rekrutacja event", EventType.PAYEVENT, 20, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
+        akcjaRekrutacja.setEventCard("Akcja rekrutacja event", EventType.MOVEEVENT, 0, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
         fields.add(akcjaRekrutacja);
 
         SpecialField konkursWRS = new SpecialField("Konkurs WRS", 0, false);
-        konkursWRS.setEventCard("Konkurs WRS event", EventType.PAYEVENT, 20, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
+        konkursWRS.setEventCard("Konkurs WRS event", EventType.PAYEVENT, -100, 0, 0, 0, "file:src/main/resources/images/events/event1.png");
         fields.add(konkursWRS);
 
         HouseField field14 = new HouseField("Monster zero gold", 260, 310, 120);
@@ -72,7 +72,7 @@ public class BoardBuilder {
         HouseField field15 = new HouseField("Monster zero", 280, 340, 130);
         fields.add(field15);
 
-        EventField event2 = new EventField("Event2");
+        EventField event2 = new EventField("Bierzesz karte eventową");
         fields.add(event2);
 
         HouseField field16 = new HouseField("Red bull", 380, 460, 160);
@@ -94,7 +94,7 @@ public class BoardBuilder {
         fields.add(field21);
 
         SpecialField DANTE = new SpecialField("Dante", 0, false);
-        DANTE.setEventCard("Dante event", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/events/event1.png");
+        DANTE.setEventCard("Idizesz robić dante", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/events/event1.png");
         fields.add(DANTE);
 
         HouseField field22 = new HouseField("Hot dog", 100, 120, 40);
@@ -104,7 +104,7 @@ public class BoardBuilder {
         HouseField field24 = new HouseField("Zapiekanka", 220, 260, 100);
         fields.add(field24);
 
-        EventField event3 = new EventField("Event3");
+        EventField event3 = new EventField("Bierzesz karte eventową");
         fields.add(event3);
 
         HouseField field25 = new HouseField("Pizza", 350, 420, 160);
@@ -117,7 +117,7 @@ public class BoardBuilder {
         fields.add(targiPracy);
 
         SpecialField oplataZaPrzedmiot2 = new SpecialField("Oplata za przedmiot 2", 0, false);
-        oplataZaPrzedmiot.setEventCard("Oplata za przedmiot 2 event", EventType.TURNEVENT, 0, 0, 0, 3, "file:src/main/resources/images/events/event1.png");
+        oplataZaPrzedmiot.setEventCard("Płacisz 10% swojej wartości rynkowej", EventType.PAYEVENT, -1, 0, 0, 3, "file:src/main/resources/images/events/event1.png");
         fields.add(oplataZaPrzedmiot2);
     }
 

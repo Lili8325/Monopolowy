@@ -70,9 +70,9 @@ public class GameEngine {
         Player player = players.get(playerNumber);
         Enum<FieldTypes> fieldType = board.getFieldType(player.getFieldNumber());
         if(fieldType == FieldTypes.HOUSEFIELD){
-            messageBox.setText("Field: " + getFieldName(playerNumber) + "\nField cost: " +
-                    board.getFieldPrice(player.getFieldNumber()) + "\nBuilding cost: " +
-                    board.getBuildingCost(player.getFieldNumber()) + "\nStaying cost: " +
+            messageBox.setText("Pole: " + getFieldName(playerNumber) + "\nCena pola: " +
+                    board.getFieldPrice(player.getFieldNumber()) + "\nCena postawienia budynku: " +
+                    board.getBuildingCost(player.getFieldNumber()) + "\nCena wejścia na pole: " +
                     board.getStayingCost(player.getFieldNumber()));
             int fieldOwner = board.getFieldOwner(player.getFieldNumber());
             if(fieldOwner == playerNumber || fieldOwner == -1) return;
@@ -84,6 +84,14 @@ public class GameEngine {
                 editPlayerBalance(fieldOwner, board.getBuildingCost(player.getFieldNumber()));
             }
         }
+    }
+
+    public int getFieldOwner(int fieldIndex){
+        return board.getFieldOwner(fieldIndex);
+    }
+
+    public int getMaxBalance(){
+        return maxBalance;
     }
 
     public void highlightField(int playerNumber, Pane fieldPane) {
@@ -145,7 +153,7 @@ public class GameEngine {
         Player player = players.get(buyerPlayerNumber);
         int playerFieldNumber = player.getFieldNumber();
         if(player.getPlayerBalance() < board.getFieldPrice(playerFieldNumber)){
-            return "Not enought money to buy field!";
+            return "Nie wystarczająco pieniędzy żeby kupić to pole!";
         }
 
         int value = board.setFieldOwner(playerFieldNumber, buyerPlayerNumber);
@@ -153,11 +161,11 @@ public class GameEngine {
             player.addFieldCard(playerFieldNumber);
             player.setPlayerBalance(player.getPlayerBalance() - board.getFieldPrice(playerFieldNumber));
             if(player.getPlayerBalance() < 0) player.setPlayerBalance(0);
-            return "Field " + board.getFieldName(playerFieldNumber) + " belongs now to player: " + buyerPlayerNumber;
+            return "Pole " + board.getFieldName(playerFieldNumber) + " należy teraz do gracza " + buyerPlayerNumber;
         }else if(value == 1) {
-            return "Field " + board.getFieldName(playerFieldNumber) + " is occupied by player: " + board.getFieldOwner(playerFieldNumber);
+            return "Pole " + board.getFieldName(playerFieldNumber) + " jest zajęte do gracza " + board.getFieldOwner(playerFieldNumber);
         }
-        return "Can't buy field: " + board.getFieldName(playerFieldNumber);
+        return "Nie możesz kupić pola: " + board.getFieldName(playerFieldNumber);
     }
 
     public String buildHouse(int builderPlayerNumber){
@@ -169,7 +177,7 @@ public class GameEngine {
             return "Nie można tutaj nic wybudować!!";
         }
         if(player.getPlayerBalance() < board.getBuildingCost(playerFieldNumber)){
-            return "Not enought money to buy field!";
+            return "Nie wystarczająco pieniędzy żeby wybudować budynek!";
         }
         editPlayerBalance(builderPlayerNumber, -board.getBuildingCost(playerFieldNumber));
         board.setBuilding(playerFieldNumber);
@@ -236,7 +244,13 @@ public class GameEngine {
                 return player.getFieldNumber();
             }
         } else if (type == EventType.PAYEVENT) {
-            editPlayerBalance(playerNumber, -event.getToPay());
+            int toPay = event.getToPay();
+            if (toPay == -1){
+                int partPlayerBalance = (int)(getPlayerBalance(playerNumber)*0.1);
+                editPlayerBalance(playerNumber, -partPlayerBalance);
+            }else {
+                editPlayerBalance(playerNumber, -toPay);
+            }
         }else if (type == EventType.TURNEVENT) {
             setPlayerSkipTurns(playerNumber, event.getTurnSkipAmount());
         }else if(type == EventType.QUICKRELESEEVENT){
