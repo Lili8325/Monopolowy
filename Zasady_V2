@@ -5,15 +5,13 @@
 • Zakup nieruchomości:
   W momencie, kiedy gracz staje na polu niewykupionym przez nikogo, może wykupić daną nieruchomość.
   Jeżeli zdecyduje się na zakup nieruchomości, to wpłaca do banku należność oraz pole podświetla na kolor gracza który je kupił.
-  Plansza posiada 4 pola wydarzeń organizowanych przez uczelnię:
-    • Juwenalia
-    •	Dzień wydziału 
-    •	Akcja rekrutacja 
-    •	Targi pracy
-  Gracz stając na danym polu ma możliwość jego zakupu, 
-  domyślna cena postoju wynosi 100 lecz zwiększa się ona wraz z ilością posiadanych wydarzeń przez gracza,
-  zwielokrotniając cenę postoju o ilość posiadanych pól. 
   // tu wolno migające pole z pionkiem na nim i think
+• Wydarzenia organizowne:
+  Plansza posiada 4 pola wydarzeń organizowanych przez uczelnię:
+    • Juwenalia - powoduje stratę jednej kolejki
+    •	Dzień wydziału - powoduje strate 100 z salda gracza
+    •	Akcja rekrutacja - powoduje stratę jednej kolejki
+    •	Targi pracy - powoduje strate 100 z salda gracza
 • Czynsz:
   Jeżeli gracz stoi na polu, którego właścicielem jest inny gracz, podświetla się onon na kolor gracza który je posiada oraz jest on zobowiązany zapłacić mu czynsz.
   Jeżeli nie jest w stanie zapłacić czynszu, to automatycznie zostaje bankrutem, oddaje swoje nieruchomości bankowi i odpada z gry.
